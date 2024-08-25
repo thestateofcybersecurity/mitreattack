@@ -1,0 +1,35 @@
+[
+  {
+    "id": "reconnaissance_001",
+    "title": "Beginning the Reconnaissance",
+    "tactic": "Reconnaissance",
+    "description": "You're targeting a mid-size financial firm. Your first step is to gather information about your target. How do you proceed?",
+    "options": [
+      {
+        "id": "active_scanning",
+        "text": "Conduct active scanning of the target's network",
+        "technique": "Active Scanning",
+        "nextScenario": "reconnaissance_002",
+        "consequence": "You identify several potential entry points, but risk detection by the target's security team."
+      },
+      {
+        "id": "gather_victim_host_info",
+        "text": "Gather information about the victim's host systems",
+        "technique": "Gather Victim Host Information",
+        "nextScenario": "reconnaissance_003",
+        "consequence": "You obtain valuable system information, but the process is time-consuming."
+      },
+      {
+        "id": "search_open_websites",
+        "text": "Search open websites and domains for information",
+        "technique": "Search Open Websites/Domains",
+        "nextScenario": "reconnaissance_004",
+        "consequence": "You gather publicly available information without risking detection, but the information might be limited."
+      }
+    ],
+    "educationalContent": {
+      "title": "Understanding Reconnaissance",
+      "content": "Reconnaissance is the first stage in many cyber attacks. It involves gathering information about the target to identify vulnerabilities and plan the attack. While essential, excessive or aggressive reconnaissance can alert the target's defenses."
+    }
+  }
+]
