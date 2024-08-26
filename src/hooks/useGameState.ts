@@ -15,7 +15,7 @@ const useGameState = (initialScenarios: Scenario[]) => {
       console.log("Setting initial scenario", scenarios[0]);
       setCurrentScenario(scenarios[0]);
     }
-  }, [scenarios]);
+  }, [scenarios, currentScenario]);
 
   const makeChoice = useCallback((choiceId: string) => {
     if (!currentScenario) return;
@@ -41,6 +41,7 @@ const useGameState = (initialScenarios: Scenario[]) => {
     gameOver,
     score,
     makeChoice,
+    setScenarios, // Add this line
   };
 };
 
