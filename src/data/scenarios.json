@@ -24,8 +24,7 @@
     "title": "Understanding Reconnaissance",
     "content": "Reconnaissance is a crucial part of the attack lifecycle. The Active Scanning technique helps in this process by allowing you to..."
   }
-}
-
+},
 
 {
   "id": "reconnaissance_gather_victim_host_information",
@@ -52,8 +51,7 @@
     "title": "Understanding Reconnaissance",
     "content": "Reconnaissance is a crucial part of the attack lifecycle. The Gather Victim Host Information technique helps in this process by allowing you to..."
   }
-}
-
+},
 
 {
   "id": "reconnaissance_search_open_websites/domains",
@@ -80,8 +78,7 @@
     "title": "Understanding Reconnaissance",
     "content": "Reconnaissance is a crucial part of the attack lifecycle. The Search Open Websites/Domains technique helps in this process by allowing you to..."
   }
-}
-
+},
 
 {
   "id": "resource_development_acquire_access",
@@ -108,8 +105,7 @@
     "title": "Understanding Resource Development",
     "content": "Resource Development is a crucial part of the attack lifecycle. The Acquire Access technique helps in this process by allowing you to..."
   }
-}
-
+},
 
 {
   "id": "resource_development_compromise_accounts",
@@ -136,8 +132,7 @@
     "title": "Understanding Resource Development",
     "content": "Resource Development is a crucial part of the attack lifecycle. The Compromise Accounts technique helps in this process by allowing you to..."
   }
-}
-
+},
 
 {
   "id": "resource_development_establish_accounts",
@@ -164,8 +159,7 @@
     "title": "Understanding Resource Development",
     "content": "Resource Development is a crucial part of the attack lifecycle. The Establish Accounts technique helps in this process by allowing you to..."
   }
-}
-
+},
 
 {
   "id": "initial_access_phishing",
