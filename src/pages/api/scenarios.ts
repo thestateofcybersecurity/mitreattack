@@ -7,7 +7,7 @@ export default function handler(
   res: NextApiResponse
 ) {
   try {
-    const dataDirectory = path.join(process.cwd(), 'src/data')
+    const dataDirectory = path.join(process.cwd(), './src/data')
     const fileContents = fs.readFileSync(dataDirectory + '/scenarios.json', 'utf8')
     const scenarios = JSON.parse(fileContents)
     console.log("API: Sending scenarios", scenarios);
