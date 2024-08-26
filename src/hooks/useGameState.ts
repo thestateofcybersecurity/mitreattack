@@ -26,11 +26,16 @@ const useGameState = (initialScenarios: Scenario[]) => {
     setGameHistory(prevHistory => [...prevHistory, choiceId]);
     setScore(prevScore => prevScore + calculateScore(choice.technique, currentScenario.tactic));
 
-    const nextScenario = getNextScenario(scenarios, currentScenario, choice);
-    console.log("Setting next scenario", nextScenario);
-    setCurrentScenario(nextScenario);
+    try {
+      const nextScenario = getNextScenario(scenarios, currentScenario, choice);
+      console.log("Setting next scenario", nextScenario);
+      setCurrentScenario(nextScenario);
 
-    if (nextScenario.options.length === 0) {
+      if (nextScenario.options.length === 0) {
+        setGameOver(true);
+      }
+    } catch (error) {
+      console.error("Error getting next scenario:", error);
       setGameOver(true);
     }
   }, [currentScenario, scenarios]);
@@ -41,7 +46,7 @@ const useGameState = (initialScenarios: Scenario[]) => {
     gameOver,
     score,
     makeChoice,
-    setScenarios, // Add this line
+    setScenarios,
   };
 };
 
