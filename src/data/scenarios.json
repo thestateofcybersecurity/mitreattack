@@ -1,35 +1,1944 @@
 [
-  {
-    "id": "reconnaissance_001",
-    "title": "Beginning the Reconnaissance",
-    "tactic": "Reconnaissance",
-    "description": "You're targeting a mid-size financial firm. Your first step is to gather information about your target. How do you proceed?",
-    "options": [
-      {
-        "id": "active_scanning",
-        "text": "Conduct active scanning of the target's network",
-        "technique": "Active Scanning",
-        "nextScenario": "reconnaissance_002",
-        "consequence": "You identify several potential entry points, but risk detection by the target's security team."
-      },
-      {
-        "id": "gather_victim_host_info",
-        "text": "Gather information about the victim's host systems",
-        "technique": "Gather Victim Host Information",
-        "nextScenario": "reconnaissance_003",
-        "consequence": "You obtain valuable system information, but the process is time-consuming."
-      },
-      {
-        "id": "search_open_websites",
-        "text": "Search open websites and domains for information",
-        "technique": "Search Open Websites/Domains",
-        "nextScenario": "reconnaissance_004",
-        "consequence": "You gather publicly available information without risking detection, but the information might be limited."
-      }
-    ],
-    "educationalContent": {
-      "title": "Understanding Reconnaissance",
-      "content": "Reconnaissance is the first stage in many cyber attacks. It involves gathering information about the target to identify vulnerabilities and plan the attack. While essential, excessive or aggressive reconnaissance can alert the target's defenses."
+{
+  "id": "reconnaissance_active_scanning",
+  "title": "Reconnaissance - Active Scanning",
+  "tactic": "Reconnaissance",
+  "description": "You are executing the Reconnaissance phase using the Active Scanning technique. How do you proceed?",
+  "options": [
+    {
+      "id": "active_scanning_option1",
+      "text": "Use Active Scanning option 1",
+      "technique": "Active Scanning",
+      "nextScenario": "reconnaissance_active_scanning_next",
+      "consequence": "Consequence of using Active Scanning option 1."
+    },
+    {
+      "id": "active_scanning_option2",
+      "text": "Use Active Scanning option 2",
+      "technique": "Active Scanning",
+      "nextScenario": "reconnaissance_active_scanning_next",
+      "consequence": "Consequence of using Active Scanning option 2."
     }
+  ],
+  "educationalContent": {
+    "title": "Understanding Reconnaissance",
+    "content": "Reconnaissance is a crucial part of the attack lifecycle. The Active Scanning technique helps in this process by allowing you to..."
   }
+}
+
+
+{
+  "id": "reconnaissance_gather_victim_host_information",
+  "title": "Reconnaissance - Gather Victim Host Information",
+  "tactic": "Reconnaissance",
+  "description": "You are executing the Reconnaissance phase using the Gather Victim Host Information technique. How do you proceed?",
+  "options": [
+    {
+      "id": "gather_victim_host_information_option1",
+      "text": "Use Gather Victim Host Information option 1",
+      "technique": "Gather Victim Host Information",
+      "nextScenario": "reconnaissance_gather_victim_host_information_next",
+      "consequence": "Consequence of using Gather Victim Host Information option 1."
+    },
+    {
+      "id": "gather_victim_host_information_option2",
+      "text": "Use Gather Victim Host Information option 2",
+      "technique": "Gather Victim Host Information",
+      "nextScenario": "reconnaissance_gather_victim_host_information_next",
+      "consequence": "Consequence of using Gather Victim Host Information option 2."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Reconnaissance",
+    "content": "Reconnaissance is a crucial part of the attack lifecycle. The Gather Victim Host Information technique helps in this process by allowing you to..."
+  }
+}
+
+
+{
+  "id": "reconnaissance_search_open_websites/domains",
+  "title": "Reconnaissance - Search Open Websites/Domains",
+  "tactic": "Reconnaissance",
+  "description": "You are executing the Reconnaissance phase using the Search Open Websites/Domains technique. How do you proceed?",
+  "options": [
+    {
+      "id": "search_open_websites/domains_option1",
+      "text": "Use Search Open Websites/Domains option 1",
+      "technique": "Search Open Websites/Domains",
+      "nextScenario": "reconnaissance_search_open_websites/domains_next",
+      "consequence": "Consequence of using Search Open Websites/Domains option 1."
+    },
+    {
+      "id": "search_open_websites/domains_option2",
+      "text": "Use Search Open Websites/Domains option 2",
+      "technique": "Search Open Websites/Domains",
+      "nextScenario": "reconnaissance_search_open_websites/domains_next",
+      "consequence": "Consequence of using Search Open Websites/Domains option 2."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Reconnaissance",
+    "content": "Reconnaissance is a crucial part of the attack lifecycle. The Search Open Websites/Domains technique helps in this process by allowing you to..."
+  }
+}
+
+
+{
+  "id": "resource_development_acquire_access",
+  "title": "Resource Development - Acquire Access",
+  "tactic": "Resource Development",
+  "description": "You are executing the Resource Development phase using the Acquire Access technique. How do you proceed?",
+  "options": [
+    {
+      "id": "acquire_access_option1",
+      "text": "Use Acquire Access option 1",
+      "technique": "Acquire Access",
+      "nextScenario": "resource development_acquire_access_next",
+      "consequence": "Consequence of using Acquire Access option 1."
+    },
+    {
+      "id": "acquire_access_option2",
+      "text": "Use Acquire Access option 2",
+      "technique": "Acquire Access",
+      "nextScenario": "resource development_acquire_access_next",
+      "consequence": "Consequence of using Acquire Access option 2."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Resource Development",
+    "content": "Resource Development is a crucial part of the attack lifecycle. The Acquire Access technique helps in this process by allowing you to..."
+  }
+}
+
+
+{
+  "id": "resource_development_compromise_accounts",
+  "title": "Resource Development - Compromise Accounts",
+  "tactic": "Resource Development",
+  "description": "You are executing the Resource Development phase using the Compromise Accounts technique. How do you proceed?",
+  "options": [
+    {
+      "id": "compromise_accounts_option1",
+      "text": "Use Compromise Accounts option 1",
+      "technique": "Compromise Accounts",
+      "nextScenario": "resource development_compromise_accounts_next",
+      "consequence": "Consequence of using Compromise Accounts option 1."
+    },
+    {
+      "id": "compromise_accounts_option2",
+      "text": "Use Compromise Accounts option 2",
+      "technique": "Compromise Accounts",
+      "nextScenario": "resource development_compromise_accounts_next",
+      "consequence": "Consequence of using Compromise Accounts option 2."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Resource Development",
+    "content": "Resource Development is a crucial part of the attack lifecycle. The Compromise Accounts technique helps in this process by allowing you to..."
+  }
+}
+
+
+{
+  "id": "resource_development_establish_accounts",
+  "title": "Resource Development - Establish Accounts",
+  "tactic": "Resource Development",
+  "description": "You are executing the Resource Development phase using the Establish Accounts technique. How do you proceed?",
+  "options": [
+    {
+      "id": "establish_accounts_option1",
+      "text": "Use Establish Accounts option 1",
+      "technique": "Establish Accounts",
+      "nextScenario": "resource development_establish_accounts_next",
+      "consequence": "Consequence of using Establish Accounts option 1."
+    },
+    {
+      "id": "establish_accounts_option2",
+      "text": "Use Establish Accounts option 2",
+      "technique": "Establish Accounts",
+      "nextScenario": "resource development_establish_accounts_next",
+      "consequence": "Consequence of using Establish Accounts option 2."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Resource Development",
+    "content": "Resource Development is a crucial part of the attack lifecycle. The Establish Accounts technique helps in this process by allowing you to..."
+  }
+}
+
+
+{
+  "id": "initial_access_phishing",
+  "title": "Initial Access - Phishing",
+  "tactic": "Initial Access",
+  "description": "You are executing the Initial Access phase using the Phishing technique. How do you proceed?",
+  "options": [
+    {
+      "id": "phishing_option1",
+      "text": "Use Phishing option 1",
+      "technique": "Phishing",
+      "nextScenario": "initial access_phishing_next",
+      "consequence": "Consequence of using Phishing option 1."
+    },
+    {
+      "id": "phishing_option2",
+      "text": "Use Phishing option 2",
+      "technique": "Phishing",
+      "nextScenario": "initial access_phishing_next",
+      "consequence": "Consequence of using Phishing option 2."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Initial Access",
+    "content": "Initial Access is a crucial part of the attack lifecycle. The Phishing technique helps in this process by allowing you to..."
+  }
+}
+
+
+{
+  "id": "initial_access_drive-by_compromise",
+  "title": "Initial Access - Drive-by Compromise",
+  "tactic": "Initial Access",
+  "description": "You are executing the Initial Access phase using the Drive-by Compromise technique. How do you proceed?",
+  "options": [
+    {
+      "id": "drive-by_compromise_option1",
+      "text": "Use Drive-by Compromise option 1",
+      "technique": "Drive-by Compromise",
+      "nextScenario": "initial access_drive-by_compromise_next",
+      "consequence": "Consequence of using Drive-by Compromise option 1."
+    },
+    {
+      "id": "drive-by_compromise_option2",
+      "text": "Use Drive-by Compromise option 2",
+      "technique": "Drive-by Compromise",
+      "nextScenario": "initial access_drive-by_compromise_next",
+      "consequence": "Consequence of using Drive-by Compromise option 2."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Initial Access",
+    "content": "Initial Access is a crucial part of the attack lifecycle. The Drive-by Compromise technique helps in this process by allowing you to..."
+  }
+}
+
+
+{
+  "id": "initial_access_exploit_public-facing_application",
+  "title": "Initial Access - Exploit Public-Facing Application",
+  "tactic": "Initial Access",
+  "description": "You are executing the Initial Access phase using the Exploit Public-Facing Application technique. How do you proceed?",
+  "options": [
+    {
+      "id": "exploit_public-facing_application_option1",
+      "text": "Use Exploit Public-Facing Application option 1",
+      "technique": "Exploit Public-Facing Application",
+      "nextScenario": "initial access_exploit_public-facing_application_next",
+      "consequence": "Consequence of using Exploit Public-Facing Application option 1."
+    },
+    {
+      "id": "exploit_public-facing_application_option2",
+      "text": "Use Exploit Public-Facing Application option 2",
+      "technique": "Exploit Public-Facing Application",
+      "nextScenario": "initial access_exploit_public-facing_application_next",
+      "consequence": "Consequence of using Exploit Public-Facing Application option 2."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Initial Access",
+    "content": "Initial Access is a crucial part of the attack lifecycle. The Exploit Public-Facing Application technique helps in this process by allowing you to..."
+  }
+}
+
+
+{
+  "id": "execution_command_and_scripting_interpreter",
+  "title": "Execution - Command and Scripting Interpreter",
+  "tactic": "Execution",
+  "description": "You are executing the Execution phase using the Command and Scripting Interpreter technique. How do you proceed?",
+  "options": [
+    {
+      "id": "command_and_scripting_interpreter_option1",
+      "text": "Use Command and Scripting Interpreter option 1",
+      "technique": "Command and Scripting Interpreter",
+      "nextScenario": "execution_command_and_scripting_interpreter_next",
+      "consequence": "Consequence of using Command and Scripting Interpreter option 1."
+    },
+    {
+      "id": "command_and_scripting_interpreter_option2",
+      "text": "Use Command and Scripting Interpreter option 2",
+      "technique": "Command and Scripting Interpreter",
+      "nextScenario": "execution_command_and_scripting_interpreter_next",
+      "consequence": "Consequence of using Command and Scripting Interpreter option 2."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Execution",
+    "content": "Execution is a crucial part of the attack lifecycle. The Command and Scripting Interpreter technique helps in this process by allowing you to..."
+  }
+}
+
+{
+  "id": "defense_evasion_001",
+  "title": "Evading Detection: Token Manipulation",
+  "tactic": "Defense Evasion",
+  "description": "You need to evade detection by the security systems. You decide to manipulate access tokens to avoid leaving traces. How do you proceed?",
+  "options": [
+    {
+      "id": "access_token_impersonation",
+      "text": "Impersonate a legitimate user's token",
+      "technique": "Access Token Manipulation",
+      "nextScenario": "defense_evasion_002",
+      "consequence": "You successfully impersonate the token, but this user is under surveillance, increasing your risk of detection."
+    },
+    {
+      "id": "access_token_creation",
+      "text": "Create a new access token with escalated privileges",
+      "technique": "Access Token Manipulation",
+      "nextScenario": "defense_evasion_003",
+      "consequence": "You create a new token with high privileges, allowing access to critical systems undetected."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Access Token Manipulation",
+    "content": "Access Token Manipulation involves using tokens to bypass security checks, often by impersonating a legitimate user or escalating privileges. This technique can be highly effective but carries risks if the impersonated user is monitored."
+  }
+}
+
+
+{
+  "id": "defense_evasion_002",
+  "title": "Evading Detection: BITS Jobs",
+  "tactic": "Defense Evasion",
+  "description": "To avoid detection, you decide to leverage Background Intelligent Transfer Service (BITS) jobs to execute your payload. What method do you use?",
+  "options": [
+    {
+      "id": "bits_job_creation",
+      "text": "Create a new BITS job to download and execute malicious content",
+      "technique": "BITS Jobs",
+      "nextScenario": "defense_evasion_004",
+      "consequence": "The job is created successfully, but network traffic spikes might attract attention."
+    },
+    {
+      "id": "bits_job_modification",
+      "text": "Modify an existing BITS job to include your payload",
+      "technique": "BITS Jobs",
+      "nextScenario": "defense_evasion_005",
+      "consequence": "The existing job is modified, and the payload is executed without generating additional network traffic."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding BITS Jobs",
+    "content": "BITS Jobs are commonly used for background downloads in Windows. Attackers can abuse this service to download and execute malicious files with minimal visibility."
+  }
+}
+
+
+{
+  "id": "defense_evasion_003",
+  "title": "Evading Detection: Obfuscation Techniques",
+  "tactic": "Defense Evasion",
+  "description": "You decide to use obfuscation techniques to hide your malicious code from security tools. Which method do you choose?",
+  "options": [
+    {
+      "id": "string_obfuscation",
+      "text": "Obfuscate strings within your code to evade signature-based detection",
+      "technique": "Obfuscated Files or Information",
+      "nextScenario": "defense_evasion_006",
+      "consequence": "Your code avoids detection by signature-based tools, but advanced heuristic analysis might still flag it."
+    },
+    {
+      "id": "packer_usage",
+      "text": "Use a packer to compress and encrypt the payload",
+      "technique": "Obfuscated Files or Information",
+      "nextScenario": "defense_evasion_007",
+      "consequence": "The packed payload bypasses traditional antivirus, but might trigger alerts from behavioral analysis tools."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Obfuscation Techniques",
+    "content": "Obfuscation is used to make code difficult to understand and analyze, helping to evade detection by security tools. Techniques include string obfuscation, using packers, and code encryption."
+  }
+}
+
+
+{
+  "id": "defense_evasion_004",
+  "title": "Evading Detection: Masquerading as a Legitimate Process",
+  "tactic": "Defense Evasion",
+  "description": "To avoid being caught, you decide to masquerade your malicious process as a legitimate one. How do you proceed?",
+  "options": [
+    {
+      "id": "process_name_spoofing",
+      "text": "Rename your process to mimic a system process",
+      "technique": "Masquerading",
+      "nextScenario": "defense_evasion_008",
+      "consequence": "The renamed process is less likely to be flagged by monitoring tools, but system administrators might notice the discrepancy."
+    },
+    {
+      "id": "binary_path_alteration",
+      "text": "Alter the binary path to match a legitimate application",
+      "technique": "Masquerading",
+      "nextScenario": "defense_evasion_009",
+      "consequence": "The altered path adds legitimacy, reducing the chances of detection by automated tools."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Masquerading",
+    "content": "Masquerading involves making malicious processes or files appear legitimate by altering names, paths, or other attributes. This technique can be effective in bypassing basic security checks."
+  }
+}
+
+
+{
+  "id": "defense_evasion_005",
+  "title": "Evading Detection: Disabling Security Tools",
+  "tactic": "Defense Evasion",
+  "description": "To ensure your activities go unnoticed, you consider disabling or modifying security tools. What do you choose?",
+  "options": [
+    {
+      "id": "disabling_antivirus",
+      "text": "Disable antivirus software on the target system",
+      "technique": "Impair Defenses",
+      "nextScenario": "defense_evasion_010",
+      "consequence": "Antivirus is disabled, allowing you to operate freely, but the sudden shutdown might raise alarms."
+    },
+    {
+      "id": "modifying_firewall_rules",
+      "text": "Modify firewall rules to allow malicious traffic",
+      "technique": "Impair Defenses",
+      "nextScenario": "defense_evasion_011",
+      "consequence": "Firewall rules are modified, facilitating your operations, but a skilled analyst might detect the changes."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Defense Evasion Techniques",
+    "content": "Disabling or modifying security tools can help attackers avoid detection, but these actions often leave traces that can lead to discovery."
+  }
+}
+
+{
+  "id": "persistence_001",
+  "title": "Establishing Persistence: Account Manipulation",
+  "tactic": "Persistence",
+  "description": "To ensure you maintain access to the target system, you decide to manipulate user accounts. How do you proceed?",
+  "options": [
+    {
+      "id": "create_backdoor_account",
+      "text": "Create a hidden backdoor account with administrative privileges",
+      "technique": "Account Manipulation",
+      "nextScenario": "persistence_002",
+      "consequence": "The backdoor account is created, giving you persistent access, but it could be discovered during an audit."
+    },
+    {
+      "id": "modify_existing_account",
+      "text": "Modify an existing account to grant yourself administrative privileges",
+      "technique": "Account Manipulation",
+      "nextScenario": "persistence_003",
+      "consequence": "You modify an existing account, making it harder to detect, but changes could raise suspicions if noticed."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Account Manipulation",
+    "content": "Account manipulation involves creating or modifying accounts to maintain access to a system. This technique is effective but can leave traces that might be discovered by security audits."
+  }
+}
+
+
+{
+  "id": "persistence_002",
+  "title": "Establishing Persistence: Boot or Logon Autostart Execution",
+  "tactic": "Persistence",
+  "description": "You want to ensure your payload executes automatically whenever the system starts. What method do you use?",
+  "options": [
+    {
+      "id": "logon_script_injection",
+      "text": "Inject your payload into the logon script",
+      "technique": "Boot or Logon Autostart Execution",
+      "nextScenario": "persistence_004",
+      "consequence": "The payload is executed every time a user logs in, but it could be flagged by security tools."
+    },
+    {
+      "id": "registry_run_key",
+      "text": "Add your payload to the registry's run key",
+      "technique": "Boot or Logon Autostart Execution",
+      "nextScenario": "persistence_005",
+      "consequence": "The payload runs automatically at startup, but modifying the registry might be detected."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Boot or Logon Autostart Execution",
+    "content": "This technique ensures that malicious code is executed automatically when the system boots or a user logs in. Common methods include modifying logon scripts or registry keys."
+  }
+}
+
+
+{
+  "id": "persistence_003",
+  "title": "Establishing Persistence: Scheduled Task/Job",
+  "tactic": "Persistence",
+  "description": "To maintain access, you decide to schedule a task or job that will execute your payload at regular intervals. How do you set it up?",
+  "options": [
+    {
+      "id": "create_new_task",
+      "text": "Create a new scheduled task with high privileges",
+      "technique": "Scheduled Task/Job",
+      "nextScenario": "persistence_006",
+      "consequence": "The task is scheduled successfully, but the new task might be visible to system administrators."
+    },
+    {
+      "id": "modify_existing_task",
+      "text": "Modify an existing task to include your payload",
+      "technique": "Scheduled Task/Job",
+      "nextScenario": "persistence_007",
+      "consequence": "The modified task flies under the radar, but the change could be detected during an audit."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Scheduled Task/Job",
+    "content": "Scheduled tasks or jobs can be used to execute malicious code at specific times or intervals, providing a reliable method for maintaining persistence on a compromised system."
+  }
+}
+
+
+{
+  "id": "persistence_004",
+  "title": "Establishing Persistence: Create or Modify System Process",
+  "tactic": "Persistence",
+  "description": "You need to create or modify a system process to ensure continuous access to the target system. How do you proceed?",
+  "options": [
+    {
+      "id": "create_new_service",
+      "text": "Create a new service that runs your malicious code",
+      "technique": "Create or Modify System Process",
+      "nextScenario": "persistence_008",
+      "consequence": "The new service runs your code continuously, but it could be noticed by vigilant administrators."
+    },
+    {
+      "id": "modify_existing_service",
+      "text": "Modify an existing service to run your payload",
+      "technique": "Create or Modify System Process",
+      "nextScenario": "persistence_009",
+      "consequence": "The existing service is less likely to raise alarms, but careful monitoring could reveal the change."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Create or Modify System Process",
+    "content": "This technique involves creating or modifying system processes to maintain persistence on a target system. While effective, it can be detected if the changes are scrutinized."
+  }
+}
+
+
+{
+  "id": "persistence_005",
+  "title": "Establishing Persistence: Implant Internal Image",
+  "tactic": "Persistence",
+  "description": "To maintain long-term access, you decide to implant a malicious image in the target system. How do you proceed?",
+  "options": [
+    {
+      "id": "implant_malicious_image",
+      "text": "Replace a legitimate system image with a malicious version",
+      "technique": "Implant Internal Image",
+      "nextScenario": "persistence_010",
+      "consequence": "The malicious image ensures persistence, but it could be detected if the image is verified."
+    },
+    {
+      "id": "create_malicious_clone",
+      "text": "Create a clone of a legitimate image with hidden backdoors",
+      "technique": "Implant Internal Image",
+      "nextScenario": "persistence_011",
+      "consequence": "The cloned image operates normally with hidden backdoors, but a comparison with the original could expose the changes."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Implant Internal Image",
+    "content": "Implanting a malicious internal image ensures that your code is embedded within the system, allowing for long-term persistence. This technique can be difficult to detect unless images are carefully verified."
+  }
+}
+
+{
+  "id": "credential_access_001",
+  "title": "Acquiring Credentials: Brute Force Attack",
+  "tactic": "Credential Access",
+  "description": "You need to acquire credentials to gain further access to the target system. You consider using a brute force attack. How do you proceed?",
+  "options": [
+    {
+      "id": "brute_force_online",
+      "text": "Launch an online brute force attack on the login portal",
+      "technique": "Brute Force",
+      "nextScenario": "credential_access_002",
+      "consequence": "The attack might succeed, but repeated failed attempts could trigger an account lockout or alert the security team."
+    },
+    {
+      "id": "brute_force_offline",
+      "text": "Conduct an offline brute force attack on a captured password hash",
+      "technique": "Brute Force",
+      "nextScenario": "credential_access_003",
+      "consequence": "Offline brute force is less likely to trigger alarms, but it requires significant computing resources and time."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Brute Force Attacks",
+    "content": "Brute force attacks involve trying many possible combinations to guess a password. Online attacks are quicker but risk detection, while offline attacks are stealthier but require more resources."
+  }
+}
+
+
+{
+  "id": "credential_access_002",
+  "title": "Acquiring Credentials: Credential Dumping",
+  "tactic": "Credential Access",
+  "description": "You decide to dump credentials from the target system's memory. What tool do you use?",
+  "options": [
+    {
+      "id": "mimikatz",
+      "text": "Use Mimikatz to dump credentials from LSASS",
+      "technique": "OS Credential Dumping",
+      "nextScenario": "credential_access_004",
+      "consequence": "Mimikatz extracts credentials successfully, but its use might trigger endpoint detection tools."
+    },
+    {
+      "id": "proc_dump",
+      "text": "Use ProcDump to capture the LSASS process and extract credentials",
+      "technique": "OS Credential Dumping",
+      "nextScenario": "credential_access_005",
+      "consequence": "ProcDump captures the process, allowing offline analysis, but it might leave forensic traces."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Credential Dumping",
+    "content": "Credential dumping involves extracting credentials from a system's memory, often using tools like Mimikatz or ProcDump. These techniques are effective but can trigger security alerts."
+  }
+}
+
+
+{
+  "id": "credential_access_003",
+  "title": "Acquiring Credentials: Keylogging",
+  "tactic": "Credential Access",
+  "description": "You decide to deploy a keylogger to capture credentials as they are typed by the user. What type of keylogger do you use?",
+  "options": [
+    {
+      "id": "software_keylogger",
+      "text": "Deploy a software-based keylogger",
+      "technique": "Input Capture",
+      "nextScenario": "credential_access_006",
+      "consequence": "The software keylogger captures keystrokes effectively, but it could be detected by anti-malware tools."
+    },
+    {
+      "id": "hardware_keylogger",
+      "text": "Install a hardware-based keylogger on the target's machine",
+      "technique": "Input Capture",
+      "nextScenario": "credential_access_007",
+      "consequence": "The hardware keylogger is harder to detect but requires physical access to the target's machine."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Keylogging",
+    "content": "Keylogging captures keystrokes to obtain credentials or other sensitive information. Software keyloggers are easier to deploy but risk detection, while hardware keyloggers are stealthier but require physical access."
+  }
+}
+
+
+{
+  "id": "credential_access_004",
+  "title": "Acquiring Credentials: Phishing for Credentials",
+  "tactic": "Credential Access",
+  "description": "You decide to launch a phishing campaign to trick users into revealing their credentials. How do you proceed?",
+  "options": [
+    {
+      "id": "email_phishing",
+      "text": "Send a phishing email with a fake login page",
+      "technique": "Phishing",
+      "nextScenario": "credential_access_008",
+      "consequence": "Several users fall for the fake login page, providing their credentials, but the phishing attempt might be reported."
+    },
+    {
+      "id": "spear_phishing",
+      "text": "Target a high-level executive with a spear-phishing email",
+      "technique": "Spear Phishing",
+      "nextScenario": "credential_access_009",
+      "consequence": "The executive provides their credentials, granting high-level access, but the attack is more likely to be investigated."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Phishing for Credentials",
+    "content": "Phishing attacks trick users into providing their credentials by mimicking legitimate services. Spear-phishing targets specific individuals, often with more success but at greater risk."
+  }
+}
+
+
+{
+  "id": "credential_access_005",
+  "title": "Acquiring Credentials: Network Sniffing",
+  "tactic": "Credential Access",
+  "description": "You decide to sniff the network traffic to capture credentials transmitted in cleartext. What method do you use?",
+  "options": [
+    {
+      "id": "arp_spoofing",
+      "text": "Use ARP spoofing to intercept network traffic",
+      "technique": "Network Sniffing",
+      "nextScenario": "credential_access_010",
+      "consequence": "ARP spoofing allows you to intercept traffic, capturing cleartext credentials, but the attack could disrupt network operations."
+    },
+    {
+      "id": "man_in_the_middle",
+      "text": "Set up a man-in-the-middle attack to capture credentials",
+      "technique": "Man-in-the-Middle",
+      "nextScenario": "credential_access_011",
+      "consequence": "You successfully capture credentials, but the attack could be detected by network monitoring tools."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Network Sniffing",
+    "content": "Network sniffing involves capturing data packets as they travel across a network, often to obtain credentials. Techniques like ARP spoofing and man-in-the-middle attacks can be effective but risky."
+  }
+}
+
+{
+  "id": "exfiltration_001",
+  "title": "Exfiltrating Data: Automated Exfiltration",
+  "tactic": "Exfiltration",
+  "description": "You need to exfiltrate a large amount of data from the target system. You consider setting up an automated exfiltration process. How do you proceed?",
+  "options": [
+    {
+      "id": "scheduled_transfer",
+      "text": "Set up a scheduled task to exfiltrate data at regular intervals",
+      "technique": "Automated Exfiltration",
+      "nextScenario": "exfiltration_002",
+      "consequence": "The data is exfiltrated successfully over time, but the regular network traffic could be noticed by a vigilant security team."
+    },
+    {
+      "id": "automated_script",
+      "text": "Deploy an automated script to transfer data in small chunks",
+      "technique": "Automated Exfiltration",
+      "nextScenario": "exfiltration_003",
+      "consequence": "The script exfiltrates data stealthily, but if detected, it could lead to an investigation."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Automated Exfiltration",
+    "content": "Automated exfiltration involves using scripts or scheduled tasks to transfer data from a compromised system over time. This method reduces the risk of detection by spreading out the data transfer."
+  }
+}
+
+
+{
+  "id": "exfiltration_002",
+  "title": "Exfiltrating Data: Exfiltration Over Web Service",
+  "tactic": "Exfiltration",
+  "description": "You decide to exfiltrate data using a legitimate web service to avoid raising suspicions. Which service do you use?",
+  "options": [
+    {
+      "id": "cloud_storage",
+      "text": "Upload the data to a compromised cloud storage account",
+      "technique": "Exfiltration Over Web Service",
+      "nextScenario": "exfiltration_004",
+      "consequence": "The data is uploaded to the cloud, making it easily accessible, but cloud security might detect the unauthorized transfer."
+    },
+    {
+      "id": "social_media",
+      "text": "Embed the data within posts on a popular social media platform",
+      "technique": "Exfiltration Over Web Service",
+      "nextScenario": "exfiltration_005",
+      "consequence": "The data is exfiltrated under the guise of normal social media activity, but unusual patterns might attract attention."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exfiltration Over Web Service",
+    "content": "Exfiltration over web services involves using legitimate platforms, such as cloud storage or social media, to transfer data. This method can be effective but carries the risk of detection if unusual patterns are observed."
+  }
+}
+
+
+{
+  "id": "exfiltration_003",
+  "title": "Exfiltrating Data: Exfiltration Over Alternative Protocol",
+  "tactic": "Exfiltration",
+  "description": "You need to avoid detection by using an alternative network protocol to exfiltrate data. Which protocol do you use?",
+  "options": [
+    {
+      "id": "dns_tunneling",
+      "text": "Exfiltrate data using DNS tunneling",
+      "technique": "Exfiltration Over Alternative Protocol",
+      "nextScenario": "exfiltration_006",
+      "consequence": "The data is exfiltrated through DNS queries, bypassing traditional monitoring tools, but high volume could raise red flags."
+    },
+    {
+      "id": "smtp_exfiltration",
+      "text": "Send data out via SMTP, disguised as legitimate email traffic",
+      "technique": "Exfiltration Over Alternative Protocol",
+      "nextScenario": "exfiltration_007",
+      "consequence": "The data is exfiltrated as email attachments, but large attachments or frequent emails could be flagged."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exfiltration Over Alternative Protocol",
+    "content": "Exfiltration over alternative protocols, such as DNS or SMTP, is a technique used to avoid detection by bypassing common monitoring systems. However, these methods can still raise suspicion if not carefully managed."
+  }
+}
+
+
+{
+  "id": "exfiltration_004",
+  "title": "Exfiltrating Data: Exfiltration Over C2 Channel",
+  "tactic": "Exfiltration",
+  "description": "You decide to use a Command and Control (C2) channel for exfiltration. How do you configure the channel?",
+  "options": [
+    {
+      "id": "encrypted_channel",
+      "text": "Set up an encrypted C2 channel for secure data exfiltration",
+      "technique": "Exfiltration Over C2 Channel",
+      "nextScenario": "exfiltration_008",
+      "consequence": "The encrypted channel hides the data transfer, but encrypted traffic might attract scrutiny if the volume is high."
+    },
+    {
+      "id": "non_standard_port",
+      "text": "Use a non-standard port to exfiltrate data through the C2 channel",
+      "technique": "Exfiltration Over C2 Channel",
+      "nextScenario": "exfiltration_009",
+      "consequence": "The use of a non-standard port helps avoid detection, but unusual traffic on this port could trigger alarms."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exfiltration Over C2 Channel",
+    "content": "Exfiltrating data over a C2 channel involves using the command and control infrastructure established for the attack. Encryption and non-standard ports can help avoid detection but carry risks if the traffic is analyzed."
+  }
+}
+
+
+{
+  "id": "exfiltration_005",
+  "title": "Exfiltrating Data: Exfiltration Over Physical Medium",
+  "tactic": "Exfiltration",
+  "description": "You have physical access to the target system and decide to exfiltrate data using a physical medium. What method do you choose?",
+  "options": [
+    {
+      "id": "usb_drive",
+      "text": "Copy the data onto a USB drive",
+      "technique": "Exfiltration Over Physical Medium",
+      "nextScenario": "exfiltration_010",
+      "consequence": "The data is easily transferred, but physical removal of the drive could be risky if the environment is monitored."
+    },
+    {
+      "id": "external_hard_drive",
+      "text": "Transfer the data to an external hard drive",
+      "technique": "Exfiltration Over Physical Medium",
+      "nextScenario": "exfiltration_011",
+      "consequence": "The external hard drive can store a large amount of data, but moving it out of the facility could draw attention."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exfiltration Over Physical Medium",
+    "content": "Exfiltration over physical media involves copying data onto devices such as USB drives or external hard drives. This method is effective but requires physical access and carries the risk of detection during transport."
+  }
+}
+
+{
+  "id": "impact_001",
+  "title": "Causing Disruption: Data Destruction",
+  "tactic": "Impact",
+  "description": "You've gained access to critical data on the target's system. You decide to cause disruption by destroying this data. How do you proceed?",
+  "options": [
+    {
+      "id": "delete_files",
+      "text": "Delete critical files from the target system",
+      "technique": "Data Destruction",
+      "nextScenario": "impact_002",
+      "consequence": "The files are deleted, disrupting operations, but recovery from backups could minimize the impact."
+    },
+    {
+      "id": "overwrite_files",
+      "text": "Overwrite critical files with random data",
+      "technique": "Data Destruction",
+      "nextScenario": "impact_003",
+      "consequence": "The files are irrecoverably corrupted, causing significant disruption, but forensic analysis might reveal the attack vector."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Data Destruction",
+    "content": "Data destruction involves permanently deleting or corrupting files to disrupt operations. While effective, organizations with robust backup systems may recover quickly, limiting the impact."
+  }
+}
+
+
+{
+  "id": "impact_002",
+  "title": "Causing Disruption: Disk Wipe",
+  "tactic": "Impact",
+  "description": "To maximize disruption, you decide to wipe the target's hard drives. What method do you use?",
+  "options": [
+    {
+      "id": "use_wiping_tool",
+      "text": "Deploy a disk-wiping tool to erase all data",
+      "technique": "Disk Wipe",
+      "nextScenario": "impact_004",
+      "consequence": "The tool erases the data, rendering the system unusable, but advanced recovery techniques might restore some data."
+    },
+    {
+      "id": "overwrite_disk",
+      "text": "Manually overwrite the disk sectors with random data",
+      "technique": "Disk Wipe",
+      "nextScenario": "impact_005",
+      "consequence": "The disk is thoroughly wiped, making recovery extremely difficult, but the process is time-consuming and could be interrupted."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Disk Wipe",
+    "content": "Disk wiping involves erasing all data on a hard drive, making it irrecoverable. This technique causes significant disruption, but the time required for wiping can vary depending on the method used."
+  }
+}
+
+
+{
+  "id": "impact_003",
+  "title": "Causing Disruption: Data Encrypted for Impact",
+  "tactic": "Impact",
+  "description": "To lock the target out of their own data, you decide to encrypt critical files. How do you proceed?",
+  "options": [
+    {
+      "id": "encrypt_with_ransom",
+      "text": "Encrypt the data and demand a ransom for the decryption key",
+      "technique": "Data Encrypted for Impact",
+      "nextScenario": "impact_006",
+      "consequence": "The data is encrypted, and a ransom note is left, but if the organization has backups or refuses to pay, the impact might be reduced."
+    },
+    {
+      "id": "encrypt_without_ransom",
+      "text": "Encrypt the data without demanding a ransom",
+      "technique": "Data Encrypted for Impact",
+      "nextScenario": "impact_007",
+      "consequence": "The data is encrypted, causing significant disruption, but this might prompt the organization to rebuild systems rather than negotiate."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Data Encryption for Impact",
+    "content": "Encrypting data to cause impact involves locking files with encryption keys, rendering them inaccessible. Ransomware attacks often use this technique, demanding payment for decryption."
+  }
+}
+
+
+{
+  "id": "impact_004",
+  "title": "Causing Disruption: Endpoint Denial of Service",
+  "tactic": "Impact",
+  "description": "You decide to render the target's endpoints unusable through a denial-of-service (DoS) attack. How do you proceed?",
+  "options": [
+    {
+      "id": "flood_network",
+      "text": "Flood the network with traffic to overwhelm endpoints",
+      "technique": "Endpoint Denial of Service",
+      "nextScenario": "impact_008",
+      "consequence": "The network is overwhelmed, causing endpoints to become unresponsive, but the attack might be mitigated by network security tools."
+    },
+    {
+      "id": "exploit_system_vulnerabilities",
+      "text": "Exploit system vulnerabilities to crash the endpoints",
+      "technique": "Endpoint Denial of Service",
+      "nextScenario": "impact_009",
+      "consequence": "The endpoints crash, causing significant disruption, but the exploitation might leave forensic evidence."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Endpoint Denial of Service",
+    "content": "Endpoint denial of service (DoS) attacks render target systems unusable by overwhelming them with traffic or exploiting vulnerabilities. These attacks can cause significant disruption but may also trigger a rapid defensive response."
+  }
+}
+
+
+{
+  "id": "impact_005",
+  "title": "Causing Disruption: Defacement",
+  "tactic": "Impact",
+  "description": "You decide to deface the target's public-facing website to damage their reputation. How do you proceed?",
+  "options": [
+    {
+      "id": "replace_homepage",
+      "text": "Replace the homepage with a defacement message",
+      "technique": "Defacement",
+      "nextScenario": "impact_010",
+      "consequence": "The homepage is defaced, causing public embarrassment, but the site might be restored quickly by the IT team."
+    },
+    {
+      "id": "inject_defacement_code",
+      "text": "Inject defacement code into multiple pages",
+      "technique": "Defacement",
+      "nextScenario": "impact_011",
+      "consequence": "Multiple pages are defaced, spreading the impact, but the widespread changes might make the attack easier to detect and reverse."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Defacement",
+    "content": "Website defacement is an attack that alters the appearance of a website, often for the purpose of delivering a message or causing reputational damage. While impactful, such attacks are often quickly mitigated."
+  }
+}
+
+
+{
+  "id": "impact_006",
+  "title": "Causing Disruption: Inhibit System Recovery",
+  "tactic": "Impact",
+  "description": "To ensure the target cannot recover quickly from your attack, you decide to inhibit their system recovery mechanisms. What method do you choose?",
+  "options": [
+    {
+      "id": "delete_backups",
+      "text": "Delete or corrupt backup files",
+      "technique": "Inhibit System Recovery",
+      "nextScenario": "impact_012",
+      "consequence": "The backups are destroyed, making recovery difficult, but this action might be detected during the attack."
+    },
+    {
+      "id": "disable_recovery_tools",
+      "text": "Disable system recovery tools and services",
+      "technique": "Inhibit System Recovery",
+      "nextScenario": "impact_013",
+      "consequence": "Recovery tools are disabled, preventing quick recovery, but if detected, the organization might initiate a manual recovery process."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Inhibit System Recovery",
+    "content": "Inhibiting system recovery is a tactic that aims to prolong the impact of an attack by preventing the target from restoring their systems quickly. Common methods include deleting backups and disabling recovery tools."
+  }
+}
+
+{
+  "id": "lateral_movement_001",
+  "title": "Lateral Movement: Exploitation of Remote Services",
+  "tactic": "Lateral Movement",
+  "description": "You aim to move laterally across the network by exploiting remote services on another machine. How do you proceed?",
+  "options": [
+    {
+      "id": "exploit_rdp",
+      "text": "Exploit a vulnerability in the Remote Desktop Protocol (RDP) service",
+      "technique": "Exploitation of Remote Services",
+      "nextScenario": "lateral_movement_002",
+      "consequence": "You successfully gain access to the remote system via RDP, but the exploitation might trigger security alerts."
+    },
+    {
+      "id": "exploit_smb",
+      "text": "Exploit a vulnerability in the SMB service",
+      "technique": "Exploitation of Remote Services",
+      "nextScenario": "lateral_movement_003",
+      "consequence": "You gain access to the file shares and remote system via SMB, but the attack might be detected by intrusion detection systems."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exploitation of Remote Services",
+    "content": "Exploiting remote services, such as RDP or SMB, allows attackers to move laterally within a network. These services are often targets due to their widespread use, but exploiting them can trigger security alerts."
+  }
+}
+
+
+{
+  "id": "lateral_movement_002",
+  "title": "Lateral Movement: Pass the Hash",
+  "tactic": "Lateral Movement",
+  "description": "You\u2019ve obtained a hash of a user\u2019s credentials and decide to use it to move laterally across the network. How do you proceed?",
+  "options": [
+    {
+      "id": "pass_hash_rdp",
+      "text": "Use the hash to authenticate via RDP",
+      "technique": "Pass the Hash",
+      "nextScenario": "lateral_movement_004",
+      "consequence": "You successfully authenticate and gain access to the target system, but the use of a hashed credential could be flagged by security tools."
+    },
+    {
+      "id": "pass_hash_smb",
+      "text": "Use the hash to authenticate via SMB",
+      "technique": "Pass the Hash",
+      "nextScenario": "lateral_movement_005",
+      "consequence": "You successfully connect to the remote system via SMB, gaining access to shared resources, but the activity might be logged and reviewed."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Pass the Hash",
+    "content": "Pass the Hash attacks involve using the hashed version of a password to authenticate to other systems, allowing lateral movement without needing to crack the hash. However, such activity is often monitored and can be detected."
+  }
+}
+
+
+{
+  "id": "lateral_movement_003",
+  "title": "Lateral Movement: Remote Services",
+  "tactic": "Lateral Movement",
+  "description": "You decide to use legitimate remote services to move laterally across the network. Which service do you use?",
+  "options": [
+    {
+      "id": "use_ssh",
+      "text": "Use SSH to move laterally to another system",
+      "technique": "Remote Services",
+      "nextScenario": "lateral_movement_006",
+      "consequence": "You gain access to the remote system using SSH, but the login attempt might be logged and reviewed by security analysts."
+    },
+    {
+      "id": "use_winrm",
+      "text": "Use Windows Remote Management (WinRM) to access another system",
+      "technique": "Remote Services",
+      "nextScenario": "lateral_movement_007",
+      "consequence": "You successfully connect via WinRM, allowing you to execute commands on the remote system, but the use of WinRM might attract attention if unusual activity is detected."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Remote Services",
+    "content": "Remote services like SSH and WinRM are often used by administrators to manage systems, but they can also be exploited by attackers for lateral movement. Such actions are usually logged, which can lead to detection."
+  }
+}
+
+
+{
+  "id": "lateral_movement_004",
+  "title": "Lateral Movement: Internal Spear Phishing",
+  "tactic": "Lateral Movement",
+  "description": "You decide to send a spear-phishing email within the target organization to gain access to another system. What is your approach?",
+  "options": [
+    {
+      "id": "target_executive",
+      "text": "Target a high-ranking executive with a phishing email",
+      "technique": "Internal Spear Phishing",
+      "nextScenario": "lateral_movement_008",
+      "consequence": "The executive falls for the phishing attempt, providing high-level access, but the attack might be scrutinized due to the executive's status."
+    },
+    {
+      "id": "target_it_staff",
+      "text": "Target an IT staff member to gain administrative access",
+      "technique": "Internal Spear Phishing",
+      "nextScenario": "lateral_movement_009",
+      "consequence": "The IT staff member is compromised, granting you administrative privileges, but the attack might be noticed if the staff member reports suspicious activity."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Internal Spear Phishing",
+    "content": "Internal spear phishing targets specific individuals within an organization, often using carefully crafted emails to gain access to sensitive systems. While effective, such attacks can attract scrutiny, especially if high-level individuals are targeted."
+  }
+}
+
+
+{
+  "id": "lateral_movement_005",
+  "title": "Lateral Movement: Taint Shared Content",
+  "tactic": "Lateral Movement",
+  "description": "You decide to move laterally by tainting shared content on the network to spread your influence. How do you proceed?",
+  "options": [
+    {
+      "id": "infect_shared_drive",
+      "text": "Infect a shared drive with malware to compromise other systems",
+      "technique": "Taint Shared Content",
+      "nextScenario": "lateral_movement_010",
+      "consequence": "The malware spreads to systems accessing the shared drive, but the infection might be detected by antivirus or security monitoring tools."
+    },
+    {
+      "id": "alter_documents",
+      "text": "Alter important documents with malicious macros",
+      "technique": "Taint Shared Content",
+      "nextScenario": "lateral_movement_011",
+      "consequence": "The malicious macros execute when users open the documents, but the altered files might be flagged by security tools."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Tainting Shared Content",
+    "content": "Tainting shared content involves injecting malicious code into files or resources that are commonly accessed by other systems, enabling lateral movement when those files are opened or used. This technique can be effective but also carries a high risk of detection."
+  }
+}
+
+
+{
+  "id": "lateral_movement_006",
+  "title": "Lateral Movement: Lateral Tool Transfer",
+  "tactic": "Lateral Movement",
+  "description": "You need to transfer tools to another system within the network to facilitate further attacks. What method do you use?",
+  "options": [
+    {
+      "id": "use_psremoting",
+      "text": "Use PowerShell Remoting to transfer tools",
+      "technique": "Lateral Tool Transfer",
+      "nextScenario": "lateral_movement_012",
+      "consequence": "The tools are transferred successfully via PowerShell Remoting, but the activity might be logged and monitored by security tools."
+    },
+    {
+      "id": "use_network_share",
+      "text": "Copy the tools to a network share accessible by the target system",
+      "technique": "Lateral Tool Transfer",
+      "nextScenario": "lateral_movement_013",
+      "consequence": "The tools are copied to the network share, making them easily accessible, but the shared folder might be monitored or scanned by security tools."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Lateral Tool Transfer",
+    "content": "Lateral tool transfer involves moving attack tools from one compromised system to another within the network, typically using methods like PowerShell Remoting or network shares. This activity is often logged, and careful monitoring can detect such movements."
+  }
+}
+
+{
+  "id": "initial_access_001",
+  "title": "Initial Access: Phishing",
+  "tactic": "Initial Access",
+  "description": "You decide to gain access to the target system through a phishing campaign. How do you craft your phishing attempt?",
+  "options": [
+    {
+      "id": "email_phishing",
+      "text": "Send a generic phishing email to multiple employees",
+      "technique": "Phishing",
+      "nextScenario": "initial_access_002",
+      "consequence": "Some employees fall for the phishing email, providing you with their credentials, but the broad nature of the attack increases the likelihood of detection."
+    },
+    {
+      "id": "spear_phishing",
+      "text": "Send a targeted spear-phishing email to a high-value individual",
+      "technique": "Spear Phishing",
+      "nextScenario": "initial_access_003",
+      "consequence": "The targeted individual is tricked into revealing their credentials, giving you high-level access, but the targeted nature of the attack might prompt an investigation."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Phishing",
+    "content": "Phishing involves sending fraudulent communications, often emails, that appear to come from a reputable source. It\u2019s a common technique for gaining initial access, but its effectiveness can vary depending on the target's security awareness."
+  }
+}
+
+
+{
+  "id": "initial_access_002",
+  "title": "Initial Access: Exploit Public-Facing Application",
+  "tactic": "Initial Access",
+  "description": "You plan to exploit a vulnerability in one of the target's public-facing web applications to gain access. What method do you use?",
+  "options": [
+    {
+      "id": "sql_injection",
+      "text": "Perform a SQL injection attack to gain access to the database",
+      "technique": "Exploit Public-Facing Application",
+      "nextScenario": "initial_access_004",
+      "consequence": "You successfully extract sensitive data from the database, but the attack might be logged and reviewed, leading to its detection."
+    },
+    {
+      "id": "remote_code_execution",
+      "text": "Exploit a remote code execution vulnerability",
+      "technique": "Exploit Public-Facing Application",
+      "nextScenario": "initial_access_005",
+      "consequence": "You gain the ability to execute arbitrary code on the server, potentially giving you control over the system, but the activity might trigger alerts from web application firewalls."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exploitation of Public-Facing Applications",
+    "content": "Public-facing applications are often targeted by attackers due to their accessibility. Common methods include SQL injection and remote code execution, both of which can provide deep access to systems if successful."
+  }
+}
+
+
+{
+  "id": "initial_access_003",
+  "title": "Initial Access: Drive-by Compromise",
+  "tactic": "Initial Access",
+  "description": "You decide to compromise the target by delivering malware through a website that the target\u2019s employees frequently visit. How do you proceed?",
+  "options": [
+    {
+      "id": "malvertising",
+      "text": "Inject malicious code into an advertisement displayed on the site",
+      "technique": "Drive-by Compromise",
+      "nextScenario": "initial_access_006",
+      "consequence": "The malicious ad delivers your payload to the target, but the use of a well-known ad network increases the chance of detection and removal."
+    },
+    {
+      "id": "compromise_website",
+      "text": "Compromise the website itself to serve malware to visitors",
+      "technique": "Drive-by Compromise",
+      "nextScenario": "initial_access_007",
+      "consequence": "Visitors from the target organization download your malware, but the compromise might be detected and fixed by the website\u2019s security team."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Drive-by Compromise",
+    "content": "Drive-by compromises involve delivering malware through compromised websites or malicious advertisements. This technique can be highly effective, particularly if the target frequently visits the compromised site."
+  }
+}
+
+
+{
+  "id": "initial_access_004",
+  "title": "Initial Access: Supply Chain Compromise",
+  "tactic": "Initial Access",
+  "description": "You aim to infiltrate the target organization by compromising a third-party supplier they work with. How do you proceed?",
+  "options": [
+    {
+      "id": "compromise_software_update",
+      "text": "Insert malicious code into a software update provided by the supplier",
+      "technique": "Supply Chain Compromise",
+      "nextScenario": "initial_access_008",
+      "consequence": "The compromised update is installed by the target, providing you access, but the unusual behavior might be detected if the target closely monitors their software updates."
+    },
+    {
+      "id": "exploit_trusted_relationship",
+      "text": "Exploit the trusted relationship between the supplier and the target",
+      "technique": "Supply Chain Compromise",
+      "nextScenario": "initial_access_009",
+      "consequence": "The trusted relationship allows you to bypass some security measures, but any suspicious activity might be reported by the supplier."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Supply Chain Compromise",
+    "content": "Supply chain compromises involve infiltrating an organization by attacking a trusted third-party supplier. This method can be particularly effective as it exploits the trust between the target and the supplier."
+  }
+}
+
+
+{
+  "id": "initial_access_005",
+  "title": "Initial Access: Trusted Relationship",
+  "tactic": "Initial Access",
+  "description": "You decide to leverage an existing trusted relationship within the target organization to gain access. What approach do you take?",
+  "options": [
+    {
+      "id": "exploit_vendor_access",
+      "text": "Exploit access given to a vendor for maintenance services",
+      "technique": "Trusted Relationship",
+      "nextScenario": "initial_access_010",
+      "consequence": "You gain access through the vendor\u2019s credentials, but the activity might be monitored and flagged by the organization\u2019s security team."
+    },
+    {
+      "id": "exploit_employee_relationship",
+      "text": "Convince a low-level employee to unknowingly install malware",
+      "technique": "Trusted Relationship",
+      "nextScenario": "initial_access_011",
+      "consequence": "The employee unknowingly installs your malware, granting you access, but the activity might be suspicious if discovered."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Trusted Relationship",
+    "content": "Trusted relationships within an organization, such as those with vendors or employees, can be exploited to gain access. This method relies on the existing trust and can be difficult to detect until it's too late."
+  }
+}
+
+{
+  "id": "persistence_001",
+  "title": "Persistence: Account Manipulation",
+  "tactic": "Persistence",
+  "description": "To maintain access to the target system, you decide to manipulate user accounts. What approach do you take?",
+  "options": [
+    {
+      "id": "create_backdoor_account",
+      "text": "Create a hidden backdoor account with administrative privileges",
+      "technique": "Account Manipulation",
+      "nextScenario": "persistence_002",
+      "consequence": "The backdoor account is created, giving you persistent access, but it could be discovered during an audit or routine security checks."
+    },
+    {
+      "id": "modify_existing_account",
+      "text": "Modify an existing user account to grant yourself administrative privileges",
+      "technique": "Account Manipulation",
+      "nextScenario": "persistence_003",
+      "consequence": "You successfully modify the account, making it harder to detect, but the changes could raise suspicions if noticed by the legitimate account owner or IT staff."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Account Manipulation",
+    "content": "Account manipulation involves creating new accounts or altering existing ones to maintain unauthorized access. This technique can be effective but is often detectable during audits or by vigilant administrators."
+  }
+}
+
+
+{
+  "id": "persistence_002",
+  "title": "Persistence: Boot or Logon Autostart Execution",
+  "tactic": "Persistence",
+  "description": "You want to ensure your payload executes automatically whenever the system starts or a user logs in. How do you proceed?",
+  "options": [
+    {
+      "id": "logon_script_injection",
+      "text": "Inject your payload into the logon script",
+      "technique": "Boot or Logon Autostart Execution",
+      "nextScenario": "persistence_004",
+      "consequence": "The payload is executed every time a user logs in, ensuring persistence, but it could be flagged by security tools monitoring script changes."
+    },
+    {
+      "id": "registry_run_key",
+      "text": "Add your payload to the registry's run key",
+      "technique": "Boot or Logon Autostart Execution",
+      "nextScenario": "persistence_005",
+      "consequence": "The payload runs automatically at startup, but modifying the registry could be detected by monitoring software or during a security audit."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Boot or Logon Autostart Execution",
+    "content": "This technique ensures that malicious code is executed automatically when the system boots or a user logs in. Common methods include modifying logon scripts or registry keys, both of which can be monitored."
+  }
+}
+
+
+{
+  "id": "persistence_003",
+  "title": "Persistence: Scheduled Task/Job",
+  "tactic": "Persistence",
+  "description": "To maintain access, you decide to schedule a task or job that will execute your payload at regular intervals. How do you set it up?",
+  "options": [
+    {
+      "id": "create_new_task",
+      "text": "Create a new scheduled task with high privileges",
+      "technique": "Scheduled Task/Job",
+      "nextScenario": "persistence_006",
+      "consequence": "The task is scheduled successfully, but the new task might be visible to system administrators and could be flagged as suspicious."
+    },
+    {
+      "id": "modify_existing_task",
+      "text": "Modify an existing task to include your payload",
+      "technique": "Scheduled Task/Job",
+      "nextScenario": "persistence_007",
+      "consequence": "The modified task flies under the radar, but the change could be detected during routine task management or by security software."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Scheduled Task/Job",
+    "content": "Scheduled tasks or jobs can be used to execute malicious code at specific times or intervals, providing a reliable method for maintaining persistence. However, these tasks are often monitored by system administrators."
+  }
+}
+
+
+{
+  "id": "persistence_004",
+  "title": "Persistence: Create or Modify System Process",
+  "tactic": "Persistence",
+  "description": "You need to create or modify a system process to ensure continuous access to the target system. What approach do you take?",
+  "options": [
+    {
+      "id": "create_new_service",
+      "text": "Create a new service that runs your malicious code",
+      "technique": "Create or Modify System Process",
+      "nextScenario": "persistence_008",
+      "consequence": "The new service runs your code continuously, but it could be noticed by vigilant administrators or security tools."
+    },
+    {
+      "id": "modify_existing_service",
+      "text": "Modify an existing service to run your payload",
+      "technique": "Create or Modify System Process",
+      "nextScenario": "persistence_009",
+      "consequence": "The existing service is less likely to raise alarms, but careful monitoring could reveal the change."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Create or Modify System Process",
+    "content": "This technique involves creating or modifying system processes to maintain persistence on a target system. While effective, it can be detected if the changes are scrutinized."
+  }
+}
+
+
+{
+  "id": "persistence_005",
+  "title": "Persistence: Implant Internal Image",
+  "tactic": "Persistence",
+  "description": "To maintain long-term access, you decide to implant a malicious image in the target system. What method do you choose?",
+  "options": [
+    {
+      "id": "implant_malicious_image",
+      "text": "Replace a legitimate system image with a malicious version",
+      "technique": "Implant Internal Image",
+      "nextScenario": "persistence_010",
+      "consequence": "The malicious image ensures persistence, but it could be detected if the image is verified during system audits."
+    },
+    {
+      "id": "create_malicious_clone",
+      "text": "Create a clone of a legitimate image with hidden backdoors",
+      "technique": "Implant Internal Image",
+      "nextScenario": "persistence_011",
+      "consequence": "The cloned image operates normally with hidden backdoors, but a comparison with the original could expose the changes."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Implant Internal Image",
+    "content": "Implanting a malicious internal image ensures that your code is embedded within the system, allowing for long-term persistence. This technique can be difficult to detect unless images are carefully verified."
+  }
+}
+
+{
+  "id": "command_control_001",
+  "title": "Command and Control: Encrypted Channel",
+  "tactic": "Command and Control",
+  "description": "You need to establish a secure communication channel with the compromised system to avoid detection. What method do you use?",
+  "options": [
+    {
+      "id": "https_channel",
+      "text": "Use HTTPS to encrypt the communication channel",
+      "technique": "Encrypted Channel",
+      "nextScenario": "command_control_002",
+      "consequence": "The encrypted HTTPS traffic blends with legitimate web traffic, making it difficult to detect, but if the traffic is unusual, it might still raise suspicions."
+    },
+    {
+      "id": "tls_channel",
+      "text": "Use TLS encryption to secure the command and control traffic",
+      "technique": "Encrypted Channel",
+      "nextScenario": "command_control_003",
+      "consequence": "The use of TLS encryption makes the communication highly secure, but the setup might draw attention if it involves unusual certificate behavior or traffic patterns."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Encrypted Channels",
+    "content": "Encrypted channels, such as those using HTTPS or TLS, help attackers secure their communications with compromised systems, making it harder for defenders to detect malicious traffic. However, anomalies in traffic patterns can still raise suspicions."
+  }
+}
+
+
+{
+  "id": "command_control_002",
+  "title": "Command and Control: Domain Fronting",
+  "tactic": "Command and Control",
+  "description": "To disguise your command and control traffic, you decide to use domain fronting. How do you implement this technique?",
+  "options": [
+    {
+      "id": "use_legitimate_service",
+      "text": "Front your traffic through a legitimate service like a content delivery network (CDN)",
+      "technique": "Domain Fronting",
+      "nextScenario": "command_control_004",
+      "consequence": "The traffic appears to come from a legitimate service, making detection difficult, but any anomalies might trigger further investigation by the target."
+    },
+    {
+      "id": "use_popular_website",
+      "text": "Front your traffic through a popular website that the target frequently visits",
+      "technique": "Domain Fronting",
+      "nextScenario": "command_control_005",
+      "consequence": "The traffic blends in with normal user behavior, but if the website\u2019s security is strong, your activities might be detected and blocked."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Domain Fronting",
+    "content": "Domain fronting is a technique that hides the true destination of network traffic by masking it with a different domain, often a legitimate one. This method is effective for bypassing security controls but can be risky if the fronting domain is closely monitored."
+  }
+}
+
+
+{
+  "id": "command_control_003",
+  "title": "Command and Control: Non-Standard Port",
+  "tactic": "Command and Control",
+  "description": "You decide to use a non-standard port to avoid detection of your command and control traffic. Which port do you choose?",
+  "options": [
+    {
+      "id": "high_port_number",
+      "text": "Use a high port number that is less commonly monitored",
+      "technique": "Non-Standard Port",
+      "nextScenario": "command_control_006",
+      "consequence": "The use of a high port number reduces the likelihood of detection, but unusual traffic on this port might still trigger an alert."
+    },
+    {
+      "id": "udp_port",
+      "text": "Use a UDP port to make detection more difficult",
+      "technique": "Non-Standard Port",
+      "nextScenario": "command_control_007",
+      "consequence": "UDP traffic is often less scrutinized, providing more stealth, but it can be unreliable for communication, which might affect your control over the compromised system."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Non-Standard Ports",
+    "content": "Using non-standard ports can help attackers avoid detection by network monitoring tools that focus on common ports. However, unusual activity on these ports can still raise suspicions, especially if the traffic does not match typical patterns."
+  }
+}
+
+
+{
+  "id": "command_control_004",
+  "title": "Command and Control: Multi-Stage Channels",
+  "tactic": "Command and Control",
+  "description": "You decide to establish a multi-stage command and control channel to make your activities harder to trace. How do you proceed?",
+  "options": [
+    {
+      "id": "use_proxy_chain",
+      "text": "Set up a chain of proxies to route your traffic through multiple locations",
+      "technique": "Multi-Stage Channels",
+      "nextScenario": "command_control_008",
+      "consequence": "The proxy chain makes it difficult to trace your command and control traffic, but each additional hop increases latency and the chance of detection at one of the stages."
+    },
+    {
+      "id": "use_multiple_c2_servers",
+      "text": "Rotate between multiple command and control servers to avoid detection",
+      "technique": "Multi-Stage Channels",
+      "nextScenario": "command_control_009",
+      "consequence": "Rotating between different servers makes it harder for defenders to track your activities, but managing multiple C2 servers increases complexity and the risk of operational errors."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Multi-Stage Channels",
+    "content": "Multi-stage command and control channels involve routing traffic through multiple stages, such as proxy chains or rotating between different C2 servers. These methods increase stealth but also add complexity and potential points of failure."
+  }
+}
+
+
+{
+  "id": "command_control_005",
+  "title": "Command and Control: Ingress Tool Transfer",
+  "tactic": "Command and Control",
+  "description": "You need to transfer tools to the compromised system for further exploitation. What method do you use?",
+  "options": [
+    {
+      "id": "use_dns_tunneling",
+      "text": "Transfer tools via DNS tunneling to avoid detection",
+      "technique": "Ingress Tool Transfer",
+      "nextScenario": "command_control_010",
+      "consequence": "DNS tunneling can bypass many security controls, but high volumes of DNS traffic might be flagged as suspicious."
+    },
+    {
+      "id": "use_http",
+      "text": "Transfer tools over HTTP to blend in with normal web traffic",
+      "technique": "Ingress Tool Transfer",
+      "nextScenario": "command_control_011",
+      "consequence": "Using HTTP makes the transfer less noticeable, but if the payload is large, it could still attract attention."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Ingress Tool Transfer",
+    "content": "Ingress tool transfer involves bringing tools into the target environment to facilitate further exploitation. Techniques like DNS tunneling or using HTTP help avoid detection, but they also carry risks, especially if the transferred data stands out in network traffic."
+  }
+}
+
+
+{
+  "id": "command_control_006",
+  "title": "Command and Control: Fallback Channels",
+  "tactic": "Command and Control",
+  "description": "You want to ensure communication with the compromised system remains intact, even if your primary channel is disrupted. What fallback method do you establish?",
+  "options": [
+    {
+      "id": "use_sms",
+      "text": "Set up an SMS-based command and control channel",
+      "technique": "Fallback Channels",
+      "nextScenario": "command_control_012",
+      "consequence": "An SMS channel provides an out-of-band method for communication, but it is limited by the amount of data that can be transmitted."
+    },
+    {
+      "id": "use_social_media",
+      "text": "Use social media platforms to establish a fallback C2 channel",
+      "technique": "Fallback Channels",
+      "nextScenario": "command_control_013",
+      "consequence": "Social media platforms provide a covert way to communicate, but unusual activity might be flagged by platform security algorithms."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Fallback Channels",
+    "content": "Fallback channels are backup communication methods that ensure command and control persists even if the primary channel is disrupted. Using SMS or social media can be effective but comes with limitations and risks of detection."
+  }
+}
+
+{
+  "id": "exfiltration_001",
+  "title": "Exfiltration: Exfiltration Over Web Service",
+  "tactic": "Exfiltration",
+  "description": "You need to exfiltrate sensitive data from the target network. You decide to use a web service to avoid detection. Which service do you use?",
+  "options": [
+    {
+      "id": "use_cloud_storage",
+      "text": "Upload the data to a compromised cloud storage account",
+      "technique": "Exfiltration Over Web Service",
+      "nextScenario": "exfiltration_002",
+      "consequence": "The data is uploaded to the cloud, making it accessible from anywhere, but the transfer might be flagged by the target's cloud security monitoring."
+    },
+    {
+      "id": "use_social_media",
+      "text": "Hide the data in posts on a popular social media platform",
+      "technique": "Exfiltration Over Web Service",
+      "nextScenario": "exfiltration_003",
+      "consequence": "The data is disguised as normal social media activity, but unusual patterns or large volumes might attract attention from the platform's security algorithms."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exfiltration Over Web Service",
+    "content": "Exfiltration over web services involves using legitimate platforms, such as cloud storage or social media, to transfer stolen data. While these methods can be effective in hiding malicious activity, they carry the risk of detection if the data transfer is flagged as suspicious."
+  }
+}
+
+
+{
+  "id": "exfiltration_002",
+  "title": "Exfiltration: Exfiltration Over C2 Channel",
+  "tactic": "Exfiltration",
+  "description": "To maintain a low profile, you decide to exfiltrate data through your existing Command and Control (C2) channel. How do you configure the channel?",
+  "options": [
+    {
+      "id": "encrypted_c2",
+      "text": "Use an encrypted C2 channel for secure data exfiltration",
+      "technique": "Exfiltration Over C2 Channel",
+      "nextScenario": "exfiltration_004",
+      "consequence": "The encryption makes it difficult for defenders to detect the exfiltration, but high volumes of encrypted traffic might raise suspicions."
+    },
+    {
+      "id": "non_standard_port",
+      "text": "Use a non-standard port for data transfer",
+      "technique": "Exfiltration Over C2 Channel",
+      "nextScenario": "exfiltration_005",
+      "consequence": "Using a non-standard port helps avoid detection by standard monitoring tools, but unusual traffic on this port might still trigger alerts."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exfiltration Over C2 Channel",
+    "content": "Exfiltrating data through a Command and Control (C2) channel leverages the existing communication infrastructure between the attacker and the compromised system. Encryption and non-standard ports can enhance stealth, but anomalies in traffic patterns can still lead to detection."
+  }
+}
+
+
+{
+  "id": "exfiltration_003",
+  "title": "Exfiltration: Automated Exfiltration",
+  "tactic": "Exfiltration",
+  "description": "You decide to automate the exfiltration process to avoid triggering alarms by spreading out the data transfer over time. What method do you choose?",
+  "options": [
+    {
+      "id": "scheduled_transfer",
+      "text": "Set up a scheduled task to exfiltrate data at regular intervals",
+      "technique": "Automated Exfiltration",
+      "nextScenario": "exfiltration_006",
+      "consequence": "The data is exfiltrated gradually, reducing the risk of immediate detection, but the regular network activity might still be noticed over time."
+    },
+    {
+      "id": "automated_script",
+      "text": "Deploy an automated script to transfer small data chunks stealthily",
+      "technique": "Automated Exfiltration",
+      "nextScenario": "exfiltration_007",
+      "consequence": "The script exfiltrates data in small, less noticeable increments, but if detected, it could lead to an investigation."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Automated Exfiltration",
+    "content": "Automated exfiltration involves setting up processes that gradually transfer data from the target system to avoid detection. Techniques like scheduled tasks or automated scripts help reduce the chances of triggering security alerts but can still be discovered if patterns are observed."
+  }
+}
+
+
+{
+  "id": "exfiltration_004",
+  "title": "Exfiltration: Exfiltration Over Physical Medium",
+  "tactic": "Exfiltration",
+  "description": "You have physical access to the target system and decide to exfiltrate data using a physical medium. How do you proceed?",
+  "options": [
+    {
+      "id": "usb_drive",
+      "text": "Copy the data onto a USB drive",
+      "technique": "Exfiltration Over Physical Medium",
+      "nextScenario": "exfiltration_008",
+      "consequence": "The data is easily transferred, but the physical removal of the drive could be risky if the environment is monitored."
+    },
+    {
+      "id": "external_hard_drive",
+      "text": "Transfer the data to an external hard drive for larger storage capacity",
+      "technique": "Exfiltration Over Physical Medium",
+      "nextScenario": "exfiltration_009",
+      "consequence": "The external hard drive can store a large amount of data, but moving it out of the facility could draw attention, especially if security checks are in place."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exfiltration Over Physical Medium",
+    "content": "Exfiltrating data via physical media, such as USB drives or external hard drives, is effective for transferring large amounts of data but carries the risk of detection, particularly in secure environments with physical security measures."
+  }
+}
+
+
+{
+  "id": "exfiltration_005",
+  "title": "Exfiltration: Exfiltration Over Alternative Protocol",
+  "tactic": "Exfiltration",
+  "description": "To avoid detection, you decide to use an alternative network protocol to exfiltrate data. Which protocol do you use?",
+  "options": [
+    {
+      "id": "dns_tunneling",
+      "text": "Exfiltrate data using DNS tunneling",
+      "technique": "Exfiltration Over Alternative Protocol",
+      "nextScenario": "exfiltration_010",
+      "consequence": "The data is exfiltrated through DNS queries, bypassing many traditional monitoring tools, but high volumes of DNS traffic might be flagged as suspicious."
+    },
+    {
+      "id": "smtp_exfiltration",
+      "text": "Send data out via SMTP, disguising it as email traffic",
+      "technique": "Exfiltration Over Alternative Protocol",
+      "nextScenario": "exfiltration_011",
+      "consequence": "The data is exfiltrated as email attachments, but large attachments or frequent emails could be flagged by security tools monitoring email traffic."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Exfiltration Over Alternative Protocol",
+    "content": "Using alternative protocols, such as DNS tunneling or SMTP, allows attackers to exfiltrate data in a way that may bypass standard monitoring tools. However, unusual traffic patterns or large data volumes can still raise suspicions."
+  }
+}
+
+
+{
+  "id": "exfiltration_006",
+  "title": "Exfiltration: Exfiltration Over Web Service - Steganography",
+  "tactic": "Exfiltration",
+  "description": "You decide to use steganography to hide the exfiltrated data within images or files uploaded to a web service. What method do you choose?",
+  "options": [
+    {
+      "id": "image_steganography",
+      "text": "Hide the data within images and upload them to a photo-sharing site",
+      "technique": "Exfiltration Over Web Service",
+      "nextScenario": "exfiltration_012",
+      "consequence": "The data is well-hidden within images, making it difficult to detect, but the upload might still be flagged if the images are unusually large or frequent."
+    },
+    {
+      "id": "file_steganography",
+      "text": "Embed the data in benign files and upload them to a file-sharing service",
+      "technique": "Exfiltration Over Web Service",
+      "nextScenario": "exfiltration_013",
+      "consequence": "The data is embedded in files that appear normal, reducing the risk of detection, but any forensic analysis of the files could reveal the hidden data."
+    }
+  ],
+  "educationalContent": {
+    "title": "Understanding Steganography for Exfiltration",
+    "content": "Steganography involves hiding data within other seemingly benign files, such as images or documents."
+  }
+}
+
+    {
+        "id": "discovery_001",
+        "title": "Discovery: Network Service Scanning",
+        "tactic": "Discovery",
+        "description": "You need to identify services running on the target network to find potential entry points. How do you proceed?",
+        "options": [
+            {
+                "id": "port_scan",
+                "text": "Perform a basic port scan to identify open ports",
+                "technique": "Network Service Scanning",
+                "nextScenario": "discovery_002",
+                "consequence": "The port scan reveals several open ports, providing information about running services, but the scan could trigger security alerts if it generates a high volume of traffic."
+            },
+            {
+                "id": "stealth_scan",
+                "text": "Conduct a stealthy SYN scan to avoid detection",
+                "technique": "Network Service Scanning",
+                "nextScenario": "discovery_003",
+                "consequence": "The SYN scan helps identify open ports without completing the TCP handshake, reducing the risk of detection, but the scan might still be logged and reviewed."
+            }
+        ],
+        "educationalContent": {
+            "title": "Understanding Network Service Scanning",
+            "content": "Network service scanning involves probing a network to identify open ports and running services. Techniques like basic port scanning are effective but can be noisy, while stealth scans offer a quieter approach but still carry risks of detection."
+        }
+    }
+
+{
+        "id": "discovery_002",
+        "title": "Discovery: File and Directory Discovery",
+        "tactic": "Discovery",
+        "description": "You need to find sensitive files on the target system. How do you search for them?",
+        "options": [
+            {
+                "id": "manual_browsing",
+                "text": "Manually browse the file system for valuable information",
+                "technique": "File and Directory Discovery",
+                "nextScenario": "discovery_004",
+                "consequence": "You locate several valuable files through manual browsing, but your activity could be detected by monitoring tools that log access to critical directories."
+            },
+            {
+                "id": "automated_search",
+                "text": "Use an automated script to search for files containing keywords",
+                "technique": "File and Directory Discovery",
+                "nextScenario": "discovery_005",
+                "consequence": "The script efficiently finds files matching your criteria, but its activity might trigger alarms if it accesses multiple files quickly."
+            }
+        ],
+        "educationalContent": {
+            "title": "Understanding File and Directory Discovery",
+            "content": "File and directory discovery involves searching a compromised system for valuable files and information. Manual browsing is thorough but time-consuming, while automated scripts can speed up the process but carry higher risks of detection."
+        }
+    }
+
+ {
+        "id": "lateral_movement_001",
+        "title": "Lateral Movement: Remote Services",
+        "tactic": "Lateral Movement",
+        "description": "You want to move laterally within the target network by accessing remote services. Which service do you use?",
+        "options": [
+            {
+                "id": "ssh_access",
+                "text": "Use SSH to connect to another system",
+                "technique": "Remote Services",
+                "nextScenario": "lateral_movement_002",
+                "consequence": "You successfully connect via SSH, but your login attempt might be logged and reviewed by security analysts."
+            },
+            {
+                "id": "winrm_access",
+                "text": "Use Windows Remote Management (WinRM) to execute commands remotely",
+                "technique": "Remote Services",
+                "nextScenario": "lateral_movement_003",
+                "consequence": "WinRM allows you to execute commands on the target system, but unusual activity could trigger security alerts if WinRM is not commonly used in the environment."
+            }
+        ],
+        "educationalContent": {
+            "title": "Understanding Remote Services",
+            "content": "Lateral movement through remote services allows attackers to access other systems within a network. SSH and WinRM are common methods, each with its own risks and potential for detection."
+        }
+    }
+
+    {
+        "id": "lateral_movement_002",
+        "title": "Lateral Movement: Pass the Hash",
+        "tactic": "Lateral Movement",
+        "description": "You have obtained hashed credentials and decide to use them for lateral movement. How do you proceed?",
+        "options": [
+            {
+                "id": "use_hash_rdp",
+                "text": "Use the hash to authenticate via RDP",
+                "technique": "Pass the Hash",
+                "nextScenario": "lateral_movement_004",
+                "consequence": "You successfully authenticate and gain access to the target system, but using hashed credentials could be flagged by security tools."
+            },
+            {
+                "id": "use_hash_smb",
+                "text": "Use the hash to authenticate via SMB",
+                "technique": "Pass the Hash",
+                "nextScenario": "lateral_movement_005",
+                "consequence": "You connect to the remote system via SMB, gaining access to shared resources, but the activity might be logged and reviewed."
+            }
+        ],
+        "educationalContent": {
+            "title": "Understanding Pass the Hash",
+            "content": "Pass the Hash attacks involve using a password hash to authenticate to other systems, enabling lateral movement without needing the plaintext password. This method is effective but can be detected by security monitoring tools."
+        }
+    }
+
+ {
+        "id": "impact_001",
+        "title": "Impact: Data Destruction",
+        "tactic": "Impact",
+        "description": "You decide to cause disruption by destroying data on the target system. How do you proceed?",
+        "options": [
+            {
+                "id": "delete_files",
+                "text": "Delete critical files from the target system",
+                "technique": "Data Destruction",
+                "nextScenario": "impact_002",
+                "consequence": "The files are deleted, disrupting operations, but recovery from backups could minimize the impact."
+            },
+            {
+                "id": "overwrite_files",
+                "text": "Overwrite critical files with random data",
+                "technique": "Data Destruction",
+                "nextScenario": "impact_003",
+                "consequence": "The files are irrecoverably corrupted, causing significant disruption, but forensic analysis might reveal the attack vector."
+            }
+        ],
+        "educationalContent": {
+            "title": "Understanding Data Destruction",
+            "content": "Data destruction involves permanently deleting or corrupting files to disrupt operations. This method is effective but can be mitigated if the organization has robust backup and recovery processes."
+        }
+    }
+
+{
+        "id": "impact_002",
+        "title": "Impact: Disk Wipe",
+        "tactic": "Impact",
+        "description": "To maximize disruption, you decide to wipe the target's hard drives. What method do you use?",
+        "options": [
+            {
+                "id": "use_wiping_tool",
+                "text": "Deploy a disk-wiping tool to erase all data",
+                "technique": "Disk Wipe",
+                "nextScenario": "impact_004",
+                "consequence": "The tool erases the data, rendering the system unusable, but advanced recovery techniques might restore some data."
+            },
+            {
+                "id": "overwrite_disk",
+                "text": "Manually overwrite the disk sectors with random data",
+                "technique": "Disk Wipe",
+                "nextScenario": "impact_005",
+                "consequence": "The disk is thoroughly wiped, making recovery extremely difficult, but the process is time-consuming and could be interrupted."
+            }
+        ],
+        "educationalContent": {
+            "title": "Understanding Disk Wipe",
+            "content": "Disk wiping involves erasing all data on a hard drive, making it irrecoverable. This technique causes significant disruption, but the time required for wiping can vary depending on the method used."
+        }
+    }
 ]
