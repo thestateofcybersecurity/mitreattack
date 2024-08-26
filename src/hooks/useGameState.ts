@@ -10,7 +10,9 @@ const useGameState = (initialScenarios: Scenario[]) => {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
+    console.log("useGameState: scenarios updated", scenarios);
     if (scenarios.length > 0 && !currentScenario) {
+      console.log("Setting initial scenario", scenarios[0]);
       setCurrentScenario(scenarios[0]);
     }
   }, [scenarios, currentScenario]);
@@ -25,6 +27,7 @@ const useGameState = (initialScenarios: Scenario[]) => {
     setScore(prevScore => prevScore + calculateScore(choice.technique, currentScenario.tactic));
 
     const nextScenario = getNextScenario(scenarios, currentScenario, choice);
+    console.log("Setting next scenario", nextScenario);
     setCurrentScenario(nextScenario);
 
     if (nextScenario.options.length === 0) {
