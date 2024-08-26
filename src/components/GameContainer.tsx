@@ -30,11 +30,6 @@ const GameContainer: React.FC = () => {
       });
   }, []);
 
-  useEffect(() => {
-    console.log("Scenarios state updated:", scenarios);
-    console.log("Current scenario:", currentScenario);
-  }, [scenarios, currentScenario]);
-
   if (isLoading) {
     return <div>Loading scenarios...</div>;
   }
