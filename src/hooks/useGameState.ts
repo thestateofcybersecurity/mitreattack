@@ -26,16 +26,12 @@ const useGameState = (initialScenarios: Scenario[]) => {
     setGameHistory(prevHistory => [...prevHistory, choiceId]);
     setScore(prevScore => prevScore + calculateScore(choice.technique, currentScenario.tactic));
 
-    try {
-      const nextScenario = getNextScenario(scenarios, currentScenario, choice);
-      console.log("Setting next scenario", nextScenario);
-      setCurrentScenario(nextScenario);
+    const nextScenario = getNextScenario(scenarios, currentScenario, choice);
+    console.log("Setting next scenario", nextScenario);
+    setCurrentScenario(nextScenario);
 
-      if (nextScenario.options.length === 0) {
-        setGameOver(true);
-      }
-    } catch (error) {
-      console.error("Error getting next scenario:", error);
+    // Check if the game should end (you might want to add more conditions here)
+    if (nextScenario.options.length === 0) {
       setGameOver(true);
     }
   }, [currentScenario, scenarios]);
