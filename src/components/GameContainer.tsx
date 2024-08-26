@@ -19,6 +19,7 @@ const GameContainer: React.FC = () => {
         return response.json();
       })
       .then(data => {
+        console.log("Fetched scenarios:", data);
         setScenarios(data);
         setIsLoading(false);
       })
@@ -29,6 +30,11 @@ const GameContainer: React.FC = () => {
       });
   }, []);
 
+  useEffect(() => {
+    console.log("Scenarios state updated:", scenarios);
+    console.log("Current scenario:", currentScenario);
+  }, [scenarios, currentScenario]);
+
   if (isLoading) {
     return <div>Loading scenarios...</div>;
   }
@@ -38,7 +44,7 @@ const GameContainer: React.FC = () => {
   }
 
   if (!currentScenario) {
-    return <div>No scenario available. Please check your data.</div>;
+    return <div>No scenario available. Please check your data. Scenarios loaded: {scenarios.length}</div>;
   }
 
   return (
