@@ -4,10 +4,9 @@ import useGameState from '@/hooks/useGameState';
 import { Scenario } from '@/types';
 
 const GameContainer: React.FC = () => {
-  const [scenarios, setScenarios] = useState<Scenario[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { currentScenario, makeChoice, gameOver, score } = useGameState(scenarios);
+  const { currentScenario, makeChoice, gameOver, score, setScenarios } = useGameState([]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -28,7 +27,7 @@ const GameContainer: React.FC = () => {
         setError("Failed to load scenarios. Please try again later.");
         setIsLoading(false);
       });
-  }, []);
+  }, [setScenarios]);
 
   if (isLoading) {
     return <div>Loading scenarios...</div>;
@@ -39,7 +38,7 @@ const GameContainer: React.FC = () => {
   }
 
   if (!currentScenario) {
-    return <div>No scenario available. Please check your data. Scenarios loaded: {scenarios.length}</div>;
+    return <div>No scenario available. Please check your data.</div>;
   }
 
   return (
