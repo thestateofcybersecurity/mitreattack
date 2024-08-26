@@ -10,9 +10,10 @@ export default function handler(
     const dataDirectory = path.join(process.cwd(), 'src/data')
     const fileContents = fs.readFileSync(dataDirectory + '/scenarios.json', 'utf8')
     const scenarios = JSON.parse(fileContents)
+    console.log("API: Sending scenarios", scenarios);
     res.status(200).json(scenarios)
   } catch (error) {
-    console.error('Error reading scenarios:', error)
+    console.error('API: Error reading scenarios:', error)
     res.status(500).json({ error: 'Failed to load scenarios' })
   }
 }
