@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ScenarioRenderer from './ScenarioRenderer';
 import useGameState from '@/hooks/useGameState';
 import { Scenario } from '@/types';
-import '@/styles/custom.css';
 
 const GameContainer: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
