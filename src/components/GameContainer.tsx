@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import ScenarioRenderer from './ScenarioRenderer';
 import useGameState from '@/hooks/useGameState';
 import { Scenario } from '@/types';
+import '@/styles/custom.css';
 
 const GameContainer: React.FC = () => {
   const [scenarios, setScenarios] = useState<Scenario[]>([]);
   const { currentScenario, makeChoice, gameOver, score } = useGameState(scenarios);
+  const [eventNotification, setEventNotification] = useState<string | null>(null);
 
   useEffect(() => {
     fetch('/api/scenarios')
@@ -15,23 +17,34 @@ const GameContainer: React.FC = () => {
       });
   }, []);
 
+  useEffect(() => {
+    if (currentScenario?.description.includes("Random Event:")) {
+      const [_, event] = currentScenario.description.split("Random Event:");
+      setEventNotification(event.trim());
+      setTimeout(() => setEventNotification(null), 5000);
+    }
+  }, [currentScenario]);
+
   if (!currentScenario) {
-    return <div>Loading...</div>;
+    return <div className="game-container">Loading...</div>;
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">MITRE ATT&CK: Choose Your Own Adventure</h1>
+    <div className="game-container">
+      <h1>Cybersecurity Adventure</h1>
       <ScenarioRenderer scenario={currentScenario} onChoiceMade={makeChoice} />
-      <div className="mt-4">
-        <p className="font-bold">Current Score: {score}</p>
-        {gameOver && (
-          <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-            <p className="font-bold">Game Over!</p>
-            <p>Your final score: {score}</p>
-          </div>
-        )}
+      <div className={`event-notification ${eventNotification ? 'visible' : ''}`}>
+        {eventNotification}
       </div>
+      <div className="score-display">
+        Current Score: {score}
+      </div>
+      {gameOver && (
+        <div className="game-over">
+          <p>Game Over!</p>
+          <p>Your final score: {score}</p>
+        </div>
+      )}
     </div>
   );
 };
