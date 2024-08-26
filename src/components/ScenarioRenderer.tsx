@@ -9,29 +9,62 @@ interface ScenarioRendererProps {
 const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceMade }) => {
   return (
     <div>
-      <h2>{scenario.title}</h2>
-      <div className="scenario-text">
+      <h2 style={styles.title}>{scenario.title}</h2>
+      <div style={styles.scenarioText}>
         {scenario.description.split("Random Event:")[0]}
       </div>
-      <div className="options">
+      <div style={styles.options}>
         {scenario.options.map((option: Option) => (
           <button
             key={option.id}
             onClick={() => onChoiceMade(option.id)}
-            className="option-button"
+            style={styles.optionButton}
           >
             {option.text}
           </button>
         ))}
       </div>
       {scenario.educationalContent && (
-        <div className="educational-content">
-          <h3>{scenario.educationalContent.title}</h3>
+        <div style={styles.educationalContent}>
+          <h3 style={styles.educationalTitle}>{scenario.educationalContent.title}</h3>
           <p>{scenario.educationalContent.content}</p>
         </div>
       )}
     </div>
   );
+};
+
+const styles = {
+  title: {
+    fontSize: '1.5em',
+    marginBottom: '10px',
+  },
+  scenarioText: {
+    marginBottom: '20px',
+  },
+  options: {
+    display: 'flex' as const,
+    flexDirection: 'column' as const,
+  },
+  optionButton: {
+    padding: '10px',
+    margin: '5px 0',
+    backgroundColor: '#444',
+    border: 'none',
+    borderRadius: '5px',
+    color: '#f0f0f0',
+    cursor: 'pointer',
+  },
+  educationalContent: {
+    marginTop: '20px',
+    padding: '10px',
+    backgroundColor: '#333',
+    borderRadius: '5px',
+  },
+  educationalTitle: {
+    fontSize: '1.2em',
+    marginBottom: '5px',
+  },
 };
 
 export default ScenarioRenderer;
