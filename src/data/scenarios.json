@@ -186,8 +186,7 @@
     "title": "Understanding Initial Access",
     "content": "Initial Access is a crucial part of the attack lifecycle. The Phishing technique helps in this process by allowing you to..."
   }
-}
-
+},
 
 {
   "id": "initial_access_drive-by_compromise",
@@ -214,8 +213,7 @@
     "title": "Understanding Initial Access",
     "content": "Initial Access is a crucial part of the attack lifecycle. The Drive-by Compromise technique helps in this process by allowing you to..."
   }
-}
-
+},
 
 {
   "id": "initial_access_exploit_public-facing_application",
@@ -242,8 +240,7 @@
     "title": "Understanding Initial Access",
     "content": "Initial Access is a crucial part of the attack lifecycle. The Exploit Public-Facing Application technique helps in this process by allowing you to..."
   }
-}
-
+},
 
 {
   "id": "execution_command_and_scripting_interpreter",
@@ -270,7 +267,7 @@
     "title": "Understanding Execution",
     "content": "Execution is a crucial part of the attack lifecycle. The Command and Scripting Interpreter technique helps in this process by allowing you to..."
   }
-}
+},
 
 {
   "id": "defense_evasion_001",
@@ -297,8 +294,7 @@
     "title": "Understanding Access Token Manipulation",
     "content": "Access Token Manipulation involves using tokens to bypass security checks, often by impersonating a legitimate user or escalating privileges. This technique can be highly effective but carries risks if the impersonated user is monitored."
   }
-}
-
+},
 
 {
   "id": "defense_evasion_002",
@@ -325,8 +321,7 @@
     "title": "Understanding BITS Jobs",
     "content": "BITS Jobs are commonly used for background downloads in Windows. Attackers can abuse this service to download and execute malicious files with minimal visibility."
   }
-}
-
+},
 
 {
   "id": "defense_evasion_003",
@@ -353,8 +348,7 @@
     "title": "Understanding Obfuscation Techniques",
     "content": "Obfuscation is used to make code difficult to understand and analyze, helping to evade detection by security tools. Techniques include string obfuscation, using packers, and code encryption."
   }
-}
-
+},
 
 {
   "id": "defense_evasion_004",
@@ -381,8 +375,7 @@
     "title": "Understanding Masquerading",
     "content": "Masquerading involves making malicious processes or files appear legitimate by altering names, paths, or other attributes. This technique can be effective in bypassing basic security checks."
   }
-}
-
+},
 
 {
   "id": "defense_evasion_005",
@@ -409,7 +402,7 @@
     "title": "Understanding Defense Evasion Techniques",
     "content": "Disabling or modifying security tools can help attackers avoid detection, but these actions often leave traces that can lead to discovery."
   }
-}
+},
 
 {
   "id": "persistence_001",
@@ -436,8 +429,7 @@
     "title": "Understanding Account Manipulation",
     "content": "Account manipulation involves creating or modifying accounts to maintain access to a system. This technique is effective but can leave traces that might be discovered by security audits."
   }
-}
-
+},
 
 {
   "id": "persistence_002",
@@ -464,8 +456,7 @@
     "title": "Understanding Boot or Logon Autostart Execution",
     "content": "This technique ensures that malicious code is executed automatically when the system boots or a user logs in. Common methods include modifying logon scripts or registry keys."
   }
-}
-
+},
 
 {
   "id": "persistence_003",
@@ -492,8 +483,7 @@
     "title": "Understanding Scheduled Task/Job",
     "content": "Scheduled tasks or jobs can be used to execute malicious code at specific times or intervals, providing a reliable method for maintaining persistence on a compromised system."
   }
-}
-
+},
 
 {
   "id": "persistence_004",
@@ -520,8 +510,7 @@
     "title": "Understanding Create or Modify System Process",
     "content": "This technique involves creating or modifying system processes to maintain persistence on a target system. While effective, it can be detected if the changes are scrutinized."
   }
-}
-
+},
 
 {
   "id": "persistence_005",
@@ -548,7 +537,7 @@
     "title": "Understanding Implant Internal Image",
     "content": "Implanting a malicious internal image ensures that your code is embedded within the system, allowing for long-term persistence. This technique can be difficult to detect unless images are carefully verified."
   }
-}
+},
 
 {
   "id": "credential_access_001",
@@ -575,8 +564,7 @@
     "title": "Understanding Brute Force Attacks",
     "content": "Brute force attacks involve trying many possible combinations to guess a password. Online attacks are quicker but risk detection, while offline attacks are stealthier but require more resources."
   }
-}
-
+},
 
 {
   "id": "credential_access_002",
@@ -603,8 +591,7 @@
     "title": "Understanding Credential Dumping",
     "content": "Credential dumping involves extracting credentials from a system's memory, often using tools like Mimikatz or ProcDump. These techniques are effective but can trigger security alerts."
   }
-}
-
+},
 
 {
   "id": "credential_access_003",
@@ -631,8 +618,7 @@
     "title": "Understanding Keylogging",
     "content": "Keylogging captures keystrokes to obtain credentials or other sensitive information. Software keyloggers are easier to deploy but risk detection, while hardware keyloggers are stealthier but require physical access."
   }
-}
-
+},
 
 {
   "id": "credential_access_004",
@@ -659,8 +645,7 @@
     "title": "Understanding Phishing for Credentials",
     "content": "Phishing attacks trick users into providing their credentials by mimicking legitimate services. Spear-phishing targets specific individuals, often with more success but at greater risk."
   }
-}
-
+},
 
 {
   "id": "credential_access_005",
@@ -687,7 +672,7 @@
     "title": "Understanding Network Sniffing",
     "content": "Network sniffing involves capturing data packets as they travel across a network, often to obtain credentials. Techniques like ARP spoofing and man-in-the-middle attacks can be effective but risky."
   }
-}
+},
 
 {
   "id": "exfiltration_001",
@@ -714,8 +699,7 @@
     "title": "Understanding Automated Exfiltration",
     "content": "Automated exfiltration involves using scripts or scheduled tasks to transfer data from a compromised system over time. This method reduces the risk of detection by spreading out the data transfer."
   }
-}
-
+},
 
 {
   "id": "exfiltration_002",
@@ -742,8 +726,7 @@
     "title": "Understanding Exfiltration Over Web Service",
     "content": "Exfiltration over web services involves using legitimate platforms, such as cloud storage or social media, to transfer data. This method can be effective but carries the risk of detection if unusual patterns are observed."
   }
-}
-
+},
 
 {
   "id": "exfiltration_003",
@@ -770,8 +753,7 @@
     "title": "Understanding Exfiltration Over Alternative Protocol",
     "content": "Exfiltration over alternative protocols, such as DNS or SMTP, is a technique used to avoid detection by bypassing common monitoring systems. However, these methods can still raise suspicion if not carefully managed."
   }
-}
-
+},
 
 {
   "id": "exfiltration_004",
@@ -798,8 +780,7 @@
     "title": "Understanding Exfiltration Over C2 Channel",
     "content": "Exfiltrating data over a C2 channel involves using the command and control infrastructure established for the attack. Encryption and non-standard ports can help avoid detection but carry risks if the traffic is analyzed."
   }
-}
-
+},
 
 {
   "id": "exfiltration_005",
@@ -826,7 +807,7 @@
     "title": "Understanding Exfiltration Over Physical Medium",
     "content": "Exfiltration over physical media involves copying data onto devices such as USB drives or external hard drives. This method is effective but requires physical access and carries the risk of detection during transport."
   }
-}
+},
 
 {
   "id": "impact_001",
@@ -853,8 +834,7 @@
     "title": "Understanding Data Destruction",
     "content": "Data destruction involves permanently deleting or corrupting files to disrupt operations. While effective, organizations with robust backup systems may recover quickly, limiting the impact."
   }
-}
-
+},
 
 {
   "id": "impact_002",
@@ -881,8 +861,7 @@
     "title": "Understanding Disk Wipe",
     "content": "Disk wiping involves erasing all data on a hard drive, making it irrecoverable. This technique causes significant disruption, but the time required for wiping can vary depending on the method used."
   }
-}
-
+},
 
 {
   "id": "impact_003",
@@ -909,8 +888,7 @@
     "title": "Understanding Data Encryption for Impact",
     "content": "Encrypting data to cause impact involves locking files with encryption keys, rendering them inaccessible. Ransomware attacks often use this technique, demanding payment for decryption."
   }
-}
-
+},
 
 {
   "id": "impact_004",
@@ -937,8 +915,7 @@
     "title": "Understanding Endpoint Denial of Service",
     "content": "Endpoint denial of service (DoS) attacks render target systems unusable by overwhelming them with traffic or exploiting vulnerabilities. These attacks can cause significant disruption but may also trigger a rapid defensive response."
   }
-}
-
+},
 
 {
   "id": "impact_005",
@@ -965,8 +942,7 @@
     "title": "Understanding Defacement",
     "content": "Website defacement is an attack that alters the appearance of a website, often for the purpose of delivering a message or causing reputational damage. While impactful, such attacks are often quickly mitigated."
   }
-}
-
+},
 
 {
   "id": "impact_006",
@@ -993,7 +969,7 @@
     "title": "Understanding Inhibit System Recovery",
     "content": "Inhibiting system recovery is a tactic that aims to prolong the impact of an attack by preventing the target from restoring their systems quickly. Common methods include deleting backups and disabling recovery tools."
   }
-}
+},
 
 {
   "id": "lateral_movement_001",
@@ -1020,8 +996,7 @@
     "title": "Understanding Exploitation of Remote Services",
     "content": "Exploiting remote services, such as RDP or SMB, allows attackers to move laterally within a network. These services are often targets due to their widespread use, but exploiting them can trigger security alerts."
   }
-}
-
+},
 
 {
   "id": "lateral_movement_002",
@@ -1048,8 +1023,7 @@
     "title": "Understanding Pass the Hash",
     "content": "Pass the Hash attacks involve using the hashed version of a password to authenticate to other systems, allowing lateral movement without needing to crack the hash. However, such activity is often monitored and can be detected."
   }
-}
-
+},
 
 {
   "id": "lateral_movement_003",
@@ -1076,8 +1050,7 @@
     "title": "Understanding Remote Services",
     "content": "Remote services like SSH and WinRM are often used by administrators to manage systems, but they can also be exploited by attackers for lateral movement. Such actions are usually logged, which can lead to detection."
   }
-}
-
+},
 
 {
   "id": "lateral_movement_004",
@@ -1104,8 +1077,7 @@
     "title": "Understanding Internal Spear Phishing",
     "content": "Internal spear phishing targets specific individuals within an organization, often using carefully crafted emails to gain access to sensitive systems. While effective, such attacks can attract scrutiny, especially if high-level individuals are targeted."
   }
-}
-
+},
 
 {
   "id": "lateral_movement_005",
@@ -1132,8 +1104,7 @@
     "title": "Understanding Tainting Shared Content",
     "content": "Tainting shared content involves injecting malicious code into files or resources that are commonly accessed by other systems, enabling lateral movement when those files are opened or used. This technique can be effective but also carries a high risk of detection."
   }
-}
-
+},
 
 {
   "id": "lateral_movement_006",
@@ -1160,7 +1131,7 @@
     "title": "Understanding Lateral Tool Transfer",
     "content": "Lateral tool transfer involves moving attack tools from one compromised system to another within the network, typically using methods like PowerShell Remoting or network shares. This activity is often logged, and careful monitoring can detect such movements."
   }
-}
+},
 
 {
   "id": "initial_access_001",
@@ -1187,8 +1158,7 @@
     "title": "Understanding Phishing",
     "content": "Phishing involves sending fraudulent communications, often emails, that appear to come from a reputable source. It\u2019s a common technique for gaining initial access, but its effectiveness can vary depending on the target's security awareness."
   }
-}
-
+},
 
 {
   "id": "initial_access_002",
@@ -1215,8 +1185,7 @@
     "title": "Understanding Exploitation of Public-Facing Applications",
     "content": "Public-facing applications are often targeted by attackers due to their accessibility. Common methods include SQL injection and remote code execution, both of which can provide deep access to systems if successful."
   }
-}
-
+},
 
 {
   "id": "initial_access_003",
@@ -1243,8 +1212,7 @@
     "title": "Understanding Drive-by Compromise",
     "content": "Drive-by compromises involve delivering malware through compromised websites or malicious advertisements. This technique can be highly effective, particularly if the target frequently visits the compromised site."
   }
-}
-
+},
 
 {
   "id": "initial_access_004",
@@ -1271,8 +1239,7 @@
     "title": "Understanding Supply Chain Compromise",
     "content": "Supply chain compromises involve infiltrating an organization by attacking a trusted third-party supplier. This method can be particularly effective as it exploits the trust between the target and the supplier."
   }
-}
-
+},
 
 {
   "id": "initial_access_005",
@@ -1299,7 +1266,7 @@
     "title": "Understanding Trusted Relationship",
     "content": "Trusted relationships within an organization, such as those with vendors or employees, can be exploited to gain access. This method relies on the existing trust and can be difficult to detect until it's too late."
   }
-}
+},
 
 {
   "id": "persistence_001",
@@ -1326,8 +1293,7 @@
     "title": "Understanding Account Manipulation",
     "content": "Account manipulation involves creating new accounts or altering existing ones to maintain unauthorized access. This technique can be effective but is often detectable during audits or by vigilant administrators."
   }
-}
-
+},
 
 {
   "id": "persistence_002",
@@ -1354,8 +1320,7 @@
     "title": "Understanding Boot or Logon Autostart Execution",
     "content": "This technique ensures that malicious code is executed automatically when the system boots or a user logs in. Common methods include modifying logon scripts or registry keys, both of which can be monitored."
   }
-}
-
+},
 
 {
   "id": "persistence_003",
@@ -1382,8 +1347,7 @@
     "title": "Understanding Scheduled Task/Job",
     "content": "Scheduled tasks or jobs can be used to execute malicious code at specific times or intervals, providing a reliable method for maintaining persistence. However, these tasks are often monitored by system administrators."
   }
-}
-
+},
 
 {
   "id": "persistence_004",
@@ -1410,8 +1374,7 @@
     "title": "Understanding Create or Modify System Process",
     "content": "This technique involves creating or modifying system processes to maintain persistence on a target system. While effective, it can be detected if the changes are scrutinized."
   }
-}
-
+},
 
 {
   "id": "persistence_005",
@@ -1438,8 +1401,8 @@
     "title": "Understanding Implant Internal Image",
     "content": "Implanting a malicious internal image ensures that your code is embedded within the system, allowing for long-term persistence. This technique can be difficult to detect unless images are carefully verified."
   }
-}
-
+},
+  
 {
   "id": "command_control_001",
   "title": "Command and Control: Encrypted Channel",
@@ -1465,8 +1428,7 @@
     "title": "Understanding Encrypted Channels",
     "content": "Encrypted channels, such as those using HTTPS or TLS, help attackers secure their communications with compromised systems, making it harder for defenders to detect malicious traffic. However, anomalies in traffic patterns can still raise suspicions."
   }
-}
-
+},
 
 {
   "id": "command_control_002",
@@ -1493,8 +1455,7 @@
     "title": "Understanding Domain Fronting",
     "content": "Domain fronting is a technique that hides the true destination of network traffic by masking it with a different domain, often a legitimate one. This method is effective for bypassing security controls but can be risky if the fronting domain is closely monitored."
   }
-}
-
+},
 
 {
   "id": "command_control_003",
@@ -1521,8 +1482,7 @@
     "title": "Understanding Non-Standard Ports",
     "content": "Using non-standard ports can help attackers avoid detection by network monitoring tools that focus on common ports. However, unusual activity on these ports can still raise suspicions, especially if the traffic does not match typical patterns."
   }
-}
-
+},
 
 {
   "id": "command_control_004",
@@ -1549,8 +1509,7 @@
     "title": "Understanding Multi-Stage Channels",
     "content": "Multi-stage command and control channels involve routing traffic through multiple stages, such as proxy chains or rotating between different C2 servers. These methods increase stealth but also add complexity and potential points of failure."
   }
-}
-
+},
 
 {
   "id": "command_control_005",
@@ -1577,8 +1536,7 @@
     "title": "Understanding Ingress Tool Transfer",
     "content": "Ingress tool transfer involves bringing tools into the target environment to facilitate further exploitation. Techniques like DNS tunneling or using HTTP help avoid detection, but they also carry risks, especially if the transferred data stands out in network traffic."
   }
-}
-
+},
 
 {
   "id": "command_control_006",
@@ -1605,7 +1563,7 @@
     "title": "Understanding Fallback Channels",
     "content": "Fallback channels are backup communication methods that ensure command and control persists even if the primary channel is disrupted. Using SMS or social media can be effective but comes with limitations and risks of detection."
   }
-}
+},
 
 {
   "id": "exfiltration_001",
@@ -1632,8 +1590,7 @@
     "title": "Understanding Exfiltration Over Web Service",
     "content": "Exfiltration over web services involves using legitimate platforms, such as cloud storage or social media, to transfer stolen data. While these methods can be effective in hiding malicious activity, they carry the risk of detection if the data transfer is flagged as suspicious."
   }
-}
-
+},
 
 {
   "id": "exfiltration_002",
@@ -1660,8 +1617,7 @@
     "title": "Understanding Exfiltration Over C2 Channel",
     "content": "Exfiltrating data through a Command and Control (C2) channel leverages the existing communication infrastructure between the attacker and the compromised system. Encryption and non-standard ports can enhance stealth, but anomalies in traffic patterns can still lead to detection."
   }
-}
-
+},
 
 {
   "id": "exfiltration_003",
@@ -1688,8 +1644,7 @@
     "title": "Understanding Automated Exfiltration",
     "content": "Automated exfiltration involves setting up processes that gradually transfer data from the target system to avoid detection. Techniques like scheduled tasks or automated scripts help reduce the chances of triggering security alerts but can still be discovered if patterns are observed."
   }
-}
-
+},
 
 {
   "id": "exfiltration_004",
@@ -1716,8 +1671,7 @@
     "title": "Understanding Exfiltration Over Physical Medium",
     "content": "Exfiltrating data via physical media, such as USB drives or external hard drives, is effective for transferring large amounts of data but carries the risk of detection, particularly in secure environments with physical security measures."
   }
-}
-
+},
 
 {
   "id": "exfiltration_005",
@@ -1744,8 +1698,7 @@
     "title": "Understanding Exfiltration Over Alternative Protocol",
     "content": "Using alternative protocols, such as DNS tunneling or SMTP, allows attackers to exfiltrate data in a way that may bypass standard monitoring tools. However, unusual traffic patterns or large data volumes can still raise suspicions."
   }
-}
-
+},
 
 {
   "id": "exfiltration_006",
@@ -1772,14 +1725,14 @@
     "title": "Understanding Steganography for Exfiltration",
     "content": "Steganography involves hiding data within other seemingly benign files, such as images or documents."
   }
-}
-
-    {
-        "id": "discovery_001",
-        "title": "Discovery: Network Service Scanning",
-        "tactic": "Discovery",
-        "description": "You need to identify services running on the target network to find potential entry points. How do you proceed?",
-        "options": [
+},
+  
+  {
+      "id": "discovery_001",
+      "title": "Discovery: Network Service Scanning",
+      "tactic": "Discovery",
+      "description": "You need to identify services running on the target network to find potential entry points. How do you proceed?",
+      "options": [
             {
                 "id": "port_scan",
                 "text": "Perform a basic port scan to identify open ports",
@@ -1799,7 +1752,7 @@
             "title": "Understanding Network Service Scanning",
             "content": "Network service scanning involves probing a network to identify open ports and running services. Techniques like basic port scanning are effective but can be noisy, while stealth scans offer a quieter approach but still carry risks of detection."
         }
-    }
+    },
 
 {
         "id": "discovery_002",
@@ -1826,7 +1779,7 @@
             "title": "Understanding File and Directory Discovery",
             "content": "File and directory discovery involves searching a compromised system for valuable files and information. Manual browsing is thorough but time-consuming, while automated scripts can speed up the process but carry higher risks of detection."
         }
-    }
+    },
 
  {
         "id": "lateral_movement_001",
@@ -1853,7 +1806,7 @@
             "title": "Understanding Remote Services",
             "content": "Lateral movement through remote services allows attackers to access other systems within a network. SSH and WinRM are common methods, each with its own risks and potential for detection."
         }
-    }
+    },
 
     {
         "id": "lateral_movement_002",
@@ -1880,7 +1833,7 @@
             "title": "Understanding Pass the Hash",
             "content": "Pass the Hash attacks involve using a password hash to authenticate to other systems, enabling lateral movement without needing the plaintext password. This method is effective but can be detected by security monitoring tools."
         }
-    }
+    },
 
  {
         "id": "impact_001",
@@ -1907,7 +1860,7 @@
             "title": "Understanding Data Destruction",
             "content": "Data destruction involves permanently deleting or corrupting files to disrupt operations. This method is effective but can be mitigated if the organization has robust backup and recovery processes."
         }
-    }
+    },
 
 {
         "id": "impact_002",
