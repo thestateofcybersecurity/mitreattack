@@ -22,20 +22,18 @@ export const getNextScenario = (scenarios: Scenario[], currentScenario: Scenario
 
     if (event) {
         if (event.includes("increased_security")) {
-            // Adjust the next scenario based on increased security
             nextScenarioId = adjustScenarioForIncreasedSecurity(nextScenarioId);
         } else if (event.includes("detection_alert")) {
-            // Force a move to a defensive scenario
             nextScenarioId = getDefensiveScenario(scenarios);
         } else if (event.includes("system_update")) {
-            // Potentially disrupt the attacker's plans
             nextScenarioId = adjustScenarioForSystemUpdate(nextScenarioId);
         }
     }
 
     const nextScenario = scenarios.find(s => s.id === nextScenarioId);
     if (!nextScenario) {
-        throw new Error(`Next scenario not found: ${nextScenarioId}`);
+        console.warn(`Next scenario not found: ${nextScenarioId}. Returning a random scenario.`);
+        return scenarios[Math.floor(Math.random() * scenarios.length)];
     }
 
     return {
