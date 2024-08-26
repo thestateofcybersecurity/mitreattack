@@ -30,10 +30,12 @@ export const getNextScenario = (scenarios: Scenario[], currentScenario: Scenario
         }
     }
 
-    const nextScenario = scenarios.find(s => s.id === nextScenarioId);
+    let nextScenario = scenarios.find(s => s.id === nextScenarioId);
     if (!nextScenario) {
-        console.warn(`Next scenario not found: ${nextScenarioId}. Returning a random scenario.`);
-        return scenarios[Math.floor(Math.random() * scenarios.length)];
+        console.warn(`Next scenario not found: ${nextScenarioId}. Continuing with the current scenario.`);
+        nextScenario = { ...currentScenario };
+        // Optionally, you could modify the scenario here to reflect the choice made
+        nextScenario.description = `${nextScenario.description}\n\nYou chose: ${chosenOption.text}`;
     }
 
     return {
