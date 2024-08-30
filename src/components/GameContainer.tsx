@@ -6,7 +6,15 @@ import { executeChoice, getNextScenario, calculateScore } from '@/utils/gameLogi
 import { Scenario, HackerSkills } from '@/types';
 
 const GameContainer: React.FC = () => {
-  const { currentScenario, setCurrentScenario, gameOver, score, setScore, hackerSkills } = useGameState(scenarios);
+  const { 
+    currentScenario, 
+    setCurrentScenario, 
+    gameOver, 
+    setGameOver,  // Add this line
+    score, 
+    setScore, 
+    hackerSkills 
+  } = useGameState(scenarios);
   const [rollResult, setRollResult] = useState<any>(null);
 
   const makeChoice = (choiceId: string) => {
