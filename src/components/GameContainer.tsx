@@ -16,7 +16,7 @@ const GameContainer: React.FC = () => {
   const [hackerSkills, setHackerSkills] = useState<HackerSkills | null>(null);
   const [showSkillSheet, setShowSkillSheet] = useState(true);
   const [previousScenario, setPreviousScenario] = useState<Scenario | null>(null);
-  const [skillIncrease, setSkillIncrease] = useState<{skill: keyof HackerSkills, increase: number} | null>(null);
+  const [skillIncrease, setSkillIncrease] = useState<{skill: string, increase: number} | null>(null);
 
   useEffect(() => {
     const skills = localStorage.getItem('hackerSkills');
@@ -128,7 +128,7 @@ const GameContainer: React.FC = () => {
     return <div className="text-cyberGreen">Loading game...</div>;
   }
 
-return (
+  return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
       <ScenarioRenderer
         scenario={currentScenario}
