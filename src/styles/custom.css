@@ -1,7 +1,0 @@
-.event-notification {
-    display: none;
-}
-
-.event-notification.visible {
-    display: block;
-}
