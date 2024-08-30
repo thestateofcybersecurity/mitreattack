@@ -43,7 +43,7 @@ export const getNextScenario = (
 
 export const createRedAlertScenario = (currentScenario: Scenario): Scenario => {
   return {
-    id: `${currentScenario.id}_alert`,
+    id: currentScenario.id * 100 + 1, // Create a unique id based on the current scenario
     name: "Red Alert: Detection Imminent",
     description: "Your last action has triggered security systems. Act fast to avoid detection!",
     phase: currentScenario.phase,
