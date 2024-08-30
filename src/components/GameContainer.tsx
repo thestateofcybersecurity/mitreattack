@@ -6,7 +6,7 @@ import HackerSkillSheet from '@/components/HackerSkillSheet';
 import useGameState from '@/hooks/useGameState';
 import scenarios from '@/data/scenarios';
 import { executeChoice, getNextScenario, createRedAlertScenario, calculateScore } from '@/utils/gameLogic';
-import { HackerSkills } from '@/types';
+import { HackerSkills, Scenario } from '@/types';
 
 const GameContainer: React.FC = () => {
   const router = useRouter();
@@ -44,7 +44,7 @@ const GameContainer: React.FC = () => {
         setTimeout(() => {
           setCurrentScenario(nextScenario);
           setRollResult(null);
-        }, 3000);
+        }, 5000);
       } else {
         setGameOver(true);
       }
@@ -53,13 +53,15 @@ const GameContainer: React.FC = () => {
       setTimeout(() => {
         setCurrentScenario(redAlertScenario);
         setRollResult(null);
-      }, 3000);
+      }, 5000);
     }
   };
 
   const handleRedAlertChoice = (choiceId: string) => {
-    const choice = currentScenario?.choices.find(c => c.id === choiceId);
-    if (!choice || !hackerSkills) return;
+    if (!currentScenario || !hackerSkills) return;
+
+    const choice = currentScenario.choices.find(c => c.id === choiceId);
+    if (!choice) return;
 
     const skillLevel = hackerSkills[currentScenario.phase];
     const result = executeChoice(choice, skillLevel);
@@ -79,7 +81,7 @@ const GameContainer: React.FC = () => {
         setGameOver(true);
       }
       setRollResult(null);
-    }, 3000);
+    }, 5000);
   };
 
   const restartGame = () => {
