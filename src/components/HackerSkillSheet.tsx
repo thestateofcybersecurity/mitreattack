@@ -9,6 +9,7 @@ const initialSkillPoints = 20;
 
 const skills: { name: string; key: keyof HackerSkills }[] = [
   { name: 'Reconnaissance', key: 'reconnaissance' },
+  { name: 'Resource Development', key: 'resourceDevelopment' },
   { name: 'Initial Access', key: 'initialAccess' },
   { name: 'Execution', key: 'execution' },
   { name: 'Persistence', key: 'persistence' },
