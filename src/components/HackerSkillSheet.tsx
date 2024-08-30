@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { HackerSkills } from '@/types';
 
-const initialSkillPoints = 10;
+const initialSkillPoints = 20; // Increased due to more skills
 
 const skills: { name: string; key: keyof HackerSkills }[] = [
+    { name: 'Reconnaissance', key: 'reconnaissance' },
+    { name: 'Resource Development', key: 'resourceDevelopment' },
     { name: 'Initial Access', key: 'initialAccess' },
     { name: 'Execution', key: 'execution' },
     { name: 'Persistence', key: 'persistence' },
@@ -14,6 +16,7 @@ const skills: { name: string; key: keyof HackerSkills }[] = [
     { name: 'Discovery', key: 'discovery' },
     { name: 'Lateral Movement', key: 'lateralMovement' },
     { name: 'Collection', key: 'collection' },
+    { name: 'Command and Control', key: 'commandAndControl' },
     { name: 'Exfiltration', key: 'exfiltration' },
     { name: 'Impact', key: 'impact' },
 ];
@@ -21,20 +24,7 @@ const skills: { name: string; key: keyof HackerSkills }[] = [
 const HackerSkillSheet: React.FC = () => {
     const [skillPoints, setSkillPoints] = useState(initialSkillPoints);
     const [skillDistribution, setSkillDistribution] = useState<HackerSkills>(() => {
-        const initial: HackerSkills = {
-            initialAccess: 0,
-            execution: 0,
-            persistence: 0,
-            privilegeEscalation: 0,
-            defenseEvasion: 0,
-            credentialAccess: 0,
-            discovery: 0,
-            lateralMovement: 0,
-            collection: 0,
-            exfiltration: 0,
-            impact: 0,
-        };
-        return initial;
+        return skills.reduce((acc, skill) => ({ ...acc, [skill.key]: 0 }), {} as HackerSkills);
     });
 
     const router = useRouter();
@@ -59,7 +49,7 @@ const HackerSkillSheet: React.FC = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-6 bg-gray-800 rounded-lg shadow-lg">
+        <div className="max-w-3xl mx-auto p-6 bg-gray-800 rounded-lg shadow-lg">
             <h1 className="text-3xl font-bold mb-6 text-white">Hacker Skill Sheet</h1>
             <p className="mb-4 text-gray-300">Assign your skill points. Remaining points: {skillPoints}</p>
             <ul className="space-y-4">
