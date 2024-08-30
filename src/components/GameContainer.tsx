@@ -37,7 +37,7 @@ const GameContainer: React.FC = () => {
     
     setHackerSkills(updatedSkills);
     localStorage.setItem('hackerSkills', JSON.stringify(updatedSkills));
-    setSkillIncrease({skill: phase, increase});
+    setSkillIncrease({skill: String(phase), increase});
   };
 
   const makeChoice = (choiceId: string) => {
