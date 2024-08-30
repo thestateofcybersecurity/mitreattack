@@ -23,6 +23,8 @@ const GameContainer: React.FC = () => {
   const [previousScenario, setPreviousScenario] = useState<Scenario | null>(null);
   const [skillIncrease, setSkillIncrease] = useState<{skill: string, increase: number} | null>(null);
   const [choicesLocked, setChoicesLocked] = useState(false);
+  const [playerName, setPlayerName] = useState<string>('');
+  const [showNamePrompt, setShowNamePrompt] = useState<boolean>(false);
 
   useEffect(() => {
     const skills = localStorage.getItem('hackerSkills');
@@ -127,6 +129,30 @@ const GameContainer: React.FC = () => {
     // We don't reset hackerSkills here to keep them persistent
   };
 
+  const handleGameOver = async () => {
+    setShowNamePrompt(true);
+  };
+
+  const submitScore = async () => {
+    if (playerName) {
+      try {
+        const response = await fetch('/api/high-scores', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name: playerName, score }),
+        });
+        if (!response.ok) {
+          throw new Error('Failed to submit score');
+        }
+      } catch (error) {
+        console.error('Error submitting score:', error);
+      }
+    }
+    setShowNamePrompt(false);
+  };
+
   const onSkillsConfirmed = (skills: HackerSkills) => {
     setHackerSkills(skills);
     localStorage.setItem('hackerSkills', JSON.stringify(skills));
@@ -135,6 +161,8 @@ const GameContainer: React.FC = () => {
 
   if (showSkillSheet || !hackerSkills) {
     return <HackerSkillSheet onConfirm={onSkillsConfirmed} />;
+    setGameOver(true);
+    handleGameOver();
   }
 
   if (gameOver) {
@@ -147,6 +175,24 @@ const GameContainer: React.FC = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
+        {gameOver ? (
+        showNamePrompt ? (
+          <div>
+            <input
+              type="text"
+              value={playerName}
+              onChange={(e) => setPlayerName(e.target.value)}
+              placeholder="Enter your name"
+              className="p-2 mb-4 w-full"
+            />
+            <button onClick={submitScore} className="bg-cyberGreen text-cyberBlue p-2 rounded">
+              Submit Score
+            </button>
+          </div>
+        ) : (
+          <GameOverScreen score={score} choices={choices} onRestart={restartGame} />
+        )
+      ) : (
       <ScenarioRenderer
         scenario={currentScenario}
         onChoiceMade={currentScenario.name.includes('Red Alert') ? handleRedAlertChoice : makeChoice}
