@@ -175,7 +175,7 @@ const GameContainer: React.FC = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
-        {gameOver ? (
+      {gameOver ? (
         showNamePrompt ? (
           <div>
             <input
@@ -193,33 +193,36 @@ const GameContainer: React.FC = () => {
           <GameOverScreen score={score} choices={choices} onRestart={restartGame} />
         )
       ) : (
-      <ScenarioRenderer
-        scenario={currentScenario}
-        onChoiceMade={currentScenario.name.includes('Red Alert') ? handleRedAlertChoice : makeChoice}
-        rollResult={rollResult}
-        skillIncrease={skillIncrease}
-        choicesLocked={choicesLocked}
-      />
-      <div className="mt-6 text-xl text-cyberGreen text-center">
-        Current Score: {score}
-      </div>
-      {hackerSkills && (
-        <div className="mt-6 p-4 bg-cyberGray text-cyberGreen rounded">
-          <h3 className="text-xl font-bold mb-2">Your Hacker Skills:</h3>
-          <ul>
-            {Object.entries(hackerSkills).map(([skill, level]) => (
-              <li key={skill} className="capitalize">
-                {skill.replace(/([A-Z])/g, ' $1').trim()}: {level}
-                {skillIncrease && skillIncrease.skill === skill && (
-                  <span className="text-cyberPurple ml-2">+{skillIncrease.increase}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <>
+          <ScenarioRenderer
+            scenario={currentScenario}
+            onChoiceMade={currentScenario.name.includes('Red Alert') ? handleRedAlertChoice : makeChoice}
+            rollResult={rollResult}
+            skillIncrease={skillIncrease}
+            choicesLocked={choicesLocked}
+          />
+          <div className="mt-6 text-xl text-cyberGreen text-center">
+            Current Score: {score}
+          </div>
+          {hackerSkills && (
+            <div className="mt-6 p-4 bg-cyberGray text-cyberGreen rounded">
+              <h3 className="text-xl font-bold mb-2">Your Hacker Skills:</h3>
+              <ul>
+                {Object.entries(hackerSkills).map(([skill, level]) => (
+                  <li key={skill} className="capitalize">
+                    {skill.replace(/([A-Z])/g, ' $1').trim()}: {level}
+                    {skillIncrease && skillIncrease.skill === skill && (
+                      <span className="text-cyberPurple ml-2">+{skillIncrease.increase}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
 };
 
-export default GameContainer
+export default GameContainer;
