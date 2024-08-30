@@ -16,6 +16,7 @@ const GameContainer: React.FC = () => {
   const [hackerSkills, setHackerSkills] = useState<HackerSkills | null>(null);
   const [showSkillSheet, setShowSkillSheet] = useState(true);
   const [previousScenario, setPreviousScenario] = useState<Scenario | null>(null);
+  const [skillIncrease, setSkillIncrease] = useState<{skill: keyof HackerSkills, increase: number} | null>(null);
 
   useEffect(() => {
     const skills = localStorage.getItem('hackerSkills');
@@ -24,6 +25,20 @@ const GameContainer: React.FC = () => {
       setShowSkillSheet(false);
     }
   }, []);
+
+  const updateHackerSkills = (phase: keyof HackerSkills) => {
+    if (!hackerSkills) return;
+    
+    const increase = 1; // You can adjust this value to control how much skills increase
+    const updatedSkills = {
+      ...hackerSkills,
+      [phase]: hackerSkills[phase] + increase
+    };
+    
+    setHackerSkills(updatedSkills);
+    localStorage.setItem('hackerSkills', JSON.stringify(updatedSkills));
+    setSkillIncrease({skill: phase, increase});
+  };
 
   const makeChoice = (choiceId: string) => {
     if (!currentScenario || !hackerSkills) return;
@@ -40,12 +55,14 @@ const GameContainer: React.FC = () => {
     setScore(prevScore => prevScore + calculateScore(choice, result.success, result.roll));
 
     if (result.success) {
+      updateHackerSkills(currentScenario.phase);
       const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
       if (nextScenario) {
         setTimeout(() => {
           setCurrentScenario(nextScenario);
           setRollResult(null);
-        }, 3000);
+          setSkillIncrease(null);
+        }, 5000); // Increased delay to allow time to show skill increase
       } else {
         setGameOver(true);
       }
@@ -73,6 +90,7 @@ const GameContainer: React.FC = () => {
 
     setTimeout(() => {
       if (result.success) {
+        updateHackerSkills(previousScenario.phase);
         const nextScenario = getNextScenario(scenarios, previousScenario, { success: true });
         if (nextScenario) {
           setCurrentScenario(nextScenario);
@@ -84,7 +102,7 @@ const GameContainer: React.FC = () => {
         setGameOver(true);
       }
       setRollResult(null);
-    }, 3000);
+    }, 5000); // Increased delay to allow time to show skill increase
   };
 
   const restartGame = () => {
@@ -110,16 +128,32 @@ const GameContainer: React.FC = () => {
     return <div className="text-cyberGreen">Loading game...</div>;
   }
 
-  return (
+return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
       <ScenarioRenderer
         scenario={currentScenario}
         onChoiceMade={currentScenario.id.toString().includes('_alert') ? handleRedAlertChoice : makeChoice}
         rollResult={rollResult}
+        skillIncrease={skillIncrease}
       />
       <div className="mt-6 text-xl text-cyberGreen text-center">
         Current Score: {score}
       </div>
+      {hackerSkills && (
+        <div className="mt-6 p-4 bg-cyberGray text-cyberGreen rounded">
+          <h3 className="text-xl font-bold mb-2">Your Hacker Skills:</h3>
+          <ul>
+            {Object.entries(hackerSkills).map(([skill, level]) => (
+              <li key={skill} className="capitalize">
+                {skill.replace(/([A-Z])/g, ' $1').trim()}: {level}
+                {skillIncrease && skillIncrease.skill === skill && (
+                  <span className="text-cyberPurple ml-2">+{skillIncrease.increase}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
