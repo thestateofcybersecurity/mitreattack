@@ -137,7 +137,7 @@ const GameContainer: React.FC = () => {
     <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
       <ScenarioRenderer
         scenario={currentScenario}
-        onChoiceMade={currentScenario.id.toString().includes('_alert') ? handleRedAlertChoice : makeChoice}
+        onChoiceMade={currentScenario.name.includes('Red Alert') ? handleRedAlertChoice : makeChoice}
         rollResult={rollResult}
         skillIncrease={skillIncrease}
       />
@@ -163,4 +163,4 @@ const GameContainer: React.FC = () => {
   );
 };
 
-export default GameContainer;
+export default GameContainer
