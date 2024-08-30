@@ -136,7 +136,7 @@ const GameContainer: React.FC = () => {
   const submitScore = async () => {
     if (playerName) {
       try {
-        const response = await fetch('/api/high-scores', {
+        const response = await fetch('./pages/api/high-scores', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
