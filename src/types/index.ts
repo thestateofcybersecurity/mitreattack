@@ -2,6 +2,8 @@ export interface Choice {
   id: string;
   method: string;
   description: string;
+  phase: keyof HackerSkills;
+  choices: Choice[];
   baseDifficulty: number;
   successRateModifier: number;
 }
