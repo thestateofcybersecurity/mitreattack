@@ -14,9 +14,12 @@ interface ScenarioRendererProps {
 }
 
 const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceMade, rollResult, skillIncrease }) => {
+  const isRedAlert = scenario.id.toString().includes('_alert') || scenario.name.includes('Red Alert');
+
   return (
-    <div className="bg-cyberGray p-6 rounded-lg shadow-neon">
-      <h2 className="text-2xl font-bold mb-4 text-cyberGreen">{scenario.name}</h2>
+    <div className={`bg-cyberGray p-6 rounded-lg shadow-neon ${isRedAlert ? 'border-2 border-cyberRed' : ''}`}>
+      {isRedAlert && <div className="text-cyberRed font-bold mb-4">RED ALERT</div>}
+      <h2 className={`text-2xl font-bold mb-4 ${isRedAlert ? 'text-cyberRed' : 'text-cyberGreen'}`}>{scenario.name}</h2>
       <p className="mb-6 text-white">{scenario.description}</p>
       
       {rollResult && (
