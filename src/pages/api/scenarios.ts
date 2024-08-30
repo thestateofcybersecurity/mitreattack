@@ -1,15 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import fs from 'fs'
-import path from 'path'
+import { Scenario } from '@/types'
+import scenarios from '@/data/scenarios'
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<Scenario[] | { error: string }>
 ) {
   try {
-    const dataDirectory = path.join(process.cwd(), './src/data')
-    const fileContents = fs.readFileSync(dataDirectory + '/scenarios.json', 'utf8')
-    const scenarios = JSON.parse(fileContents)
     console.log("API: Sending scenarios", scenarios);
     res.status(200).json(scenarios)
   } catch (error) {
