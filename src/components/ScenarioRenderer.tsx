@@ -1,62 +1,29 @@
 import React from 'react';
-import { Scenario, Option } from '@/types';
-import { useGameState } from './useGameState';
+import { Scenario } from '@/types';
 
 interface ScenarioRendererProps {
   scenario: Scenario;
   onChoiceMade: (choiceId: string) => void;
 }
 
-const ScenarioRenderer = () => {
-    const { scenario, result, makeChoice } = useGameState();
-
-    return (
-        <div>
-            <h2>{scenario.name}</h2>
-            <p>{scenario.description}</p>
-            {result && <p>{result}</p>}
-            <div>
-                {scenario.choices.map((choice, index) => (
-                    <button key={index} onClick={() => makeChoice(index)}>
-                        {choice.method}
-                    </button>
-                ))}
-            </div>
-        </div>
-    );
-};
-
-const styles = {
-  title: {
-    fontSize: '1.5em',
-    marginBottom: '10px',
-  },
-  scenarioText: {
-    marginBottom: '20px',
-  },
-  options: {
-    display: 'flex' as const,
-    flexDirection: 'column' as const,
-  },
-  optionButton: {
-    padding: '10px',
-    margin: '5px 0',
-    backgroundColor: '#444',
-    border: 'none',
-    borderRadius: '5px',
-    color: '#f0f0f0',
-    cursor: 'pointer',
-  },
-  educationalContent: {
-    marginTop: '20px',
-    padding: '10px',
-    backgroundColor: '#333',
-    borderRadius: '5px',
-  },
-  educationalTitle: {
-    fontSize: '1.2em',
-    marginBottom: '5px',
-  },
+const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceMade }) => {
+  return (
+    <div className="bg-gray-700 p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-bold mb-4 text-white">{scenario.name}</h2>
+      <p className="mb-6 text-gray-300">{scenario.description}</p>
+      <div className="space-y-4">
+        {scenario.choices.map((choice) => (
+          <button
+            key={choice.id}
+            onClick={() => onChoiceMade(choice.id)}
+            className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition duration-200"
+          >
+            {choice.method}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default ScenarioRenderer;
