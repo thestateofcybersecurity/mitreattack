@@ -1,6 +1,7 @@
 export interface Choice {
   id: string;
   method: string;
+  description: string;
   baseDifficulty: number;
   successRateModifier: number;
 }
