@@ -4995,9 +4995,568 @@ const scenarios: Scenario[] = [
     },
   ],
 },
-
-
-
+{
+  id: 11,
+  name: "Collection",
+  description: "Adversaries seek to gather information and data from compromised systems. Which collection technique will you employ?",
+  phase: 'collection',
+  choices: [
+    {
+      id: 'T1557',
+      method: "Adversary-in-the-Middle",
+      description: "Adversaries may attempt to position themselves between two or more networked devices using an adversary-in-the-middle (AiTM) technique to support follow-on behaviors.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1557.001',
+      method: "LLMNR/NBT-NS Poisoning and SMB Relay",
+      description: "Adversaries may spoof an authoritative source for name resolution to force communication with an adversary controlled system.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1557.002',
+      method: "ARP Cache Poisoning",
+      description: "Adversaries may poison ARP caches to position themselves between the communication of two or more networked devices.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1557.003',
+      method: "DHCP Spoofing",
+      description: "Adversaries may redirect network traffic to adversary-owned systems by spoofing DHCP traffic.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1560',
+      method: "Archive Collected Data",
+      description: "An adversary may compress and/or encrypt data that is collected prior to exfiltration.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1560.001',
+      method: "Archive via Utility",
+      description: "Adversaries may use utilities to compress and/or encrypt collected data prior to exfiltration.",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1560.002',
+      method: "Archive via Library",
+      description: "Adversaries may compress or encrypt data using third-party libraries before exfiltration.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1560.003',
+      method: "Archive via Custom Method",
+      description: "Adversaries may compress or encrypt data using custom methods before exfiltration.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1123',
+      method: "Audio Capture",
+      description: "An adversary can leverage a computer's peripherals or applications to capture audio recordings.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1119',
+      method: "Automated Collection",
+      description: "Adversaries may use automated techniques for collecting internal data once established within a system or network.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1185',
+      method: "Browser Session Hijacking",
+      description: "Adversaries may exploit browser vulnerabilities to intercept information and manipulate content.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1115',
+      method: "Clipboard Data",
+      description: "Adversaries may collect data stored in the clipboard from users copying information within or between applications.",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1530',
+      method: "Data from Cloud Storage",
+      description: "Adversaries may access data from cloud storage.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1602',
+      method: "Data from Configuration Repository",
+      description: "Adversaries may collect data related to managed devices from configuration repositories.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1602.001',
+      method: "SNMP (MIB Dump)",
+      description: "Adversaries may target the Management Information Base (MIB) to collect and/or mine valuable information.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1602.002',
+      method: "Network Device Configuration Dump",
+      description: "Adversaries may access network configuration files to collect sensitive data about the device and the network.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.62,
+    },
+    {
+      id: 'T1213',
+      method: "Data from Information Repositories",
+      description: "Adversaries may leverage information repositories to mine valuable information.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1213.001',
+      method: "Confluence",
+      description: "Adversaries may leverage Confluence repositories to mine valuable information.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1213.002',
+      method: "Sharepoint",
+      description: "Adversaries may leverage the SharePoint repository to mine valuable information.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1213.003',
+      method: "Code Repositories",
+      description: "Adversaries may leverage code repositories to collect valuable information.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1005',
+      method: "Data from Local System",
+      description: "Adversaries may search local system sources to find files of interest and sensitive data prior to Exfiltration.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1039',
+      method: "Data from Network Shared Drive",
+      description: "Adversaries may search network shares on compromised systems to find files of interest.",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1025',
+      method: "Data from Removable Media",
+      description: "Adversaries may search connected removable media on compromised systems to find files of interest.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1074',
+      method: "Data Staged",
+      description: "Adversaries may stage collected data in a central location or directory prior to Exfiltration.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1074.001',
+      method: "Local Data Staging",
+      description: "Adversaries may stage collected data in a central location or directory on the local system prior to Exfiltration.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1074.002',
+      method: "Remote Data Staging",
+      description: "Adversaries may stage data collected from multiple systems in a central location or directory on one system prior to Exfiltration.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1114',
+      method: "Email Collection",
+      description: "Adversaries may target user email to collect sensitive information.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1114.001',
+      method: "Local Email Collection",
+      description: "Adversaries may target user email on local systems to collect sensitive information.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1114.002',
+      method: "Remote Email Collection",
+      description: "Adversaries may target an Exchange server, Office 365, or Google Workspace to collect sensitive information.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1114.003',
+      method: "Email Forwarding Rule",
+      description: "Adversaries may setup email forwarding rules to collect sensitive information.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1056',
+      method: "Input Capture",
+      description: "Adversaries may use methods of capturing user input to obtain credentials or collect information.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1056.001',
+      method: "Keylogging",
+      description: "Adversaries may log user keystrokes to intercept credentials as the user types them.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.66,
+    },
+    {
+      id: 'T1056.002',
+      method: "GUI Input Capture",
+      description: "Adversaries may mimic common operating system GUI components to prompt users for credentials with a seemingly legitimate prompt.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1056.003',
+      method: "Web Portal Capture",
+      description: "Adversaries may install code on externally facing portals to capture and transmit credentials of users who attempt to log into the service.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.66,
+    },
+    {
+      id: 'T1056.004',
+      method: "Credential API Hooking",
+      description: "Adversaries may hook into Windows API functions to collect user credentials.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1113',
+      method: "Screen Capture",
+      description: "Adversaries may attempt to take screen captures of the desktop to gather information over the course of an operation.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1125',
+      method: "Video Capture",
+      description: "An adversary can leverage a computer's peripheral devices to capture video recordings for the purpose of gathering information.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.66,
+    }
+  ]
+},
+{
+  id: 6,
+  name: "Command and Control",
+  description: "Establishing command and control channels is crucial for maintaining access to the compromised environment. How will you communicate with your remote system?",
+  phase: 'command-and-control',
+  choices: [
+    {
+      id: 'T1071',
+      method: "Application Layer Protocol",
+      description: "Adversaries may communicate using OSI application layer protocols to avoid detection/network filtering by blending in with existing traffic.",
+      baseDifficulty: 15,  // Medium difficulty
+      successRateModifier: 0.8,
+    },
+    {
+      id: 'T1071.001',
+      method: "Web Protocols",
+      description: "Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic.",
+      baseDifficulty: 14,  // Medium difficulty
+      successRateModifier: 0.82,
+    },
+    {
+      id: 'T1071.002',
+      method: "File Transfer Protocols",
+      description: "Adversaries may communicate using application layer protocols associated with transferring files to avoid detection/network filtering by blending in with existing traffic.",
+      baseDifficulty: 16,  // Medium-High difficulty
+      successRateModifier: 0.78,
+    },
+    {
+      id: 'T1071.003',
+      method: "Mail Protocols",
+      description: "Adversaries may communicate using application layer protocols associated with electronic mail delivery to avoid detection/network filtering by blending in with existing traffic.",
+      baseDifficulty: 16,  // Medium-High difficulty
+      successRateModifier: 0.78,
+    },
+    {
+      id: 'T1071.004',
+      method: "DNS",
+      description: "Adversaries may communicate using the Domain Name System (DNS) application layer protocol to avoid detection/network filtering by blending in with existing traffic.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1092',
+      method: "Communication Through Removable Media",
+      description: "Adversaries can perform command and control between compromised hosts on potentially disconnected networks using removable media to transfer commands from system to system.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1659',
+      method: "Content Injection",
+      description: "Adversaries may gain access and continuously communicate with victims by injecting malicious content into systems through online network traffic.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1132',
+      method: "Data Encoding",
+      description: "Adversaries may encode data to make the content of command and control traffic more difficult to detect.",
+      baseDifficulty: 17,  // Medium-High difficulty
+      successRateModifier: 0.76,
+    },
+    {
+      id: 'T1132.001',
+      method: "Standard Encoding",
+      description: "Adversaries may encode data with a standard data encoding system to make the content of command and control traffic more difficult to detect.",
+      baseDifficulty: 15,  // Medium difficulty
+      successRateModifier: 0.8,
+    },
+    {
+      id: 'T1132.002',
+      method: "Non-Standard Encoding",
+      description: "Adversaries may encode data with a non-standard data encoding system to make the content of command and control traffic more difficult to detect.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1001',
+      method: "Data Obfuscation",
+      description: "Adversaries may obfuscate command and control traffic to make it more difficult to detect.",
+      baseDifficulty: 19,  // High difficulty
+      successRateModifier: 0.73,
+    },
+    {
+      id: 'T1001.001',
+      method: "Junk Data",
+      description: "Adversaries may add junk data to protocols used for command and control to make detection more difficult.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1001.002',
+      method: "Steganography",
+      description: "Adversaries may use steganographic techniques to hide command and control traffic to make detection efforts more difficult.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1001.003',
+      method: "Protocol Impersonation",
+      description: "Adversaries may impersonate legitimate protocols or web service traffic to disguise command and control activity and thwart analysis efforts.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1568',
+      method: "Dynamic Resolution",
+      description: "Adversaries may dynamically establish connections to command and control infrastructure to evade common detections and remediations.",
+      baseDifficulty: 21,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1568.001',
+      method: "Fast Flux DNS",
+      description: "Adversaries may use Fast Flux DNS to hide a command and control channel behind an array of rapidly changing IP addresses linked to a single domain resolution.",
+      baseDifficulty: 23,  // High difficulty
+      successRateModifier: 0.67,
+    },
+    {
+      id: 'T1568.002',
+      method: "Domain Generation Algorithms",
+      description: "Adversaries may make use of Domain Generation Algorithms (DGAs) to dynamically identify a destination domain for command and control traffic rather than relying on a list of static IP addresses or domains.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.66,
+    },
+    {
+      id: 'T1568.003',
+      method: "DNS Calculation",
+      description: "Adversaries may perform calculations on addresses returned in DNS results to determine which port and IP address to use for command and control.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1573',
+      method: "Encrypted Channel",
+      description: "Adversaries may employ an encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1573.001',
+      method: "Symmetric Cryptography",
+      description: "Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1573.002',
+      method: "Asymmetric Cryptography",
+      description: "Adversaries may employ a known asymmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.66,
+    },
+    {
+      id: 'T1008',
+      method: "Fallback Channels",
+      description: "Adversaries may use fallback or alternate communication channels if the primary channel is compromised or inaccessible in order to maintain reliable command and control.",
+      baseDifficulty: 19,  // High difficulty
+      successRateModifier: 0.73,
+    },
+    {
+      id: 'T1665',
+      method: "Hide Infrastructure",
+      description: "Adversaries may manipulate network traffic in order to hide and evade detection of their C2 infrastructure.",
+      baseDifficulty: 23,  // High difficulty
+      successRateModifier: 0.67,
+    },
+    {
+      id: 'T1105',
+      method: "Ingress Tool Transfer",
+      description: "Adversaries may transfer tools or other files from an external system into a compromised environment.",
+      baseDifficulty: 16,  // Medium-High difficulty
+      successRateModifier: 0.78,
+    },
+    {
+      id: 'T1104',
+      method: "Multi-Stage Channels",
+      description: "Adversaries may create multiple stages for command and control that are employed under different conditions or for certain functions.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1095',
+      method: "Non-Application Layer Protocol",
+      description: "Adversaries may use an OSI non-application layer protocol for communication between host and C2 server or among infected hosts within a network.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1571',
+      method: "Non-Standard Port",
+      description: "Adversaries may communicate using a protocol and port pairing that are typically not associated.",
+      baseDifficulty: 17,  // Medium-High difficulty
+      successRateModifier: 0.76,
+    },
+    {
+      id: 'T1572',
+      method: "Protocol Tunneling",
+      description: "Adversaries may tunnel network communications to and from a victim system within a separate protocol to avoid detection/network filtering and/or enable access to otherwise unreachable systems.",
+      baseDifficulty: 21,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1090',
+      method: "Proxy",
+      description: "Adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network communications to a command and control server to avoid direct connections to their infrastructure.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1090.001',
+      method: "Internal Proxy",
+      description: "Adversaries may use an internal proxy to direct command and control traffic between two or more systems in a compromised environment.",
+      baseDifficulty: 19,  // High difficulty
+      successRateModifier: 0.73,
+    },
+    {
+      id: 'T1090.002',
+      method: "External Proxy",
+      description: "Adversaries may use an external proxy to act as an intermediary for network communications to a command and control server to avoid direct connections to their infrastructure.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1090.003',
+      method: "Multi-hop Proxy",
+      description: "Adversaries may chain together multiple proxies to disguise the source of malicious traffic.",
+      baseDifficulty: 21,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1090.004',
+      method: "Domain Fronting",
+      description: "Adversaries may take advantage of routing schemes in Content Delivery Networks (CDNs) and other services which host multiple domains to obfuscate the intended destination of HTTPS traffic or traffic tunneled through HTTPS.",
+      baseDifficulty: 23,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1219',
+      method: "Remote Access Software",
+      description: "An adversary may use legitimate desktop support and remote access software to establish an interactive command and control channel to target systems within networks.",
+      baseDifficulty: 17,  // Medium-High difficulty
+      successRateModifier: 0.76,
+    },
+    {
+      id: 'T1205',
+      method: "Traffic Signaling",
+      description: "Adversaries may use traffic signaling to hide open ports or other malicious functionality used for persistence or command and control.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1205.001',
+      method: "Port Knocking",
+      description: "Adversaries may use port knocking to hide open ports used for persistence or command and control.",
+      baseDifficulty: 21,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1205.002',
+      method: "Socket Filters",
+      description: "Adversaries may attach filters to a network socket to monitor then activate backdoors used for persistence or command and control.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1102',
+      method: "Web Service",
+      description: "Adversaries may use an existing, legitimate external Web service as a means for relaying data to/from a compromised system.",
+      baseDifficulty: 16,  // Medium-High difficulty
+      successRateModifier: 0.78,
+    },
+    {
+      id: 'T1102.001',
+      method: "Dead Drop Resolver",
+      description: "Adversaries may use an existing, legitimate external Web service to host information that points to additional command and control (C2) infrastructure.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1102.002',
+      method: "Bidirectional Communication",
+      description: "Adversaries may use an existing, legitimate external Web service as a means for sending commands to and receiving output from a compromised system over the Web service channel.",
+      baseDifficulty: 19,  // High difficulty
+      successRateModifier: 0.73,
+    },
+    {
+      id: 'T1102.003',
+      method: "One-Way Communication",
+      description: "Adversaries may use an existing, legitimate external Web service as a means for sending commands to a compromised system without receiving return output over the Web service channel.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+  ],
+}
 
           
 ];
