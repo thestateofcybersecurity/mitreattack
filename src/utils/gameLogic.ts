@@ -30,6 +30,19 @@ export const getNextScenario = (
   choiceResult: { success: boolean }
 ): Scenario | null => {
   const currentIndex = scenarios.findIndex(s => s.id === currentScenario.id);
+  
+  // If it's a red alert scenario
+  if (currentScenario.name.includes('Red Alert')) {
+    if (choiceResult.success) {
+      // On success, move to the next regular scenario
+      return scenarios[currentIndex + 1] || null;
+    } else {
+      // On failure, game over
+      return null;
+    }
+  }
+
+  // For regular scenarios
   if (currentIndex === -1 || currentIndex === scenarios.length - 1) {
     return null; // Game over
   }
