@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ScenarioRenderer from '@/components/ScenarioRenderer';
 import useGameState from '@/hooks/useGameState';
 import scenarios from '@/data/scenarios';
+import { HackerSkills } from '@/types';
 
 const GameContainer: React.FC = () => {
   const { currentScenario, makeChoice, gameOver, score, setScenarios, hackerSkills } = useGameState([]);
+  const [currentPhase, setCurrentPhase] = useState<keyof HackerSkills>('reconnaissance');
 
-  React.useEffect(() => {
+  useEffect(() => {
     setScenarios(scenarios);
   }, [setScenarios]);
+
+  useEffect(() => {
+    if (currentScenario) {
+      setCurrentPhase(currentScenario.phase);
+    }
+  }, [currentScenario]);
 
   if (!currentScenario) {
     return <div className="text-white">Loading game...</div>;
@@ -16,6 +24,7 @@ const GameContainer: React.FC = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-xl">
+      <h2 className="text-2xl font-bold mb-4 text-white">Current Phase: {currentPhase}</h2>
       <ScenarioRenderer
         scenario={currentScenario}
         onChoiceMade={makeChoice}
