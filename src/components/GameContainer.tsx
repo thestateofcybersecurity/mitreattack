@@ -38,7 +38,7 @@ const GameContainer: React.FC = () => {
       setTimeout(() => {
         setCurrentScenario(nextScenario);
         setRollResult(null);
-      }, 3000); // Give the player 3 seconds to see the roll result
+      }, 7000); // Give the player 7 seconds to see the roll result
     } else {
       // Game over
       setGameOver(true);
