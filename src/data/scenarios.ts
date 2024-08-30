@@ -5263,7 +5263,7 @@ const scenarios: Scenario[] = [
   ]
 },
 {
-  id: 6,
+  id: 12,
   name: "Command and Control",
   description: "Establishing command and control channels is crucial for maintaining access to the compromised environment. How will you communicate with your remote system?",
   phase: 'command-and-control',
