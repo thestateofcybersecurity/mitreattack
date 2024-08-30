@@ -161,8 +161,6 @@ const GameContainer: React.FC = () => {
 
   if (showSkillSheet || !hackerSkills) {
     return <HackerSkillSheet onConfirm={onSkillsConfirmed} />;
-    setGameOver(true);
-    handleGameOver();
   }
 
   if (gameOver) {
