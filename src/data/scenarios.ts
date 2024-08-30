@@ -4033,6 +4033,803 @@ const scenarios: Scenario[] = [
       },
     ],
   },
+{
+  id: 8,
+  name: "Credential Access",
+  description: "Gaining access to credentials is a critical step for adversaries to further their control over systems. Which technique will you use?",
+  phase: 'credential-access',
+  choices: [
+    {
+      id: 'T1557',
+      method: "Adversary-in-the-Middle",
+      description: "Position yourself between networked devices to intercept and manipulate data or credentials.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1557.001',
+      method: "LLMNR/NBT-NS Poisoning and SMB Relay",
+      description: "Spoof name resolution responses to force communication through your controlled system and capture or relay authentication materials.",
+      baseDifficulty: 20,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1557.002',
+      method: "ARP Cache Poisoning",
+      description: "Poison ARP caches to position yourself between communicating devices, enabling network sniffing or data manipulation.",
+      baseDifficulty: 20,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1557.003',
+      method: "DHCP Spoofing",
+      description: "Spoof DHCP traffic to redirect network communications to your controlled system for credential harvesting.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1110',
+      method: "Brute Force",
+      description: "Systematically guess or crack passwords to gain unauthorized access.",
+      baseDifficulty: 30,  // Very High difficulty
+      successRateModifier: 0.5,
+    },
+    {
+      id: 'T1110.001',
+      method: "Password Guessing",
+      description: "Attempt to guess passwords without prior knowledge, using a list of common passwords.",
+      baseDifficulty: 20,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1110.002',
+      method: "Password Cracking",
+      description: "Crack password hashes obtained from credential dumping or other sources.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1110.003',
+      method: "Password Spraying",
+      description: "Attempt a small number of common passwords across many accounts to avoid lockouts.",
+      baseDifficulty: 20,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1110.004',
+      method: "Credential Stuffing",
+      description: "Use credentials from breach dumps to gain access through password reuse.",
+      baseDifficulty: 20,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1555',
+      method: "Credentials from Password Stores",
+      description: "Search for and extract credentials from common password storage locations.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1555.001',
+      method: "Keychain",
+      description: "Acquire credentials from macOS Keychain, which stores user and system passwords.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1555.002',
+      method: "Securityd Memory",
+      description: "Extract credentials by reading the memory of securityd, the macOS service responsible for encryption and authorization.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1555.003',
+      method: "Credentials from Web Browsers",
+      description: "Extract credentials saved in web browsers, such as login information for websites.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1555.004',
+      method: "Windows Credential Manager",
+      description: "Extract credentials from the Windows Credential Manager, which stores authentication data.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1555.005',
+      method: "Password Managers",
+      description: "Acquire credentials stored in third-party password managers, typically protected by a master password.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1555.006',
+      method: "Cloud Secrets Management Stores",
+      description: "Extract credentials from cloud-native secret management solutions like AWS Secrets Manager or Azure Key Vault.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1212',
+      method: "Exploitation for Credential Access",
+      description: "Exploit software vulnerabilities to obtain credentials.",
+      baseDifficulty: 30,  // Very High difficulty
+      successRateModifier: 0.5,
+    },
+    {
+      id: 'T1187',
+      method: "Forced Authentication",
+      description: "Force users to automatically provide authentication information through intercepted mechanisms.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1606',
+      method: "Forge Web Credentials",
+      description: "Forge credential materials like session cookies or tokens to gain access to web applications.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1606.001',
+      method: "Web Cookies",
+      description: "Forge web cookies to gain access to web applications or services.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1606.002',
+      method: "SAML Tokens",
+      description: "Forge SAML tokens to impersonate users and gain access across services.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1056',
+      method: "Input Capture",
+      description: "Capture user input to obtain credentials or information.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1056.001',
+      method: "Keylogging",
+      description: "Log keystrokes to capture credentials as users type them.",
+      baseDifficulty: 20,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1056.002',
+      method: "GUI Input Capture",
+      description: "Mimic operating system GUI components to capture user input such as credentials.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1056.003',
+      method: "Web Portal Capture",
+      description: "Install code on externally facing portals to capture and transmit user credentials.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1056.004',
+      method: "Credential API Hooking",
+      description: "Hook into Windows API functions to collect user credentials as they are processed.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1556',
+      method: "Modify Authentication Process",
+      description: "Modify authentication mechanisms to access user credentials or enable unwarranted access to accounts.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1556.001',
+      method: "Domain Controller Authentication",
+      description: "Patch the authentication process on a domain controller to bypass mechanisms and enable access to accounts.",
+      baseDifficulty: 30,  // Very High difficulty
+      successRateModifier: 0.5,
+    },
+    {
+      id: 'T1556.002',
+      method: "Password Filter DLL",
+      description: "Register malicious DLLs in the authentication process to acquire user credentials.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1556.003',
+      method: "Pluggable Authentication Modules",
+      description: "Modify PAM modules to access user credentials or enable unwarranted access to accounts.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1556.004',
+      method: "Network Device Authentication",
+      description: "Patch system images to bypass native authentication mechanisms on network devices.",
+      baseDifficulty: 30,  // Very High difficulty
+      successRateModifier: 0.5,
+    },
+    {
+          id: 'T1556.005',
+      method: "Reversible Encryption",
+      description: "Abuse Active Directory authentication encryption properties to gain access to credentials on Windows systems.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1556.006',
+      method: "Multi-Factor Authentication",
+      description: "Disable or modify multi-factor authentication mechanisms to gain persistent access to compromised accounts.",
+      baseDifficulty: 30,  // Very High difficulty
+      successRateModifier: 0.5,
+    },
+    {
+      id: 'T1556.007',
+      method: "Hybrid Identity",
+      description: "Backdoor cloud authentication processes tied to on-premises identities to bypass authentication mechanisms and access credentials.",
+      baseDifficulty: 30,  // Very High difficulty
+      successRateModifier: 0.5,
+    },
+    {
+      id: 'T1556.008',
+      method: "Network Provider DLL",
+      description: "Register malicious network provider DLLs to capture cleartext user credentials during the authentication process.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1556.009',
+      method: "Conditional Access Policies",
+      description: "Disable or modify conditional access policies to enable persistent access to compromised accounts.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1111',
+      method: "Multi-Factor Authentication Interception",
+      description: "Intercept multi-factor authentication mechanisms to obtain credentials for accessing systems or resources.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1621',
+      method: "Multi-Factor Authentication Request Generation",
+      description: "Bypass multi-factor authentication by generating and intercepting MFA requests sent to users.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1040',
+      method: "Network Sniffing",
+      description: "Passively sniff network traffic to capture information, including authentication material passed over the network.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1003',
+      method: "OS Credential Dumping",
+      description: "Dump credentials from the operating system to obtain account login and credential material.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1003.001',
+      method: "LSASS Memory",
+      description: "Access credential material stored in the process memory of the Local Security Authority Subsystem Service (LSASS).",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1003.002',
+      method: "Security Account Manager",
+      description: "Extract credential material from the Security Account Manager (SAM) database.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1003.003',
+      method: "NTDS",
+      description: "Access or create a copy of the Active Directory domain database to steal credential information.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1003.004',
+      method: "LSA Secrets",
+      description: "Access Local Security Authority (LSA) secrets, which can contain credential materials like service account credentials.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1003.005',
+      method: "Cached Domain Credentials",
+      description: "Access cached domain credentials used for offline authentication in case a domain controller is unavailable.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1003.006',
+      method: "DCSync",
+      description: "Abuse a Windows Domain Controller's API to simulate the replication process and access credentials.",
+      baseDifficulty: 30,  // Very High difficulty
+      successRateModifier: 0.5,
+    },
+    {
+      id: 'T1003.007',
+      method: "Proc Filesystem",
+      description: "Gather credentials from the proc filesystem on Linux-based systems by analyzing virtual memory data.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1003.008',
+      method: "/etc/passwd and /etc/shadow",
+      description: "Dump the contents of /etc/passwd and /etc/shadow to enable offline password cracking.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1528',
+      method: "Steal Application Access Token",
+      description: "Steal application access tokens to access remote systems and resources.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1649',
+      method: "Steal or Forge Authentication Certificates",
+      description: "Steal or forge certificates used for authentication to access remote systems or resources.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1558',
+      method: "Steal or Forge Kerberos Tickets",
+      description: "Subvert Kerberos authentication by stealing or forging tickets, such as golden or silver tickets.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1558.001',
+      method: "Golden Ticket",
+      description: "Forge Kerberos ticket-granting tickets (TGT) to generate authentication material for any account in Active Directory.",
+      baseDifficulty: 30,  // Very High difficulty
+      successRateModifier: 0.5,
+    },
+    {
+      id: 'T1558.002',
+      method: "Silver Ticket",
+      description: "Forge Kerberos ticket granting service (TGS) tickets to impersonate services within Active Directory.",
+      baseDifficulty: 30,  // Very High difficulty
+      successRateModifier: 0.5,
+    },
+    {
+      id: 'T1558.003',
+      method: "Kerberoasting",
+      description: "Abuse a valid Kerberos ticket-granting ticket (TGT) to obtain service tickets that can be cracked offline.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1558.004',
+      method: "AS-REP Roasting",
+      description: "Reveal credentials by attacking accounts with Kerberos preauthentication disabled.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1539',
+      method: "Steal Web Session Cookie",
+      description: "Steal web application session cookies to gain access as an authenticated user without needing credentials.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1552',
+      method: "Unsecured Credentials",
+      description: "Search compromised systems for insecurely stored credentials to obtain access.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1552.001',
+      method: "Credentials In Files",
+      description: "Search local file systems and remote file shares for files containing insecurely stored credentials.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1552.002',
+      method: "Credentials in Registry",
+      description: "Search the Windows Registry for insecurely stored credentials.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1552.003',
+      method: "Bash History",
+      description: "Search the bash command history on Linux systems for insecurely stored credentials.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1552.004',
+      method: "Private Keys",
+      description: "Search for private key certificate files on compromised systems.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1552.005',
+      method: "Cloud Instance Metadata API",
+      description: "Access the Cloud Instance Metadata API to collect credentials and other sensitive data.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1552.006',
+      method: "Group Policy Preferences",
+            description: "Find unsecured credentials in Group Policy Preferences (GPP), which are used to set local accounts and other configurations.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1552.007',
+      method: "Container API",
+      description: "Gather credentials via APIs within a container environment, such as Docker API and Kubernetes APIs.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1552.008',
+      method: "Chat Messages",
+      description: "Collect unsecured credentials stored or passed through user communication services such as email, Slack, or Teams.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+  ],
+},
+{
+  id: 9,
+  name: "Discovery",
+  description: "Adversaries may attempt to gather information about the system and its environment to aid in further actions. Which discovery technique will you use?",
+  phase: 'discovery',
+  choices: [
+    {
+      id: 'T1087',
+      method: "Account Discovery",
+      description: "Adversaries may attempt to get a listing of valid accounts, usernames, or email addresses on a system or within a compromised environment.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1087.001',
+      method: "Local Account",
+      description: "Adversaries may attempt to get a listing of local system accounts to aid in follow-on behavior.",
+      baseDifficulty: 18,  // Medium-High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1087.002',
+      method: "Domain Account",
+      description: "Adversaries may attempt to get a listing of domain accounts to target specific accounts with particular privileges.",
+      baseDifficulty: 22,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1087.003',
+      method: "Email Account",
+      description: "Adversaries may attempt to get a listing of email addresses and accounts by dumping Exchange address lists such as global address lists (GALs).",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1087.004',
+      method: "Cloud Account",
+      description: "Adversaries may attempt to get a listing of cloud accounts configured by an organization for various uses.",
+      baseDifficulty: 23,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1010',
+      method: "Application Window Discovery",
+      description: "Adversaries may attempt to get a listing of open application windows to identify potential data and security tools.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1217',
+      method: "Browser Information Discovery",
+      description: "Adversaries may enumerate information about browsers to learn more about compromised environments.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1580',
+      method: "Cloud Infrastructure Discovery",
+      description: "Adversaries may attempt to discover infrastructure and resources available within an IaaS environment.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1538',
+      method: "Cloud Service Dashboard",
+      description: "Adversaries may use a cloud service dashboard GUI with stolen credentials to gain useful information from an operational cloud environment.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1526',
+      method: "Cloud Service Discovery",
+      description: "Adversaries may attempt to enumerate the cloud services running on a system after gaining access.",
+      baseDifficulty: 26,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1619',
+      method: "Cloud Storage Object Discovery",
+      description: "Adversaries may enumerate objects in cloud storage infrastructure to shape follow-on behaviors.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1613',
+      method: "Container and Resource Discovery",
+      description: "Adversaries may attempt to discover containers and other resources available within a containers environment.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1622',
+      method: "Debugger Evasion",
+      description: "Adversaries may employ various means to detect and avoid debuggers.",
+      baseDifficulty: 27,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1652',
+      method: "Device Driver Discovery",
+      description: "Adversaries may attempt to enumerate local device drivers on a victim host.",
+      baseDifficulty: 23,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1482',
+      method: "Domain Trust Discovery",
+      description: "Adversaries may attempt to gather information on domain trust relationships to identify lateral movement opportunities.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1083',
+      method: "File and Directory Discovery",
+      description: "Adversaries may enumerate files and directories to find specific information within a file system.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1615',
+      method: "Group Policy Discovery",
+      description: "Adversaries may gather information on Group Policy settings to identify paths for privilege escalation.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1654',
+      method: "Log Enumeration",
+      description: "Adversaries may enumerate system and service logs to find useful data.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1046',
+      method: "Network Service Discovery",
+      description: "Adversaries may attempt to get a listing of services running on remote hosts and local network infrastructure devices.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1135',
+      method: "Network Share Discovery",
+      description: "Adversaries may look for folders and drives shared on remote systems to identify potential systems of interest for Lateral Movement.",
+      baseDifficulty: 23,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1040',
+      method: "Network Sniffing",
+      description: "Adversaries may passively sniff network traffic to capture information about an environment.",
+      baseDifficulty: 27,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1201',
+      method: "Password Policy Discovery",
+      description: "Adversaries may attempt to access detailed information about the password policy used within an enterprise network or cloud environment.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1120',
+      method: "Peripheral Device Discovery",
+      description: "Adversaries may attempt to gather information about attached peripheral devices and components connected to a computer system.",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1069',
+      method: "Permission Groups Discovery",
+      description: "Adversaries may attempt to discover group and permission settings.",
+      baseDifficulty: 23,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1069.001',
+      method: "Local Groups",
+      description: "Adversaries may attempt to find local system groups and permission settings.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1069.002',
+      method: "Domain Groups",
+      description: "Adversaries may attempt to find domain-level groups and permission settings.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1069.003',
+      method: "Cloud Groups",
+      description: "Adversaries may attempt to find cloud groups and permission settings.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1057',
+      method: "Process Discovery",
+      description: "Adversaries may attempt to get information about running processes on a system.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1012',
+      method: "Query Registry",
+      description: "Adversaries may interact with the Windows Registry to gather information about the system, configuration, and installed software.",
+      baseDifficulty: 19,  // Medium difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1018',
+      method: "Remote System Discovery",
+      description: "Adversaries may attempt to get a listing of other systems by IP address, hostname, or other logical identifier on a network.",
+      baseDifficulty: 23,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1518',
+      method: "Software Discovery",
+      description: "Adversaries may attempt to get a listing of software and software versions that are installed on a system or in a cloud environment.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1518.001',
+      method: "Security Software Discovery",
+      description: "Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on a system or in a cloud environment.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1082',
+      method: "System Information Discovery",
+      description: "An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1614',
+      method: "System Location Discovery",
+      description: "Adversaries may gather information in an attempt to calculate the geographical location of a victim host.",
+      baseDifficulty: 23,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1614.001',
+      method: "System Language Discovery",
+      description: "Adversaries may attempt to gather information about the system language of a victim to infer the geographical location of that host.",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1016',
+      method: "System Network Configuration Discovery",
+      description: "Adversaries may look for details about the network configuration and settings, such as IP and/or MAC addresses, of systems they access or through information discovery of remote systems.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1016.001',
+      method: "Internet Connection Discovery",
+      description: "Adversaries may check for Internet connectivity on compromised systems.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1016.002',
+      method: "Wi-Fi Discovery",
+      description: "Adversaries may search for information about Wi-Fi networks, such as network names and passwords, on compromised systems.",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1049',
+      method: "System Network Connections Discovery",
+      description: "Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently accessing or from remote systems by querying for information over the network.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1033',
+      method: "System Owner/User Discovery",
+      description: "Adversaries may attempt to identify the primary user, currently logged-in user, or set of users that commonly use a system.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1007',
+      method: "System Service Discovery",
+      description: "Adversaries may try to gather information about registered local system services.",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1124',
+      method: "System Time Discovery",
+      description: "An adversary may gather the system time and/or time zone settings from a local or remote system.",
+      baseDifficulty: 19,  // Medium difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1497',
+      method: "Virtualization/Sandbox Evasion",
+      description: "Adversaries may employ various means to detect and avoid virtualization and analysis environments.",
+      baseDifficulty: 28,  // Very High difficulty
+      successRateModifier: 0.55,
+    },
+    {
+      id: 'T1497.001',
+      method: "System Checks",
+      description: "Adversaries may employ various system checks to detect and avoid virtualization and analysis environments.",
+      baseDifficulty: 26,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1497.002',
+      method: "User Activity Based Checks",
+      description: "Adversaries may employ various user activity checks to detect and avoid virtualization and analysis environments.",
+      baseDifficulty: 27,  // Very High difficulty
+      successRateModifier: 0.58,
+    },
+    {
+      id: 'T1497.003',
+      method: "Time Based Evasion",
+      description: "Adversaries may employ various time-based methods to detect and avoid virtualization and analysis environments.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.65,
+    },
+  ],
+},
+  
+
+
+
           
 ];
 
