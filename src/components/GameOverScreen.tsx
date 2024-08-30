@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface ChoiceRecord {
   method: string;
@@ -20,11 +20,12 @@ const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onResta
   const [highScores, setHighScores] = useState<HighScore[]>([]);
 
   useEffect(() => {
-    fetch('/api/high-scores')
+    fetch('./pages/api/high-scores')
       .then(response => response.json())
       .then(data => setHighScores(data))
       .catch(error => console.error('Error fetching high scores:', error));
   }, []);
+
   const getMitreUrl = (tacticId: string) => {
     const baseUrl = 'https://attack.mitre.org/techniques/';
     const parts = tacticId.split('.');
