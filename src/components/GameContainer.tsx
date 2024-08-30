@@ -2,32 +2,51 @@ import React, { useEffect, useState } from 'react';
 import ScenarioRenderer from '@/components/ScenarioRenderer';
 import useGameState from '@/hooks/useGameState';
 import scenarios from '@/data/scenarios';
-import { HackerSkills } from '@/types';
+import { executeChoice, getNextScenario, calculateScore } from '@/utils/gameLogic';
+import { Scenario, HackerSkills } from '@/types';
 
 const GameContainer: React.FC = () => {
-  const { currentScenario, makeChoice, gameOver, score, setScenarios, hackerSkills } = useGameState([]);
-  const [currentPhase, setCurrentPhase] = useState<keyof HackerSkills>('reconnaissance');
+  const { currentScenario, setCurrentScenario, gameOver, score, setScore, hackerSkills } = useGameState(scenarios);
+  const [rollResult, setRollResult] = useState<any>(null);
 
-  useEffect(() => {
-    setScenarios(scenarios);
-  }, [setScenarios]);
+  const makeChoice = (choiceId: string) => {
+    if (!currentScenario) return;
 
-  useEffect(() => {
-    if (currentScenario) {
-      setCurrentPhase(currentScenario.phase);
+    const choice = currentScenario.choices.find(c => c.id === choiceId);
+    if (!choice) return;
+
+    const skillLevel = hackerSkills ? hackerSkills[currentScenario.phase] : 0;
+    const result = executeChoice(choice, skillLevel);
+
+    setRollResult(result);
+
+    // Update score
+    setScore(prevScore => prevScore + calculateScore(choice, result.success, result.roll));
+
+    // Get next scenario
+    const nextScenario = getNextScenario(scenarios, currentScenario, result);
+    
+    if (nextScenario) {
+      setTimeout(() => {
+        setCurrentScenario(nextScenario);
+        setRollResult(null);
+      }, 3000); // Give the player 3 seconds to see the roll result
+    } else {
+      // Game over
+      setGameOver(true);
     }
-  }, [currentScenario]);
+  };
 
   if (!currentScenario) {
     return <div className="text-white">Loading game...</div>;
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-xl">
-      <h2 className="text-2xl font-bold mb-4 text-white">Current Phase: {currentPhase}</h2>
+    <div className="w-full max-w-4xl mx-auto p-6 bg-gray-900 rounded-lg shadow-xl">
       <ScenarioRenderer
         scenario={currentScenario}
         onChoiceMade={makeChoice}
+        rollResult={rollResult}
       />
       <div className="mt-6 text-xl text-white text-center">
         Current Score: {score}
@@ -39,7 +58,7 @@ const GameContainer: React.FC = () => {
         </div>
       )}
       {hackerSkills && (
-        <div className="mt-6 p-4 bg-gray-700 text-white rounded">
+        <div className="mt-6 p-4 bg-gray-800 text-white rounded">
           <h3 className="text-xl font-bold mb-2">Your Hacker Skills:</h3>
           <ul>
             {Object.entries(hackerSkills).map(([skill, level]) => (
