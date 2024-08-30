@@ -14,6 +14,7 @@ export interface Scenario {
 }
 
 export interface HackerSkills {
+  [key: string]: number;
   initialAccess: number;
   execution: number;
   persistence: number;
