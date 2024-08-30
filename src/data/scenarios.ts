@@ -1,26 +1,29 @@
+import { Scenario } from '@/types';
+
 export const scenarios = [
     {
         id: 1,
         name: "Initial Access",
         description: "Choose your method of gaining initial access to the target.",
+        phase: 'initialAccess',
         choices: [
             {
+                id: '1a',
                 method: "Phishing",
                 baseDifficulty: 3,
                 successRateModifier: 0.9,
-                phase: 'initialAccess',
             },
             {
+                id: '1b',
                 method: "Drive-By Compromise",
                 baseDifficulty: 5,
                 successRateModifier: 0.7,
-                phase: 'initialAccess',
             },
             {
+                id: '1c',
                 method: "Supply Chain Compromise",
                 baseDifficulty: 7,
                 successRateModifier: 0.6,
-                phase: 'initialAccess',
             }
         ]
     },
