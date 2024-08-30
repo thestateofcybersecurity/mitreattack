@@ -10,19 +10,19 @@ const scenarios: Scenario[] = [
       {
         id: '1a',
         method: "Phishing",
-        baseDifficulty: 3,
+        baseDifficulty: 13,
         successRateModifier: 0.9,
       },
       {
         id: '1b',
         method: "Exploit Public-Facing Application",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.7,
       },
       {
         id: '1c',
         method: "Supply Chain Compromise",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.6,
       }
     ]
@@ -36,19 +36,19 @@ const scenarios: Scenario[] = [
       {
         id: '2a',
         method: "Command and Scripting Interpreter",
-        baseDifficulty: 4,
+        baseDifficulty: 14,
         successRateModifier: 0.8,
       },
       {
         id: '2b',
         method: "Native API",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '2c',
         method: "User Execution",
-        baseDifficulty: 3,
+        baseDifficulty: 13,
         successRateModifier: 0.9,
       }
     ]
@@ -62,19 +62,19 @@ const scenarios: Scenario[] = [
       {
         id: '3a',
         method: "Create Account",
-        baseDifficulty: 3,
+        baseDifficulty: 13,
         successRateModifier: 0.9,
       },
       {
         id: '3b',
         method: "Scheduled Task/Job",
-        baseDifficulty: 4,
+        baseDifficulty: 14,
         successRateModifier: 0.8,
       },
       {
         id: '3c',
         method: "Bootkit",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.6,
       }
     ]
@@ -88,19 +88,19 @@ const scenarios: Scenario[] = [
       {
         id: '4a',
         method: "Exploit Vulnerability",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '4b',
         method: "Access Token Manipulation",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       },
       {
         id: '4c',
         method: "Sudo and Sudo Caching",
-        baseDifficulty: 4,
+        baseDifficulty: 14,
         successRateModifier: 0.85,
       }
     ]
@@ -114,19 +114,19 @@ const scenarios: Scenario[] = [
       {
         id: '5a',
         method: "Disable or Modify Tools",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.75,
       },
       {
         id: '5b',
         method: "Obfuscated Files or Information",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '5c',
         method: "Rootkit",
-        baseDifficulty: 8,
+        baseDifficulty: 18,
         successRateModifier: 0.5,
       }
     ]
@@ -140,19 +140,19 @@ const scenarios: Scenario[] = [
       {
         id: '6a',
         method: "Brute Force",
-        baseDifficulty: 4,
+        baseDifficulty: 14,
         successRateModifier: 0.8,
       },
       {
         id: '6b',
         method: "Credential Dumping",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '6c',
         method: "Steal or Forge Kerberos Tickets",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.6,
       }
     ]
@@ -166,19 +166,19 @@ const scenarios: Scenario[] = [
       {
         id: '7a',
         method: "Network Service Scanning",
-        baseDifficulty: 3,
+        baseDifficulty: 13,
         successRateModifier: 0.9,
       },
       {
         id: '7b',
         method: "Remote System Discovery",
-        baseDifficulty: 4,
+        baseDifficulty: 14,
         successRateModifier: 0.85,
       },
       {
         id: '7c',
         method: "Permission Groups Discovery",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       }
     ]
@@ -192,19 +192,19 @@ const scenarios: Scenario[] = [
       {
         id: '8a',
         method: "Remote Services",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       },
       {
         id: '8b',
         method: "Internal Spearphishing",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '8c',
         method: "Exploit Remote Services",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.6,
       }
     ]
@@ -218,19 +218,19 @@ const scenarios: Scenario[] = [
       {
         id: '9a',
         method: "Data from Local System",
-        baseDifficulty: 3,
+        baseDifficulty: 13,
         successRateModifier: 0.9,
       },
       {
         id: '9b',
         method: "Screen Capture",
-        baseDifficulty: 4,
+        baseDifficulty: 14,
         successRateModifier: 0.85,
       },
       {
         id: '9c',
         method: "Data from Network Shared Drive",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       }
     ]
@@ -244,19 +244,19 @@ const scenarios: Scenario[] = [
       {
         id: '10a',
         method: "Transfer Data to Cloud Account",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       },
       {
         id: '10b',
         method: "Exfiltration Over Alternative Protocol",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '10c',
         method: "Exfiltration Over Physical Medium",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.6,
       }
     ]
@@ -270,19 +270,19 @@ const scenarios: Scenario[] = [
       {
         id: '11a',
         method: "Data Destruction",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '11b',
         method: "Data Encryption for Impact",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.6,
       },
       {
         id: '11c',
         method: "Defacement",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       }
     ]
@@ -296,19 +296,19 @@ const scenarios: Scenario[] = [
       {
         id: '12a',
         method: "Application Layer Protocol",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       },
       {
         id: '12b',
         method: "Dynamic Resolution",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '12c',
         method: "Fallback Channels",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.6,
       }
     ]
@@ -348,19 +348,19 @@ const scenarios: Scenario[] = [
       {
         id: '14a',
         method: "Acquire Infrastructure",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       },
       {
         id: '14b',
         method: "Compromise Accounts",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '14c',
         method: "Establish Accounts",
-        baseDifficulty: 4,
+        baseDifficulty: 14,
         successRateModifier: 0.85,
       }
     ]
@@ -374,19 +374,19 @@ const scenarios: Scenario[] = [
       {
         id: '15a',
         method: "Data Manipulation",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.75,
       },
       {
         id: '15b',
         method: "Defacement",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '15c',
         method: "Disk Wipe",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.65,
       }
     ]
@@ -400,19 +400,19 @@ const scenarios: Scenario[] = [
       {
         id: '16a',
         method: "Container Administration Command",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       },
       {
         id: '16b',
         method: "Deploy Container",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.75,
       },
       {
         id: '16c',
         method: "Serverless Execution",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.7,
       }
     ]
@@ -426,19 +426,19 @@ const scenarios: Scenario[] = [
       {
         id: '17a',
         method: "Debugger Evasion",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.8,
       },
       {
         id: '17b',
         method: "Obfuscated Files or Information",
-        baseDifficulty: 4,
+        baseDifficulty: 14,
         successRateModifier: 0.85,
       },
       {
         id: '17c',
         method: "Rootkit",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.65,
       }
     ]
@@ -452,19 +452,19 @@ const scenarios: Scenario[] = [
       {
         id: '18a',
         method: "Credentials from Password Stores",
-        baseDifficulty: 6,
+        baseDifficulty: 16,
         successRateModifier: 0.7,
       },
       {
         id: '18b',
         method: "Steal or Forge Kerberos Tickets",
-        baseDifficulty: 7,
+        baseDifficulty: 17,
         successRateModifier: 0.65,
       },
       {
         id: '18c',
         method: "Steal Application Access Token",
-        baseDifficulty: 5,
+        baseDifficulty: 15,
         successRateModifier: 0.75,
       }
     ]
