@@ -20,9 +20,22 @@ const skills: { name: string; key: keyof HackerSkills }[] = [
 
 const HackerSkillSheet: React.FC = () => {
     const [skillPoints, setSkillPoints] = useState(initialSkillPoints);
-    const [skillDistribution, setSkillDistribution] = useState<HackerSkills>(
-        Object.fromEntries(skills.map(skill => [skill.key, 0])) as HackerSkills
-    );
+    const [skillDistribution, setSkillDistribution] = useState<HackerSkills>(() => {
+        const initial: HackerSkills = {
+            initialAccess: 0,
+            execution: 0,
+            persistence: 0,
+            privilegeEscalation: 0,
+            defenseEvasion: 0,
+            credentialAccess: 0,
+            discovery: 0,
+            lateralMovement: 0,
+            collection: 0,
+            exfiltration: 0,
+            impact: 0,
+        };
+        return initial;
+    });
 
     const router = useRouter();
 
