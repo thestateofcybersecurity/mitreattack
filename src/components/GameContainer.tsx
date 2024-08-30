@@ -29,12 +29,12 @@ const GameContainer: React.FC = () => {
     setScore(prevScore => prevScore + calculateScore(choice, result.success, result.roll));
 
     if (result.success) {
-      const nextScenario = getNextScenario(scenarios, currentScenario);
+      const nextScenario = getNextScenario(scenarios, currentScenario, { success: result.success });
       if (nextScenario) {
         setTimeout(() => {
           setCurrentScenario(nextScenario);
           setRollResult(null);
-        }, 3000);
+        }, 7000);
       } else {
         setGameOver(true);
       }
@@ -44,10 +44,10 @@ const GameContainer: React.FC = () => {
       setTimeout(() => {
         setCurrentScenario(redAlertScenario);
         setRollResult(null);
-      }, 3000);
+      }, 7000);
     }
   };
-
+  
   const restartGame = () => {
     setCurrentScenario(scenarios[0]);
     setGameOver(false);
