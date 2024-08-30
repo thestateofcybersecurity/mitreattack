@@ -1,21 +1,36 @@
-export interface Option {
+export interface Choice {
   id: string;
-  text: string;
-  technique: string;
-  nextScenario: string;
-  consequence: string;
-}
-
-export interface EducationalContent {
-  title: string;
-  content: string;
+  method: string;
+  baseDifficulty: number;
+  successRateModifier: number;
 }
 
 export interface Scenario {
-  id: string;
-  title: string;
-  tactic: string;
+  id: number;
+  name: string;
   description: string;
-  options: Option[];
-  educationalContent?: EducationalContent;
+  phase: keyof HackerSkills;
+  choices: Choice[];
+}
+
+export interface HackerSkills {
+  initialAccess: number;
+  execution: number;
+  persistence: number;
+  privilegeEscalation: number;
+  defenseEvasion: number;
+  credentialAccess: number;
+  discovery: number;
+  lateralMovement: number;
+  collection: number;
+  exfiltration: number;
+  impact: number;
+}
+
+export interface GameState {
+  currentScenario: Scenario | null;
+  gameHistory: string[];
+  gameOver: boolean;
+  score: number;
+  hackerSkills: HackerSkills | null;
 }
