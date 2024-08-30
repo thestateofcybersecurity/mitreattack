@@ -3090,19 +3090,6 @@ const scenarios: Scenario[] = [
         id: 'T1562.004',
         method: "Disable or Modify System Firewall",
         description: "Disable or modify system firewalls to bypass controls limiting network usage.",
-        baseDifficulty: 22,  //
-
-
-
-
-You said:
-continue where you left off
-ChatGPT said:
-ChatGPT
-Certainly! Continuing from where I left off:
-
-typescript
-Copy code
         baseDifficulty: 22,  // High difficulty
         successRateModifier: 0.65,
       },
