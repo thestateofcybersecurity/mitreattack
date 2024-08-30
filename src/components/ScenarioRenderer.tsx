@@ -3,6 +3,7 @@ import { Scenario, Choice } from '@/types';
 
 interface ScenarioRendererProps {
   scenario: Scenario;
+  choices: Choice[];
   onChoiceMade: (choiceId: string) => void;
   rollResult?: {
     success: boolean;
@@ -16,6 +17,7 @@ interface ScenarioRendererProps {
 
 const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ 
   scenario, 
+  choices,
   onChoiceMade, 
   rollResult, 
   skillIncrease,
@@ -64,10 +66,10 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
 
       {!selectedChoice ? (
         <div className="space-y-4">
-          {scenario.choices.map((choice) => (
+          {choices.map((choice) => (
             <button
               key={choice.id}
-              onClick={() => handleChoiceClick(choice)}
+              onClick={() => onChoiceMade(choice.id)}
               className={`w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200 ${choicesLocked ? 'opacity-50 cursor-not-allowed' : ''}`}
               disabled={choicesLocked}
             >
