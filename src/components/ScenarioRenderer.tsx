@@ -23,6 +23,12 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
 }) => {
   const isRedAlert = scenario.name.includes('Red Alert');
 
+  const handleChoiceClick = (choiceId: string) => {
+    if (!choicesLocked) {
+      onChoiceMade(choiceId);
+    }
+  };
+
   return (
     <div className={`bg-cyberGray p-6 rounded-lg shadow-neon ${isRedAlert ? 'border-4 border-cyberRed' : ''}`}>
       {isRedAlert && (
@@ -48,7 +54,7 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
         {scenario.choices.map((choice) => (
           <button
             key={choice.id}
-            onClick={() => onChoiceMade(choice.id)}
+            onClick={() => handleChoiceClick(choice.id)}
             className={`w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200 ${choicesLocked ? 'opacity-50 cursor-not-allowed' : ''}`}
             disabled={choicesLocked}
           >
