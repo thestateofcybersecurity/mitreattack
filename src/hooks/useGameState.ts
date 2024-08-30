@@ -1,9 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Scenario } from '@/types';
-import { getNextScenario, calculateScore } from '@/utils/gameLogic';
-import { useState } from 'react';
-import { scenarios } from './scenarios';
-import { executeChoice } from './gameLogic';
+import { Scenario, Choice, HackerSkills } from '@/types';
+import { getNextScenario, calculateSuccessRate, executeChoice } from '@/utils/gameLogic';
 
 const useGameState = (initialScenarios: Scenario[]) => {
   const [scenarios, setScenarios] = useState<Scenario[]>(initialScenarios);
@@ -11,62 +8,53 @@ const useGameState = (initialScenarios: Scenario[]) => {
   const [gameHistory, setGameHistory] = useState<string[]>([]);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [hackerSkills, setHackerSkills] = useState<HackerSkills | null>(null);
 
   useEffect(() => {
-    console.log("useGameState: scenarios updated", scenarios);
+    const storedSkills = localStorage.getItem('hackerSkills');
+    if (storedSkills) {
+      setHackerSkills(JSON.parse(storedSkills));
+    }
+  }, []);
+
+  useEffect(() => {
     if (scenarios.length > 0 && !currentScenario) {
-      console.log("Setting initial scenario", scenarios[0]);
       setCurrentScenario(scenarios[0]);
     }
   }, [scenarios, currentScenario]);
 
   const makeChoice = useCallback((choiceId: string) => {
-    if (!currentScenario) return;
+    if (!currentScenario || !hackerSkills) return;
 
-    const choice = currentScenario.options.find(option => option.id === choiceId);
+    const choice = currentScenario.choices.find(option => option.id === choiceId);
     if (!choice) return;
 
+    const successRate = calculateSuccessRate(choice, hackerSkills[currentScenario.phase]);
+    const outcome = executeChoice(choice, successRate);
+
     setGameHistory(prevHistory => [...prevHistory, choiceId]);
-    setScore(prevScore => prevScore + calculateScore(choice.technique, currentScenario.tactic));
+    setScore(prevScore => prevScore + outcome.score);
+
+    if (outcome.detected) {
+      // Handle detection logic
+    }
 
     const nextScenario = getNextScenario(scenarios, currentScenario, choice);
-    console.log("Setting next scenario", nextScenario);
     setCurrentScenario(nextScenario);
 
-    // Check if the game should end (you might want to add more conditions here)
-    if (nextScenario.options.length === 0) {
+    if (!nextScenario) {
       setGameOver(true);
     }
-  }, [currentScenario, scenarios]);
-
-  export function useGameState() {
-    const [currentScenarioIndex, setCurrentScenarioIndex] = useState(0);
-    const [result, setResult] = useState<string | null>(null);
-
-    function makeChoice(choiceIndex: number) {
-        const scenario = scenarios[currentScenarioIndex];
-        const choice = scenario.choices[choiceIndex];
-        const outcome = executeChoice(choice);
-        setResult(outcome);
-
-        // Advance to the next scenario or handle end of game
-        if (currentScenarioIndex < scenarios.length - 1) {
-            setCurrentScenarioIndex(currentScenarioIndex + 1);
-        } else {
-            // Handle end of game
-        }
-    }
+  }, [currentScenario, scenarios, hackerSkills]);
 
   return {
-    scenario: scenarios[currentScenarioIndex],
-    result,
-    makeChoice,
     currentScenario,
     gameHistory,
     gameOver,
     score,
     makeChoice,
     setScenarios,
+    hackerSkills,
   };
 };
 
