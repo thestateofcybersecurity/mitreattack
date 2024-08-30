@@ -44,6 +44,27 @@ export const getNextScenario = (scenarios: Scenario[], currentScenario: Scenario
     };
 };
 
+function getSkillModifier(phase: string): number {
+    const hackerSkills = JSON.parse(localStorage.getItem('hackerSkills') || '{}');
+    return hackerSkills[phase] || 0; // Default to 0 if the skill is not found
+}
+
+export function calculateChanceOfBeingCaught(baseDifficulty: number, modifier: number, phase: string): boolean {
+    const skillModifier = getSkillModifier(phase);
+    const randomValue = Math.random();
+    const threshold = (baseDifficulty * modifier) / (10 + skillModifier); // Adjust based on the skill modifier
+    return randomValue > threshold;
+}
+
+export function executeChoice(choice: { method: string, baseDifficulty: number, successRateModifier: number, phase: string }) {
+    const caught = calculateChanceOfBeingCaught(choice.baseDifficulty, choice.successRateModifier, choice.phase);
+    if (caught) {
+        return `You were caught trying to use ${choice.method}.`;
+    } else {
+        return `You successfully used ${choice.method}.`;
+    }
+}
+
 const adjustScenarioForIncreasedSecurity = (scenarioId: string): string => {
     // Logic to adjust the scenario for increased security
     // This could involve changing to a more defensive scenario or adding more challenges
