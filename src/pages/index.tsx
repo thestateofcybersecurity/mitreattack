@@ -1,13 +1,22 @@
-import GameContainer from '@/components/GameContainer'
+import React from 'react';
+import { useRouter } from 'next/router';
 
-export default function Home() {
-  return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>MITRE ATT&CK: Choose Your Own Adventure</h1>
-      <GameContainer />
-    </div>
-  )
-}
+const Home = () => {
+    const router = useRouter();
+
+    const startGame = () => {
+        router.push('/hackerSkillSheet'); // Route to the skill sheet first
+    };
+
+    return (
+        <div>
+            <h1>Welcome to the MITRE ATT&CK CYOA Game</h1>
+            <button onClick={startGame}>Create Hacker Skill Sheet</button>
+        </div>
+    );
+};
+
+export default Home;
 
 const styles = {
   container: {
