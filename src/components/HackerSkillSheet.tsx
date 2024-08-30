@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HackerSkills } from '@/types';
 
 interface HackerSkillSheetProps {
@@ -25,15 +25,14 @@ const skills: { name: string; key: keyof HackerSkills }[] = [
 const HackerSkillSheet: React.FC<HackerSkillSheetProps> = ({ onConfirm }) => {
   const [skillPoints, setSkillPoints] = useState(initialSkillPoints);
   const [skillDistribution, setSkillDistribution] = useState<HackerSkills>(() => {
+    const savedSkills = localStorage.getItem('hackerSkills');
+    if (savedSkills) {
+      const parsedSkills = JSON.parse(savedSkills);
+      setSkillPoints(initialSkillPoints - Object.values(parsedSkills).reduce((a, b) => a + b, 0));
+      return parsedSkills;
+    }
     return skills.reduce((acc, skill) => ({ ...acc, [skill.key]: 0 }), {} as HackerSkills);
   });
-
-  const handleIncrease = (key: keyof HackerSkills) => {
-    if (skillPoints > 0) {
-      setSkillDistribution(prev => ({ ...prev, [key]: prev[key] + 1 }));
-      setSkillPoints(prev => prev - 1);
-    }
-  };
 
   const handleDecrease = (key: keyof HackerSkills) => {
     if (skillDistribution[key] > 0) {
