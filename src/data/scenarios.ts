@@ -2667,7 +2667,1386 @@ const scenarios: Scenario[] = [
       },
     ],
   },
-       
+{
+    id: 7,
+    name: "Defense Evasion",
+    description: "Adversaries attempt to avoid detection or defeat security defenses. Which evasion technique will you deploy?",
+    phase: 'defense-evasion',
+    choices: [
+             {
+        id: 'T1548',
+        method: "Abuse Elevation Control Mechanism",
+        description: "Adversaries may circumvent mechanisms designed to control elevated privileges to gain higher-level permissions.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1548.001',
+        method: "Setuid and Setgid",
+        description: "Abuse configurations where an application has the setuid or setgid bits set to gain elevated privileges.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1548.002',
+        method: "Bypass User Account Control",
+        description: "Bypass UAC mechanisms to elevate process privileges on a system.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1548.003',
+        method: "Sudo and Sudo Caching",
+        description: "Perform sudo caching and/or use the sudoers file to elevate privileges.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1548.004',
+        method: "Elevated Execution with Prompt",
+        description: "Leverage AuthorizationExecuteWithPrivileges API to escalate privileges by prompting the user for credentials.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1548.005',
+        method: "Temporary Elevated Cloud Access",
+        description: "Abuse permission configurations to gain temporarily elevated access to cloud resources.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1548.006',
+        method: "TCC Manipulation",
+        description: "Manipulate the Transparency, Consent, & Control (TCC) service or database to execute malicious applications with elevated permissions.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1134',
+        method: "Access Token Manipulation",
+        description: "Adversaries may modify access tokens to operate under a different user or system security context to perform actions and bypass access controls.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1134.001',
+        method: "Token Impersonation/Theft",
+        description: "Impersonate another user's existing token to escalate privileges and bypass access controls.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1134.002',
+        method: "Create Process with Token",
+        description: "Create a new process with an existing token to escalate privileges and bypass access controls.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1134.003',
+        method: "Make and Impersonate Token",
+        description: "Make new tokens and impersonate users to escalate privileges and bypass access controls.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1134.004',
+        method: "Parent PID Spoofing",
+        description: "Spoof the parent process identifier (PPID) of a new process to evade process-monitoring defenses or to elevate privileges.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1134.005',
+        method: "SID-History Injection",
+        description: "Use SID-History Injection to escalate privileges and bypass access controls.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1197',
+        method: "BITS Jobs",
+        description: "Abuse BITS jobs to persistently execute code and perform various background tasks.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1612',
+        method: "Build Image on Host",
+        description: "Build a container image directly on a host to bypass defenses that monitor for the retrieval of malicious images from a public registry.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1622',
+        method: "Debugger Evasion",
+        description: "Employ various means to detect and avoid debuggers.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1140',
+        method: "Deobfuscate/Decode Files or Information",
+        description: "Use Obfuscated Files or Information to hide artifacts of an intrusion from analysis.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1610',
+        method: "Deploy Container",
+        description: "Deploy a container into an environment to facilitate execution or evade defenses.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1006',
+        method: "Direct Volume Access",
+        description: "Directly access a volume to bypass file access controls and file system monitoring.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1484',
+        method: "Domain or Tenant Policy Modification",
+        description: "Modify the configuration settings of a domain or identity tenant to evade defenses and/or escalate privileges.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1484.001',
+        method: "Group Policy Modification",
+        description: "Modify Group Policy Objects (GPOs) to subvert the intended discretionary access controls for a domain.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1484.002',
+        method: "Trust Modification",
+        description: "Add new domain trusts, modify the properties of existing domain trusts, or change the configuration of trust relationships between domains and tenants.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1480',
+        method: "Execution Guardrails",
+        description: "Use execution guardrails to constrain execution or actions based on adversary supplied and environment-specific conditions.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1480.001',
+        method: "Environmental Keying",
+        description: "Use cryptographic techniques for deriving encryption/decryption keys from specific types of values in a given computing environment.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1211',
+        method: "Exploitation for Defense Evasion",
+        description: "Exploit a system or application vulnerability to bypass security features.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1222',
+        method: "File and Directory Permissions Modification",
+        description: "Modify file or directory permissions/attributes to evade access control lists (ACLs) and access protected files.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1222.001',
+        method: "Windows File and Directory Permissions Modification",
+        description: "Modify file or directory permissions/attributes on Windows systems to evade access control lists (ACLs) and access protected files.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1222.002',
+        method: "Linux and Mac File and Directory Permissions Modification",
+        description: "Modify file or directory permissions/attributes on Linux and Mac systems to evade access control lists (ACLs) and access protected files.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1564',
+        method: "Hide Artifacts",
+        description: "Attempt to hide artifacts associated with their behaviors to evade detection.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.75,
+      },
+              {
+        id: 'T1564.001',
+        method: "Hidden Files and Directories",
+        description: "Set files and directories to be hidden to evade detection mechanisms.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1564.002',
+        method: "Hidden Users",
+        description: "Use hidden users to hide the presence of user accounts created or modified by adversaries.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1564.003',
+        method: "Hidden Window",
+        description: "Use hidden windows to conceal malicious activity from the plain sight of users.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1564.004',
+        method: "NTFS File Attributes",
+        description: "Use NTFS file attributes to hide malicious data in order to evade detection.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1564.005',
+        method: "Hidden File System",
+        description: "Use a hidden file system to conceal malicious activity from users and security tools.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1564.006',
+        method: "Run Virtual Instance",
+        description: "Carry out malicious operations using a virtual instance to avoid detection.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1564.007',
+        method: "VBA Stomping",
+        description: "Hide malicious Visual Basic for Applications (VBA) payloads by replacing the VBA source code with benign data.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1564.008',
+        method: "Email Hiding Rules",
+        description: "Use email rules to hide inbound emails in a compromised user's mailbox.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1564.009',
+        method: "Resource Forking",
+        description: "Abuse resource forks to hide malicious code or executables to evade detection.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1564.010',
+        method: "Process Argument Spoofing",
+        description: "Hide process command-line arguments by overwriting process memory.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1564.011',
+        method: "Ignore Process Interrupts",
+        description: "Evade defensive mechanisms by executing commands that hide from process interrupt signals.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1564.012',
+        method: "File/Path Exclusions",
+        description: "Attempt to hide file-based artifacts by writing them to specific folders or file names excluded from antivirus (AV) scanning.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574',
+        method: "Hijack Execution Flow",
+        description: "Execute malicious payloads by hijacking the way operating systems run programs.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1574.001',
+        method: "DLL Search Order Hijacking",
+        description: "Hijack the search order used to load DLLs to execute malicious payloads.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1574.002',
+        method: "DLL Side-Loading",
+        description: "Directly side-load payloads by planting then invoking a legitimate application that executes the payload(s).",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1574.004',
+        method: "Dylib Hijacking",
+        description: "Execute malicious payloads by placing a malicious dynamic library (dylib) in a path a victim application searches at runtime.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1574.005',
+        method: "Executable Installer File Permissions Weakness",
+        description: "Hijack binaries used by an installer by overwriting them to execute malicious payloads.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574.006',
+        method: "Dynamic Linker Hijacking",
+        description: "Hijack environment variables the dynamic linker uses to load shared libraries.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574.007',
+        method: "Path Interception by PATH Environment Variable",
+        description: "Hijack environment variables used to load libraries by exploiting the PATH environment variable.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574.008',
+        method: "Path Interception by Search Order Hijacking",
+        description: "Hijack the search order used to load programs by placing a malicious file in the directory where the calling program is located.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574.009',
+        method: "Path Interception by Unquoted Path",
+        description: "Exploit vulnerable file path references to execute malicious payloads.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574.010',
+        method: "Services File Permissions Weakness",
+        description: "Hijack binaries used by services by overwriting them to execute malicious payloads.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574.011',
+        method: "Services Registry Permissions Weakness",
+        description: "Hijack the Registry entries used by services to execute malicious payloads.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574.012',
+        method: "COR_PROFILER",
+        description: "Hijack the execution flow of programs that load the .NET CLR by leveraging the COR_PROFILER environment variable.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574.013',
+        method: "KernelCallbackTable",
+        description: "Abuse the KernelCallbackTable of a process to hijack its execution flow and run malicious payloads.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1574.014',
+        method: "AppDomainManager",
+        description: "Hijack how the .NET AppDomainManager loads assemblies to execute malicious payloads.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1562',
+        method: "Impair Defenses",
+        description: "Maliciously modify components of a victim environment to hinder or disable defensive mechanisms.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1562.001',
+        method: "Disable or Modify Tools",
+        description: "Modify and/or disable security tools to avoid possible detection of malware/tools and activities.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1562.002',
+        method: "Disable Windows Event Logging",
+        description: "Disable Windows event logging to limit data that can be leveraged for detections and audits.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1562.003',
+        method: "Impair Command History Logging",
+        description: "Impair command history logging to hide commands run on a compromised system.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1562.004',
+        method: "Disable or Modify System Firewall",
+        description: "Disable or modify system firewalls to bypass controls limiting network usage.",
+        baseDifficulty: 22,  //
+
+
+
+
+You said:
+continue where you left off
+ChatGPT said:
+ChatGPT
+Certainly! Continuing from where I left off:
+
+typescript
+Copy code
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1562.006',
+        method: "Indicator Blocking",
+        description: "Attempt to block indicators or events typically captured by sensors from being gathered and analyzed.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1562.007',
+        method: "Disable or Modify Cloud Firewall",
+        description: "Disable or modify a firewall within a cloud environment to bypass controls that limit access to cloud resources.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1562.008',
+        method: "Disable or Modify Cloud Logs",
+        description: "Disable or modify cloud logging capabilities and integrations to limit what data is collected on adversary activities.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1562.009',
+        method: "Safe Mode Boot",
+        description: "Abuse Windows safe mode to disable endpoint defenses.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1562.010',
+        method: "Downgrade Attack",
+        description: "Downgrade or use a version of system features that may be outdated, vulnerable, and/or does not support updated security controls.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1562.011',
+        method: "Spoof Security Alerting",
+        description: "Spoof security alerting from tools, presenting false evidence to impair defenders’ awareness of malicious activity.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1562.012',
+        method: "Disable or Modify Linux Audit System",
+        description: "Disable or modify the Linux audit system to hide malicious activity and avoid detection.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1656',
+        method: "Impersonation",
+        description: "Impersonate a trusted person or organization to persuade and trick a target into performing some action.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1070',
+        method: "Indicator Removal",
+        description: "Delete or modify artifacts generated within systems to remove evidence of presence or hinder defenses.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1070.001',
+        method: "Clear Windows Event Logs",
+        description: "Clear Windows Event Logs to hide the activity of an intrusion.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1070.002',
+        method: "Clear Linux or Mac System Logs",
+        description: "Clear system logs to hide evidence of an intrusion.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1070.003',
+        method: "Clear Command History",
+        description: "Clear the command history of a compromised account to conceal the actions undertaken during an intrusion.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1070.004',
+        method: "File Deletion",
+        description: "Delete files left behind by the actions of intrusion activity to minimize the footprint.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1070.005',
+        method: "Network Share Connection Removal",
+        description: "Remove share connections that are no longer useful to clean up traces of operations.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1070.006',
+        method: "Timestomp",
+        description: "Modify file time attributes to hide new or changes to existing files.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1070.007',
+        method: "Clear Network Connection History and Configurations",
+        description: "Clear or remove evidence of malicious network connections to clean up traces of operations.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1070.008',
+        method: "Clear Mailbox Data",
+        description: "Modify mail and mail application data to remove evidence of adversary activity.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1070.009',
+        method: "Clear Persistence",
+        description: "Clear artifacts associated with previously established persistence on a host system to remove evidence of activity.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1202',
+        method: "Indirect Command Execution",
+        description: "Abuse utilities that allow for command execution to bypass security restrictions that limit the use of command-line interpreters.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1036',
+        method: "Masquerading",
+        description: "Manipulate features of artifacts to make them appear legitimate or benign to users and/or security tools.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1036.001',
+        method: "Invalid Code Signature",
+        description: "Mimic features of valid code signatures to increase the chance of deceiving users or security tools.",
+        baseDifficulty: 18,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1036.002',
+        method: "Right-to-Left Override",
+        description: "Abuse the right-to-left override (RTLO or RLO) character to disguise a string or file name to make it appear benign.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1036.003',
+        method: "Rename System Utilities",
+        description: "Rename legitimate system utilities to try to evade security mechanisms concerning the usage of those utilities.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1036.004',
+        method: "Masquerade Task or Service",
+        description: "Manipulate the name of a task or service to make it appear legitimate or benign.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1036.005',
+        method: "Match Legitimate Name or Location",
+        description: "Match or approximate the name or location of legitimate files or resources to evade defenses and observation.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1036.006',
+        method: "Space after Filename",
+        description: "Hide a program's true filetype by changing the extension of a file with an appended space.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1036.007',
+        method: "Double File Extension",
+        description: "Abuse a double extension in the filename as a means of masquerading the true file type.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1036.008',
+        method: "Masquerade File Type",
+        description: "Masquerade malicious payloads as legitimate files through changes to the payload's formatting.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1036.009',
+        method: "Break Process Trees",
+        description: "Attempt to evade process tree-based analysis by modifying executed malware's parent process ID (PPID).",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1556',
+        method: "Modify Authentication Process",
+        description: "Modify authentication mechanisms and processes to access user credentials or enable otherwise unwarranted access to accounts.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+              {
+        id: 'T1556.001',
+        method: "Domain Controller Authentication",
+        description: "Patch the authentication process on a domain controller to bypass typical authentication mechanisms and enable access to accounts.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1556.002',
+        method: "Password Filter DLL",
+        description: "Register malicious password filter DLLs into the authentication process to acquire user credentials as they are validated.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1556.003',
+        method: "Pluggable Authentication Modules",
+        description: "Modify pluggable authentication modules (PAM) to access user credentials or enable unwarranted access to accounts.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1556.004',
+        method: "Network Device Authentication",
+        description: "Patch system images to hard code a password in the operating system, bypassing native authentication mechanisms.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1556.005',
+        method: "Reversible Encryption",
+        description: "Abuse Active Directory authentication encryption properties to gain access to credentials on Windows systems.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1556.006',
+        method: "Multi-Factor Authentication",
+        description: "Disable or modify multi-factor authentication (MFA) mechanisms to enable persistent access to compromised accounts.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1556.007',
+        method: "Hybrid Identity",
+        description: "Patch, modify, or otherwise backdoor cloud authentication processes tied to on-premises user identities.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1556.008',
+        method: "Network Provider DLL",
+        description: "Register malicious network provider DLLs to capture cleartext user credentials during the authentication process.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1556.009',
+        method: "Conditional Access Policies",
+        description: "Disable or modify conditional access policies to enable persistent access to compromised accounts.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1578',
+        method: "Modify Cloud Compute Infrastructure",
+        description: "Modify a cloud account's compute service infrastructure to evade defenses.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1578.001',
+        method: "Create Snapshot",
+        description: "Create a snapshot or data backup within a cloud account to bypass restrictions that prevent access to existing compute service infrastructure.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1578.002',
+        method: "Create Cloud Instance",
+        description: "Create a new instance or virtual machine within the compute service of a cloud account to evade defenses.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1578.003',
+        method: "Delete Cloud Instance",
+        description: "Delete a cloud instance after performing malicious activities to evade detection and remove evidence of presence.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1578.004',
+        method: "Revert Cloud Instance",
+        description: "Revert changes made to a cloud instance after performing malicious activities to evade detection and remove evidence.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1578.005',
+        method: "Modify Cloud Compute Configurations",
+        description: "Modify settings that affect the size, locations, and resources available to cloud compute infrastructure to evade defenses.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1112',
+        method: "Modify Registry",
+        description: "Interact with the Windows Registry to hide configuration information, remove information as part of cleanup, or assist in persistence.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1601',
+        method: "Modify System Image",
+        description: "Make changes to the operating system of embedded network devices to weaken defenses and provide new capabilities.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1601.001',
+        method: "Patch System Image",
+        description: "Modify the operating system of a network device to introduce new capabilities or weaken existing defenses.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1601.002',
+        method: "Downgrade System Image",
+        description: "Install an older version of the operating system of a network device to weaken security.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1599',
+        method: "Network Boundary Bridging",
+        description: "Bridge network boundaries by compromising perimeter network devices or internal devices responsible for network segmentation.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1599.001',
+        method: "Network Address Translation Traversal",
+        description: "Bridge network boundaries by modifying a network device’s Network Address Translation (NAT) configuration.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1027',
+        method: "Obfuscated Files or Information",
+        description: "Make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1027.001',
+        method: "Binary Padding",
+        description: "Use binary padding to add junk data and change the on-disk representation of malware.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1027.002',
+        method: "Software Packing",
+        description: "Perform software packing or virtual machine software protection to conceal code.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1027.003',
+        method: "Steganography",
+        description: "Use steganography techniques to hide data in digital media such as images, audio tracks, or text files.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1027.004',
+        method: "Compile After Delivery",
+        description: "Deliver files to victims as uncompiled code to subvert analysis and scrutiny.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1027.005',
+        method: "Indicator Removal from Tools",
+        description: "Remove indicators from tools if they believe their malicious tool was detected.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1027.006',
+        method: "HTML Smuggling",
+        description: "Smuggle data and files past content filters by hiding malicious payloads inside of seemingly benign HTML files.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1027.007',
+        method: "Dynamic API Resolution",
+        description: "Obfuscate then dynamically resolve API functions called by their malware to conceal malicious functionalities.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1027.008',
+        method: "Stripped Payloads",
+        description: "Make a payload difficult to analyze by removing symbols, strings, and other human-readable information.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1027.009',
+        method: "Embedded Payloads",
+        description: "Embed payloads within other files to conceal malicious content from defenses.",
+        baseDifficulty: 25,  // High difficulty
+               successRateModifier: 0.6,
+      },
+      {
+        id: 'T1027.010',
+        method: "Command Obfuscation",
+        description: "Obfuscate content during command execution to impede detection and analysis.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1027.011',
+        method: "Fileless Storage",
+        description: "Store data in 'fileless' formats such as the Windows Registry or event logs to conceal malicious activity.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1027.012',
+        method: "LNK Icon Smuggling",
+        description: "Smuggle commands to download malicious payloads past content filters by hiding them within Windows shortcut files (.LNK).",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1027.013',
+        method: "Encrypted/Encoded File",
+        description: "Encrypt or encode files to obfuscate strings, bytes, and other specific patterns to impede detection.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1647',
+        method: "Plist File Modification",
+        description: "Modify property list files (plist files) to enable other malicious activity while evading detection.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1542',
+        method: "Pre-OS Boot",
+        description: "Abuse Pre-OS Boot mechanisms as a way to establish persistence on a system.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1542.001',
+        method: "System Firmware",
+        description: "Modify system firmware to persist on systems.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1542.002',
+        method: "Component Firmware",
+        description: "Modify component firmware to persist on systems.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1542.003',
+        method: "Bootkit",
+        description: "Use bootkits to persist on systems by residing below the operating system.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1542.004',
+        method: "ROMMONkit",
+        description: "Abuse the ROM Monitor (ROMMON) by loading an unauthorized firmware with adversary code.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1542.005',
+        method: "TFTP Boot",
+        description: "Abuse netbooting to load an unauthorized network device operating system from a Trivial File Transfer Protocol (TFTP) server.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1055',
+        method: "Process Injection",
+        description: "Inject code into processes to evade process-based defenses and possibly elevate privileges.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.001',
+        method: "Dynamic-link Library Injection",
+        description: "Inject dynamic-link libraries (DLLs) into processes to evade process-based defenses.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.002',
+        method: "Portable Executable Injection",
+        description: "Inject portable executables (PE) into processes to evade process-based defenses.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.003',
+        method: "Thread Execution Hijacking",
+        description: "Inject malicious code into hijacked processes to evade process-based defenses.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.004',
+        method: "Asynchronous Procedure Call",
+        description: "Inject malicious code into processes via the asynchronous procedure call (APC) queue.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.005',
+        method: "Thread Local Storage",
+        description: "Inject malicious code into processes via thread local storage (TLS) callbacks.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.008',
+        method: "Ptrace System Calls",
+        description: "Inject malicious code into processes via ptrace (process trace) system calls.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.009',
+        method: "Proc Memory",
+        description: "Inject malicious code into processes via the /proc filesystem.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.011',
+        method: "Extra Window Memory Injection",
+        description: "Inject malicious code into process via Extra Window Memory (EWM).",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.012',
+        method: "Process Hollowing",
+        description: "Inject malicious code into suspended and hollowed processes to evade process-based defenses.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.013',
+        method: "Process Doppelgänging",
+        description: "Inject malicious code into process via process doppelgänging.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1055.014',
+        method: "VDSO Hijacking",
+        description: "Inject malicious code into processes via VDSO hijacking.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1055.015',
+        method: "ListPlanting",
+        description: "Abuse list-view controls to inject malicious code into hijacked processes.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1620',
+        method: "Reflective Code Loading",
+        description: "Reflectively load code into a process to conceal the execution of malicious payloads.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1207',
+        method: "Rogue Domain Controller",
+        description: "Register a rogue Domain Controller to enable manipulation of Active Directory data.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1014',
+        method: "Rootkit",
+        description: "Use rootkits to hide the presence of programs, files, network connections, services, drivers, and other system components.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1553',
+        method: "Subvert Trust Controls",
+        description: "Undermine security controls that will either warn users of untrusted activity or prevent execution of untrusted programs.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1553.001',
+        method: "Gatekeeper Bypass",
+        description: "Modify file attributes and subvert Gatekeeper functionality to evade user prompts and execute untrusted programs.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1553.002',
+        method: "Code Signing",
+        description: "Create, acquire, or steal code signing materials to sign malware or tools.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1553.003',
+        method: "SIP and Trust Provider Hijacking",
+        description: "Tamper with SIP and trust provider components to mislead the operating system and application control tools when conducting signature validation checks.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+        },
+      {
+        id: 'T1553.004',
+        method: "Install Root Certificate",
+        description: "Install a root certificate on a compromised system to avoid warnings when connecting to adversary-controlled web servers.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1553.005',
+        method: "Mark-of-the-Web Bypass",
+        description: "Abuse specific file formats to subvert Mark-of-the-Web (MOTW) controls to evade restrictions on downloaded files.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1553.006',
+        method: "Code Signing Policy Modification",
+        description: "Modify code signing policies to enable execution of unsigned or self-signed code.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1218',
+        method: "System Binary Proxy Execution",
+        description: "Bypass process and/or signature-based defenses by proxying execution of malicious content with signed or otherwise trusted binaries.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.001',
+        method: "Compiled HTML File",
+        description: "Abuse Compiled HTML files (.chm) to conceal malicious code.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.002',
+        method: "Control Panel",
+        description: "Abuse control.exe to proxy execution of malicious payloads.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.003',
+        method: "CMSTP",
+        description: "Abuse CMSTP.exe to proxy execution of malicious code.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.004',
+        method: "InstallUtil",
+        description: "Abuse InstallUtil.exe to proxy execution of code through a trusted Windows utility.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.005',
+        method: "Mshta",
+        description: "Abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.007',
+        method: "Msiexec",
+        description: "Abuse msiexec.exe to proxy execution of malicious payloads.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.008',
+        method: "Odbcconf",
+        description: "Abuse odbcconf.exe to proxy execution of malicious payloads.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.009',
+        method: "Regsvcs/Regasm",
+        description: "Abuse Regsvcs and Regasm to proxy execution of code through a trusted Windows utility.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.010',
+        method: "Regsvr32",
+        description: "Abuse Regsvr32.exe to proxy execution of malicious code.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.011',
+        method: "Rundll32",
+        description: "Abuse rundll32.exe to proxy execution of malicious code.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.012',
+        method: "Verclsid",
+        description: "Abuse verclsid.exe to proxy execution of malicious code.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.013',
+        method: "Mavinject",
+        description: "Abuse mavinject.exe to inject code into external processes as part of Microsoft Application Virtualization (App-V).",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.014',
+        method: "MMC",
+        description: "Abuse mmc.exe to proxy execution of malicious .msc files.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1218.015',
+        method: "Electron Applications",
+        description: "Abuse components of the Electron framework to execute malicious code.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1216',
+        method: "System Script Proxy Execution",
+        description: "Use trusted scripts, often signed with certificates, to proxy the execution of malicious files.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1216.001',
+        method: "PubPrn",
+        description: "Use PubPrn.vbs to proxy execution of malicious remote files.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1216.002',
+        method: "SyncAppvPublishingServer",
+        description: "Abuse SyncAppvPublishingServer.vbs to proxy execution of malicious PowerShell commands.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1221',
+        method: "Template Injection",
+        description: "Create or modify references in user document templates to conceal malicious code or force authentication attempts.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1205',
+        method: "Traffic Signaling",
+        description: "Use traffic signaling to hide open ports or other malicious functionality used for persistence or command and control.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1205.001',
+        method: "Port Knocking",
+        description: "Use port knocking to hide open ports used for persistence or command and control.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1205.002',
+        method: "Socket Filters",
+        description: "Attach filters to a network socket to monitor then activate backdoors used for persistence or command and control.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1127',
+        method: "Trusted Developer Utilities Proxy Execution",
+        description: "Take advantage of trusted developer utilities to proxy execution of malicious payloads.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1127.001',
+        method: "MSBuild",
+        description: "Use MSBuild to proxy execution of code through a trusted Windows utility.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1535',
+        method: "Unused/Unsupported Cloud Regions",
+        description: "Create cloud instances in unused geographic service regions to evade detection.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1550',
+        method: "Use Alternate Authentication Material",
+        description: "Use alternate authentication material to move laterally within an environment and bypass normal system access controls.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1550.001',
+        method: "Application Access Token",
+        description: "Use stolen application access tokens to bypass typical authentication processes and access restricted accounts, information, or services.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1550.002',
+        method: "Pass the Hash",
+        description: "Authenticate using stolen password hashes to move laterally within an environment.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+              {
+        id: 'T1550.003',
+        method: "Pass the Ticket",
+        description: "Authenticate using stolen Kerberos tickets to move laterally within an environment.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1550.004',
+        method: "Web Session Cookie",
+        description: "Use stolen web session cookies to bypass authentication and impersonate a user.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1550.005',
+        method: "SSH Authorized Keys",
+        description: "Use stolen or maliciously placed SSH authorized keys to bypass the need for a password and authenticate to an SSH server.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1550.006',
+        method: "Cloud Instance Metadata API",
+        description: "Use cloud instance metadata APIs to retrieve access tokens and other credentials without user intervention.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1497',
+        method: "Virtualization/Sandbox Evasion",
+        description: "Employ techniques to detect and avoid virtualization and sandbox environments.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1497.001',
+        method: "System Checks",
+        description: "Check for certain system properties, such as environment variables or process names, to detect virtualization or sandboxing.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1497.002',
+        method: "User Activity-Based Checks",
+        description: "Check for user activity or simulate user interaction to detect virtualization or sandboxing.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1497.003',
+        method: "Time-Based Evasion",
+        description: "Use time delays or checks to avoid detection by sandbox or virtualization environments that execute code in a limited timeframe.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1497.004',
+        method: "Hardware Fingerprinting",
+        description: "Fingerprint hardware features such as CPU, BIOS, and memory to detect virtualization or sandboxing.",
+        baseDifficulty: 22,  // High difficulty
+        successRateModifier: 0.65,
+      },
+      {
+        id: 'T1034',
+        method: "Stored Data Manipulation",
+        description: "Manipulate stored data to evade detection or impact system operations.",
+        baseDifficulty: 25,  // High difficulty
+        successRateModifier: 0.6,
+      },
+      {
+        id: 'T1649',
+        method: "System Script Proxy Execution",
+        description: "Use system scripts such as PowerShell or WMI to execute malicious code through a trusted process.",
+        baseDifficulty: 20,  // Medium-High difficulty
+        successRateModifier: 0.7,
+      },
+    ],
+  },
+          
 ];
 
 export default scenarios;
