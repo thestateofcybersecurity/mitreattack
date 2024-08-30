@@ -1,5 +1,5 @@
-import React from 'react';
-import { Scenario } from '@/types';
+import React, { useState } from 'react';
+import { Scenario, Choice } from '@/types';
 
 interface ScenarioRendererProps {
   scenario: Scenario;
@@ -13,11 +13,22 @@ interface ScenarioRendererProps {
 }
 
 const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceMade, rollResult }) => {
-  const isRedAlert = scenario.id.toString().includes('1');
+  const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
+
+  const handleChoiceClick = (choice: Choice) => {
+    setSelectedChoice(choice);
+  };
+
+  const handleConfirm = () => {
+    if (selectedChoice) {
+      onChoiceMade(selectedChoice.id);
+      setSelectedChoice(null);
+    }
+  };
 
   return (
-    <div className={`bg-cyberGray p-6 rounded-lg shadow-neon ${isRedAlert ? 'border-2 border-cyberRed' : ''}`}>
-      <h2 className={`text-2xl font-bold mb-4 ${isRedAlert ? 'text-cyberRed' : 'text-cyberGreen'}`}>{scenario.name}</h2>
+    <div className="bg-cyberGray p-6 rounded-lg shadow-neon">
+      <h2 className="text-2xl font-bold mb-4 text-cyberGreen">{scenario.name}</h2>
       <p className="mb-6 text-white">{scenario.description}</p>
       
       {rollResult && (
@@ -26,17 +37,40 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceM
         </div>
       )}
 
-      <div className="space-y-4">
-        {scenario.choices.map((choice) => (
-          <button
-            key={choice.id}
-            onClick={() => onChoiceMade(choice.id)}
-            className="w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200"
-          >
-            {choice.method}
-          </button>
-        ))}
-      </div>
+      {!selectedChoice ? (
+        <div className="space-y-4">
+          {scenario.choices.map((choice) => (
+            <button
+              key={choice.id}
+              onClick={() => handleChoiceClick(choice)}
+              className="w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200"
+            >
+              {choice.method}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <div className="bg-cyberBlue p-4 rounded">
+            <h3 className="text-xl font-bold mb-2 text-cyberGreen">{selectedChoice.method}</h3>
+            <p className="text-white mb-4">{selectedChoice.description}</p>
+            <div className="flex justify-between">
+              <button
+                onClick={() => setSelectedChoice(null)}
+                className="py-2 px-4 bg-cyberRed hover:bg-red-700 text-white font-bold rounded transition duration-200"
+              >
+                Back
+              </button>
+              <button
+                onClick={handleConfirm}
+                className="py-2 px-4 bg-cyberGreen hover:bg-green-700 text-cyberBlue font-bold rounded transition duration-200"
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
