@@ -101,19 +101,21 @@ const GameContainer: React.FC = () => {
     setRollResult(result);
     setScore(prevScore => prevScore + calculateScore(choice, result.success, result.roll));
 
-    setTimeout(() => {
-      if (result.success) {
-        updateHackerSkills(previousScenario.phase);
-        const nextScenario = getNextScenario(scenarios, previousScenario, { success: true });
-        if (nextScenario) {
-          setCurrentScenario(nextScenario);
-          setPreviousScenario(null);
-        } else {
-          setGameOver(true);
-        }
+  setTimeout(() => {
+    if (result.success) {
+      updateHackerSkills(previousScenario.phase);
+      const nextScenario = getNextScenario(scenarios, previousScenario, { success: true });
+      if (nextScenario) {
+        setCurrentScenario(nextScenario);
+        setPreviousScenario(null);
       } else {
         setGameOver(true);
+        handleGameOver();
       }
+    } else {
+      setGameOver(true);
+      handleGameOver();
+    }
       setRollResult(null);
       setSkillIncrease(null);
       setChoicesLocked(false);
