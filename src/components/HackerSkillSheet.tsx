@@ -24,7 +24,11 @@ const skills: { name: string; key: keyof HackerSkills }[] = [
 
 const HackerSkillSheet: React.FC<HackerSkillSheetProps> = ({ onConfirm }) => {
   const [skillPoints, setSkillPoints] = useState(initialSkillPoints);
-  const [skillDistribution, setSkillDistribution] = useState<HackerSkills>(() => {
+  const [skillDistribution, setSkillDistribution] = useState<HackerSkills>(() => 
+    skills.reduce((acc, skill) => ({ ...acc, [skill.key]: 0 }), {} as HackerSkills)
+  );
+
+  useEffect(() => {
     const savedSkills = localStorage.getItem('hackerSkills');
     if (savedSkills) {
       try {
@@ -32,14 +36,13 @@ const HackerSkillSheet: React.FC<HackerSkillSheetProps> = ({ onConfirm }) => {
         if (isValidHackerSkills(parsedSkills)) {
           const usedPoints = Object.values(parsedSkills).reduce((a, b) => a + b, 0);
           setSkillPoints(Math.max(0, initialSkillPoints - usedPoints));
-          return parsedSkills;
+          setSkillDistribution(parsedSkills);
         }
       } catch (error) {
         console.error('Error parsing saved skills:', error);
       }
     }
-    return skills.reduce((acc, skill) => ({ ...acc, [skill.key]: 0 }), {} as HackerSkills);
-  });
+  }, []);
 
   const isValidHackerSkills = (skills: any): skills is HackerSkills => {
     return skills && typeof skills === 'object' && Object.keys(skills).every(key => 
