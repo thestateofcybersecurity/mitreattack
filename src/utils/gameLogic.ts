@@ -16,14 +16,6 @@ export const triggerRandomEvent = (): string | null => {
     return null;
 };
 
-export const getNextScenario = (scenarios: Scenario[], currentScenario: Scenario, chosenChoice: Choice): Scenario | null => {
-    const currentIndex = scenarios.findIndex(s => s.id === currentScenario.id);
-    if (currentIndex === -1 || currentIndex === scenarios.length - 1) {
-        return null; // Game over
-    }
-    return scenarios[currentIndex + 1];
-};
-
 export const calculateSuccessRate = (choice: Choice, skillLevel: number): number => {
     const baseSuccessRate = 1 - (choice.baseDifficulty / 10);
     const skillBonus = skillLevel * 0.05; // Each skill point increases success rate by 5%
