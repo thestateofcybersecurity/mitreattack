@@ -14,7 +14,7 @@ const GameContainer: React.FC = () => {
   const [hackerSkills, setHackerSkills] = useState<HackerSkills | null>(null);
   const [showSkillSheet, setShowSkillSheet] = useState(true);
 
-  const makeChoice = (choiceId: string) => {
+ const makeChoice = (choiceId: string) => {
     if (!currentScenario || !hackerSkills) return;
 
     const choice = currentScenario.choices.find(c => c.id === choiceId);
