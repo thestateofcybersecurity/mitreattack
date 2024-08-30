@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Scenario, Choice } from '@/types';
 
 interface ScenarioRendererProps {
@@ -10,22 +10,10 @@ interface ScenarioRendererProps {
     total: number;
     message: string;
   };
+  skillIncrease: {skill: string, increase: number} | null;
 }
 
-const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceMade, rollResult }) => {
-  const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
-
-  const handleChoiceClick = (choice: Choice) => {
-    setSelectedChoice(choice);
-  };
-
-  const handleConfirm = () => {
-    if (selectedChoice) {
-      onChoiceMade(selectedChoice.id);
-      setSelectedChoice(null);
-    }
-  };
-
+const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceMade, rollResult, skillIncrease }) => {
   return (
     <div className="bg-cyberGray p-6 rounded-lg shadow-neon">
       <h2 className="text-2xl font-bold mb-4 text-cyberGreen">{scenario.name}</h2>
@@ -34,43 +22,25 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceM
       {rollResult && (
         <div className={`mb-6 p-4 rounded ${rollResult.success ? 'bg-cyberGreen text-cyberBlue' : 'bg-cyberRed text-white'}`}>
           <p>{rollResult.message}</p>
+          {skillIncrease && rollResult.success && (
+            <p className="mt-2 text-cyberPurple">
+              Your {skillIncrease.skill.replace(/([A-Z])/g, ' $1').trim()} skill increased by {skillIncrease.increase}!
+            </p>
+          )}
         </div>
       )}
 
-      {!selectedChoice ? (
-        <div className="space-y-4">
-          {scenario.choices.map((choice) => (
-            <button
-              key={choice.id}
-              onClick={() => handleChoiceClick(choice)}
-              className="w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200"
-            >
-              {choice.method}
-            </button>
-          ))}
-        </div>
-      ) : (
-        <div className="space-y-4">
-          <div className="bg-cyberBlue p-4 rounded">
-            <h3 className="text-xl font-bold mb-2 text-cyberGreen">{selectedChoice.method}</h3>
-            <p className="text-white mb-4">{selectedChoice.description}</p>
-            <div className="flex justify-between">
-              <button
-                onClick={() => setSelectedChoice(null)}
-                className="py-2 px-4 bg-cyberRed hover:bg-red-700 text-white font-bold rounded transition duration-200"
-              >
-                Back
-              </button>
-              <button
-                onClick={handleConfirm}
-                className="py-2 px-4 bg-cyberGreen hover:bg-green-700 text-cyberBlue font-bold rounded transition duration-200"
-              >
-                Confirm
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <div className="space-y-4">
+        {scenario.choices.map((choice) => (
+          <button
+            key={choice.id}
+            onClick={() => onChoiceMade(choice.id)}
+            className="w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200"
+          >
+            {choice.method}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
