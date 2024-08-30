@@ -1,37 +1,29 @@
 import React from 'react';
 import { Scenario, Option } from '@/types';
+import { useGameState } from './useGameState';
 
 interface ScenarioRendererProps {
   scenario: Scenario;
   onChoiceMade: (choiceId: string) => void;
 }
 
-const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceMade }) => {
-  return (
-    <div>
-      <h2 style={styles.title}>{scenario.title}</h2>
-      <div style={styles.scenarioText}>
-        {scenario.description.split("Random Event:")[0]}
-      </div>
-      <div style={styles.options}>
-        {scenario.options.map((option: Option) => (
-          <button
-            key={option.id}
-            onClick={() => onChoiceMade(option.id)}
-            style={styles.optionButton}
-          >
-            {option.text}
-          </button>
-        ))}
-      </div>
-      {scenario.educationalContent && (
-        <div style={styles.educationalContent}>
-          <h3 style={styles.educationalTitle}>{scenario.educationalContent.title}</h3>
-          <p>{scenario.educationalContent.content}</p>
+const ScenarioRenderer = () => {
+    const { scenario, result, makeChoice } = useGameState();
+
+    return (
+        <div>
+            <h2>{scenario.name}</h2>
+            <p>{scenario.description}</p>
+            {result && <p>{result}</p>}
+            <div>
+                {scenario.choices.map((choice, index) => (
+                    <button key={index} onClick={() => makeChoice(index)}>
+                        {choice.method}
+                    </button>
+                ))}
+            </div>
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 const styles = {
