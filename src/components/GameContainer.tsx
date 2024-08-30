@@ -7,6 +7,7 @@ import useGameState from '@/hooks/useGameState';
 import scenarios from '@/data/scenarios';
 import { executeChoice, getNextScenario, createRedAlertScenario, calculateScore } from '@/utils/gameLogic';
 import { HackerSkills, Scenario } from '@/types';
+import { selectBalancedChoices } from '@/utils/choiceSelector';
 
 interface ChoiceRecord {
   method: string;
@@ -26,14 +27,15 @@ const GameContainer: React.FC = () => {
   const [showNamePrompt, setShowNamePrompt] = useState(false);
   const [playerName, setPlayerName] = useState('');
   const [scoreSubmitted, setScoreSubmitted] = useState(false);
+  const [currentChoices, setCurrentChoices] = useState<Choice[]>([]);
 
   useEffect(() => {
-    const skills = localStorage.getItem('hackerSkills');
-    if (skills) {
-      setHackerSkills(JSON.parse(skills));
-      setShowSkillSheet(false);
+   if (scenarios.length > 0 && !currentScenario) {
+      const initialScenario = scenarios[0];
+      setCurrentScenario(initialScenario);
+      setCurrentChoices(selectBalancedChoices(initialScenario.choicePool));
     }
-  }, []);
+  }, [scenarios, currentScenario]);
 
   const updateHackerSkills = (phase: keyof HackerSkills) => {
     if (!hackerSkills) return;
@@ -52,7 +54,7 @@ const GameContainer: React.FC = () => {
   const makeChoice = (choiceId: string) => {
     if (!currentScenario || !hackerSkills) return;
 
-    const choice = currentScenario.choices.find(c => c.id === choiceId);
+    const choice = currentChoices.find(c => c.id === choiceId);
     if (!choice) return;
 
     setChoicesLocked(true);
@@ -65,22 +67,24 @@ const GameContainer: React.FC = () => {
     setRollResult(result);
     setScore(prevScore => prevScore + calculateScore(choice, result.success, result.roll));
 
-  setTimeout(() => {
-    if (result.success) {
-      updateHackerSkills(currentScenario.phase);
-      const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
-      if (nextScenario) {
-        setCurrentScenario(nextScenario);
-        setPreviousScenario(null);
+    setTimeout(() => {
+      if (result.success) {
+        updateHackerSkills(currentScenario.phase);
+        const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
+        if (nextScenario) {
+          setCurrentScenario(nextScenario);
+          setCurrentChoices(selectBalancedChoices(nextScenario.choicePool));
+          setPreviousScenario(null);
+        } else {
+          setGameOver(true);
+          handleGameOver();
+        }
       } else {
-        setGameOver(true);
-        handleGameOver();
+        const redAlertScenario = createRedAlertScenario(currentScenario);
+        setCurrentScenario(redAlertScenario);
+        setCurrentChoices(selectBalancedChoices(redAlertScenario.choicePool));
+        setPreviousScenario(currentScenario);
       }
-    } else {
-      const redAlertScenario = createRedAlertScenario(currentScenario);
-      setCurrentScenario(redAlertScenario);
-      setPreviousScenario(currentScenario);
-    }
       setRollResult(null);
       setSkillIncrease(null);
       setChoicesLocked(false);
@@ -220,6 +224,7 @@ const GameContainer: React.FC = () => {
         <>
           <ScenarioRenderer
             scenario={currentScenario}
+            choices={currentChoices}
             onChoiceMade={currentScenario.name.includes('Red Alert') ? handleRedAlertChoice : makeChoice}
             rollResult={rollResult}
             skillIncrease={skillIncrease}
