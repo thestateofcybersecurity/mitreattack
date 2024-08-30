@@ -42,7 +42,7 @@ const GameContainer: React.FC = () => {
   };
 
   const makeChoice = (choiceId: string) => {
-    if (!currentScenario || !hackerSkills || choicesLocked) return;
+    if (!currentScenario || !hackerSkills) return;
 
     const choice = currentScenario.choices.find(c => c.id === choiceId);
     if (!choice) return;
