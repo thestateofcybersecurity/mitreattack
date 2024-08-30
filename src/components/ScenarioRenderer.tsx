@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Scenario, Choice } from '@/types';
 
 interface ScenarioRendererProps {
@@ -21,12 +21,24 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
   skillIncrease,
   choicesLocked
 }) => {
+  const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
   const isRedAlert = scenario.name.includes('Red Alert');
 
-  const handleChoiceClick = (choiceId: string) => {
+  const handleChoiceClick = (choice: Choice) => {
     if (!choicesLocked) {
-      onChoiceMade(choiceId);
+      setSelectedChoice(choice);
     }
+  };
+
+  const handleConfirm = () => {
+    if (selectedChoice) {
+      onChoiceMade(selectedChoice.id);
+      setSelectedChoice(null);
+    }
+  };
+
+  const handleBack = () => {
+    setSelectedChoice(null);
   };
 
   return (
@@ -50,18 +62,39 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
         </div>
       )}
 
-      <div className="space-y-4">
-        {scenario.choices.map((choice) => (
-          <button
-            key={choice.id}
-            onClick={() => handleChoiceClick(choice.id)}
-            className={`w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200 ${choicesLocked ? 'opacity-50 cursor-not-allowed' : ''}`}
-            disabled={choicesLocked}
-          >
-            {choice.method}
-          </button>
-        ))}
-      </div>
+      {!selectedChoice ? (
+        <div className="space-y-4">
+          {scenario.choices.map((choice) => (
+            <button
+              key={choice.id}
+              onClick={() => handleChoiceClick(choice)}
+              className={`w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200 ${choicesLocked ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={choicesLocked}
+            >
+              {choice.method}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div className="bg-cyberBlue p-4 rounded">
+          <h3 className="text-xl font-bold mb-2 text-cyberGreen">{selectedChoice.method}</h3>
+          <p className="text-white mb-4">{selectedChoice.description}</p>
+          <div className="flex justify-between">
+            <button
+              onClick={handleBack}
+              className="py-2 px-4 bg-cyberRed hover:bg-red-700 text-white font-bold rounded transition duration-200"
+            >
+              Back
+            </button>
+            <button
+              onClick={handleConfirm}
+              className="py-2 px-4 bg-cyberGreen hover:bg-green-700 text-cyberBlue font-bold rounded transition duration-200"
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
