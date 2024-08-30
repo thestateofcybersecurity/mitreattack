@@ -23,8 +23,9 @@ const GameContainer: React.FC = () => {
   const [previousScenario, setPreviousScenario] = useState<Scenario | null>(null);
   const [skillIncrease, setSkillIncrease] = useState<{skill: string, increase: number} | null>(null);
   const [choicesLocked, setChoicesLocked] = useState(false);
-  const [playerName, setPlayerName] = useState<string>('');
-  const [showNamePrompt, setShowNamePrompt] = useState<boolean>(false);
+  const [showNamePrompt, setShowNamePrompt] = useState(false);
+  const [playerName, setPlayerName] = useState('');
+  const [scoreSubmitted, setScoreSubmitted] = useState(false);
 
   useEffect(() => {
     const skills = localStorage.getItem('hackerSkills');
@@ -146,6 +147,7 @@ const GameContainer: React.FC = () => {
         if (!response.ok) {
           throw new Error('Failed to submit score');
         }
+        setScoreSubmitted(true);
       } catch (error) {
         console.error('Error submitting score:', error);
       }
@@ -164,6 +166,27 @@ const GameContainer: React.FC = () => {
   }
 
   if (gameOver) {
+    if (showNamePrompt) {
+      return (
+        <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
+          <h2 className="text-2xl font-bold mb-4 text-cyberGreen">Game Over</h2>
+          <p className="mb-4 text-cyberGreen">Your final score: {score}</p>
+          <input
+            type="text"
+            value={playerName}
+            onChange={(e) => setPlayerName(e.target.value)}
+            placeholder="Enter your name"
+            className="p-2 mb-4 w-full text-cyberBlue"
+          />
+          <button 
+            onClick={submitScore}
+            className="bg-cyberGreen text-cyberBlue p-2 rounded hover:bg-cyberTeal transition duration-200"
+          >
+            Submit Score
+          </button>
+        </div>
+      );
+    }
     return <GameOverScreen score={score} choices={choices} onRestart={restartGame} />;
   }
 
