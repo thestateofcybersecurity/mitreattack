@@ -28,13 +28,13 @@ const GameContainer: React.FC = () => {
 
   const updateHackerSkills = (phase: keyof HackerSkills) => {
     if (!hackerSkills) return;
-    
-    const increase = 1; // You can adjust this value to control how much skills increase
+
+    const increase = 1;
     const updatedSkills = {
       ...hackerSkills,
       [phase]: hackerSkills[phase] + increase
     };
-    
+
     setHackerSkills(updatedSkills);
     localStorage.setItem('hackerSkills', JSON.stringify(updatedSkills));
     setSkillIncrease({skill: String(phase), increase});
@@ -107,8 +107,14 @@ const GameContainer: React.FC = () => {
   };
 
   const restartGame = () => {
-    localStorage.removeItem('hackerSkills');
-    router.push('/');
+    setCurrentScenario(scenarios[0]);
+    setGameOver(false);
+    setScore(0);
+    setChoices([]);
+    setRollResult(null);
+    setPreviousScenario(null);
+    setSkillIncrease(null);
+    // We don't reset hackerSkills here to keep them persistent
   };
 
   const onSkillsConfirmed = (skills: HackerSkills) => {
