@@ -4826,7 +4826,176 @@ const scenarios: Scenario[] = [
     },
   ],
 },
-  
+{
+  id: 10,
+  name: "Lateral Movement",
+  description: "Adversaries seek to move laterally within the network to expand their control over additional systems. Which lateral movement technique will you employ?",
+  phase: 'lateral-movement',
+  choices: [
+    {
+      id: 'T1210',
+      method: "Exploitation of Remote Services",
+      description: "Adversaries may exploit remote services to gain unauthorized access to internal systems once inside of a network.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1534',
+      method: "Internal Spearphishing",
+      description: "Adversaries may use internal spearphishing to gain access to additional information or compromise other users within the same organization.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1570',
+      method: "Lateral Tool Transfer",
+      description: "Adversaries may transfer tools or other files between systems in a compromised environment.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1563',
+      method: "Remote Service Session Hijacking",
+      description: "Adversaries may take control of preexisting sessions with remote services to move laterally in an environment.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1563.001',
+      method: "SSH Hijacking",
+      description: "Adversaries may hijack a legitimate user's SSH session to move laterally within an environment.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1563.002',
+      method: "RDP Hijacking",
+      description: "Adversaries may hijack a legitimate user’s remote desktop session to move laterally within an environment.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1021',
+      method: "Remote Services",
+      description: "Adversaries may use Valid Accounts to log into a service that accepts remote connections, such as telnet, SSH, and VNC.",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1021.001',
+      method: "Remote Desktop Protocol",
+      description: "Adversaries may use Valid Accounts to log into a computer using the Remote Desktop Protocol (RDP).",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1021.002',
+      method: "SMB/Windows Admin Shares",
+      description: "Adversaries may use Valid Accounts to interact with a remote network share using Server Message Block (SMB).",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1021.003',
+      method: "Distributed Component Object Model",
+      description: "Adversaries may use Valid Accounts to interact with remote machines by taking advantage of Distributed Component Object Model (DCOM).",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1021.004',
+      method: "SSH",
+      description: "Adversaries may use Valid Accounts to log into remote machines using Secure Shell (SSH).",
+      baseDifficulty: 20,  // Medium difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1021.005',
+      method: "VNC",
+      description: "Adversaries may use Valid Accounts to remotely control machines using Virtual Network Computing (VNC).",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1021.006',
+      method: "Windows Remote Management",
+      description: "Adversaries may use Valid Accounts to interact with remote systems using Windows Remote Management (WinRM).",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1021.007',
+      method: "Cloud Services",
+      description: "Adversaries may log into accessible cloud services within a compromised environment using Valid Accounts that are synchronized with or federated to on-premises user identities.",
+      baseDifficulty: 23,  // Medium-High difficulty
+      successRateModifier: 0.68,
+    },
+    {
+      id: 'T1021.008',
+      method: "Direct Cloud VM Connections",
+      description: "Adversaries may leverage Valid Accounts to log directly into accessible cloud hosted compute infrastructure through cloud native methods.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1091',
+      method: "Replication Through Removable Media",
+      description: "Adversaries may move onto systems by copying malware to removable media and taking advantage of Autorun features.",
+      baseDifficulty: 21,  // Medium-High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1072',
+      method: "Software Deployment Tools",
+      description: "Adversaries may gain access to and use centralized software suites to execute commands and move laterally through the network.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+    {
+      id: 'T1080',
+      method: "Taint Shared Content",
+      description: "Adversaries may deliver payloads to remote systems by adding content to shared storage locations.",
+      baseDifficulty: 22,  // Medium-High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1550',
+      method: "Use Alternate Authentication Material",
+      description: "Adversaries may use alternate authentication material to move laterally within an environment and bypass normal system access controls.",
+      baseDifficulty: 26,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1550.001',
+      method: "Application Access Token",
+      description: "Adversaries may use stolen application access tokens to bypass the typical authentication process and access restricted accounts.",
+      baseDifficulty: 25,  // High difficulty
+      successRateModifier: 0.62,
+    },
+    {
+      id: 'T1550.002',
+      method: "Pass the Hash",
+      description: "Adversaries may 'pass the hash' using stolen password hashes to move laterally within an environment.",
+      baseDifficulty: 27,  // Very High difficulty
+      successRateModifier: 0.58,
+    },
+    {
+      id: 'T1550.003',
+      method: "Pass the Ticket",
+      description: "Adversaries may 'pass the ticket' using stolen Kerberos tickets to move laterally within an environment.",
+      baseDifficulty: 26,  // High difficulty
+      successRateModifier: 0.6,
+    },
+    {
+      id: 'T1550.004',
+      method: "Web Session Cookie",
+      description: "Adversaries can use stolen session cookies to authenticate to web applications and services.",
+      baseDifficulty: 24,  // High difficulty
+      successRateModifier: 0.65,
+    },
+  ],
+},
+
 
 
 
