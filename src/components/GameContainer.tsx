@@ -17,7 +17,7 @@ const GameContainer: React.FC = () => {
   const router = useRouter();
   const { currentScenario, setCurrentScenario, gameOver, setGameOver, score, setScore } = useGameState(scenarios);
   const [rollResult, setRollResult] = useState<any>(null);
-  const [choices, setChoices] = useState<string[]>([]);
+  const [choices, setChoices] = useState<ChoiceRecord[]>([]);
   const [hackerSkills, setHackerSkills] = useState<HackerSkills | null>(null);
   const [showSkillSheet, setShowSkillSheet] = useState(true);
   const [previousScenario, setPreviousScenario] = useState<Scenario | null>(null);
