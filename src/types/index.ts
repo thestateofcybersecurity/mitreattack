@@ -4,8 +4,6 @@ export interface Choice {
   description: string;
   phase: keyof HackerSkills;
   choices: Choice[];
-  baseDifficulty: number;
-  successRateModifier: number;
 }
 
 export interface Scenario {
