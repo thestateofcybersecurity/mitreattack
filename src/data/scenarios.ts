@@ -809,8 +809,275 @@ const scenarios: Scenario[] = [
       }
     ]
 },
-{
+    {
     id: 4,
+    name: "Execution",
+    description: "Now that you've gained access, it's time to execute your payload. Choose your method of execution.",
+    phase: 'execution',
+    choices: [
+      {
+        id: 'T1651',
+        method: "Cloud Administration Command",
+        description: "Adversaries may abuse cloud management services to execute commands within virtual machines, using resources like AWS Systems Manager or Azure RunCommand.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1059',
+        method: "Command and Scripting Interpreter",
+        description: "Adversaries may abuse command and script interpreters, such as the Windows Command Shell or Unix Shell, to execute commands, scripts, or binaries.",
+        baseDifficulty: 10,  // Easy difficulty
+        successRateModifier: 0.85,
+      },
+      {
+        id: 'T1059.001',
+        method: "PowerShell",
+        description: "Adversaries may abuse PowerShell commands and scripts for execution, leveraging its powerful scripting environment on Windows systems.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1059.002',
+        method: "AppleScript",
+        description: "Adversaries may abuse AppleScript for execution, using it to control applications and parts of the macOS via inter-application messages called AppleEvents.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1059.003',
+        method: "Windows Command Shell",
+        description: "Adversaries may abuse the Windows command shell (cmd) for execution, leveraging it to control almost any aspect of a Windows system.",
+        baseDifficulty: 10,  // Easy difficulty
+        successRateModifier: 0.85,
+      },
+      {
+        id: 'T1059.004',
+        method: "Unix Shell",
+        description: "Adversaries may abuse Unix shell commands and scripts for execution, controlling every aspect of a Linux or macOS system.",
+        baseDifficulty: 10,  // Easy difficulty
+        successRateModifier: 0.85,
+      },
+      {
+        id: 'T1059.005',
+        method: "Visual Basic",
+        description: "Adversaries may abuse Visual Basic (VB) for execution, leveraging it to interact with Windows technologies and APIs.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1059.006',
+        method: "Python",
+        description: "Adversaries may abuse Python commands and scripts for execution, utilizing its versatile scripting capabilities across different systems.",
+        baseDifficulty: 10,  // Easy difficulty
+        successRateModifier: 0.85,
+      },
+      {
+        id: 'T1059.007',
+        method: "JavaScript",
+        description: "Adversaries may abuse JavaScript for execution, leveraging its platform-independent nature and runtime environments outside the browser.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1059.008',
+        method: "Network Device CLI",
+        description: "Adversaries may abuse command-line interpreters (CLI) on network devices to execute malicious commands and payloads.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1059.009',
+        method: "Cloud API",
+        description: "Adversaries may abuse cloud APIs to execute malicious commands, utilizing features such as CLIs, Cloud Shells, or SDKs in cloud environments.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1059.010',
+        method: "AutoHotKey & AutoIT",
+        description: "Adversaries may execute commands and perform malicious tasks using AutoIT and AutoHotKey automation scripts to automate Windows tasks.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1609',
+        method: "Container Administration Command",
+        description: "Adversaries may abuse container administration services to execute commands within a container, such as the Docker daemon or Kubernetes API server.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1610',
+        method: "Deploy Container",
+        description: "Adversaries may deploy a container to execute processes associated with a particular image or bypass defenses within an environment.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1203',
+        method: "Exploitation for Client Execution",
+        description: "Adversaries may exploit software vulnerabilities in client applications to execute code, often through targeted exploitation.",
+        baseDifficulty: 25,  // Very Hard difficulty
+        successRateModifier: 0.7,
+      },
+      {
+        id: 'T1559',
+        method: "Inter-Process Communication",
+        description: "Adversaries may abuse inter-process communication (IPC) mechanisms to execute local code or commands.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1559.001',
+        method: "Component Object Model",
+        description: "Adversaries may use the Windows Component Object Model (COM) for local code execution, leveraging it to interact with software objects.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1559.002',
+        method: "Dynamic Data Exchange",
+        description: "Adversaries may use Windows Dynamic Data Exchange (DDE) to execute arbitrary commands, utilizing it for inter-process communication.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1559.003',
+        method: "XPC Services",
+        description: "Adversaries may provide malicious content to an XPC service daemon for local code execution, often on macOS systems.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1106',
+        method: "Native API",
+        description: "Adversaries may interact with the native OS application programming interface (API) to execute malicious behaviors within the kernel.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1053',
+        method: "Scheduled Task/Job",
+        description: "Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1053.002',
+        method: "At",
+        description: "Adversaries may abuse the at utility to perform task scheduling for execution on Windows, Linux, or macOS systems.",
+        baseDifficulty: 10,  // Easy difficulty
+        successRateModifier: 0.85,
+      },
+      {
+        id: 'T1053.003',
+        method: "Cron",
+        description: "Adversaries may abuse the cron utility to schedule jobs for execution on Unix-like operating systems.",
+        baseDifficulty: 10,  // Easy difficulty
+        successRateModifier: 0.85,
+      },
+      {
+        id: 'T1053.005',
+        method: "Scheduled Task",
+        description: "Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1053.006',
+        method: "Systemd Timers",
+        description: "Adversaries may abuse systemd timers to perform task scheduling for execution on Linux environments.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1053.007',
+        method: "Container Orchestration Job",
+        description: "Adversaries may abuse task scheduling in container orchestration tools like Kubernetes to schedule execution of malicious code.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1648',
+        method: "Serverless Execution",
+        description: "Adversaries may abuse serverless computing services in cloud environments to execute arbitrary code.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+                  id: 'T1129',
+        method: "Shared Modules",
+        description: "Adversaries may execute malicious payloads by loading shared modules, which provide access to reusable code or invoke OS API functions.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1072',
+        method: "Software Deployment Tools",
+        description: "Adversaries may gain access to and use centralized software suites within an enterprise to execute commands and move laterally through the network.",
+        baseDifficulty: 20,  // Hard difficulty
+        successRateModifier: 0.75,
+      },
+      {
+        id: 'T1569',
+        method: "System Services",
+        description: "Adversaries may abuse system services or daemons to execute commands or programs, achieving temporary or persistent execution.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1569.001',
+        method: "Launchctl",
+        description: "Adversaries may abuse launchctl on macOS to execute commands or programs by interfacing with the service management framework launchd.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1569.002',
+        method: "Service Execution",
+        description: "Adversaries may abuse the Windows service control manager (services.exe) to execute malicious commands or payloads.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1204',
+        method: "User Execution",
+        description: "Adversaries may rely on user actions, such as opening a malicious file or clicking a link, to execute malicious code.",
+        baseDifficulty: 10,  // Easy difficulty
+        successRateModifier: 0.85,
+      },
+      {
+        id: 'T1204.001',
+        method: "Malicious Link",
+        description: "Adversaries may rely on users clicking a malicious link to execute code, often as part of a spearphishing campaign.",
+        baseDifficulty: 10,  // Easy difficulty
+        successRateModifier: 0.85,
+      },
+      {
+        id: 'T1204.002',
+        method: "Malicious File",
+        description: "Adversaries may rely on users opening a malicious file, such as a document or executable, to execute code.",
+        baseDifficulty: 10,  // Easy difficulty
+        successRateModifier: 0.85,
+      },
+      {
+        id: 'T1204.003',
+        method: "Malicious Image",
+        description: "Adversaries may rely on users running a malicious image, such as a backdoored cloud or container image, to facilitate execution.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      },
+      {
+        id: 'T1047',
+        method: "Windows Management Instrumentation",
+        description: "Adversaries may abuse Windows Management Instrumentation (WMI) to execute malicious commands and payloads, leveraging it for administrative tasks.",
+        baseDifficulty: 15,  // Medium difficulty
+        successRateModifier: 0.8,
+      }
+    ]
+  },
+{
+    id: 5,
     name: "Persistence",
     description: "You've gained a foothold. Now, ensure your access remains secure. Choose your method to stay persistent within the target system.",
     phase: 'persistence',
@@ -1644,7 +1911,7 @@ const scenarios: Scenario[] = [
     ],
   },
     {
-    id: 5,
+    id: 6,
     name: "Privilege Escalation",
     description: "You're in, but you need more power. Choose your method to elevate your privileges and gain control over critical system functions.",
     phase: 'privilegeEscalation',
