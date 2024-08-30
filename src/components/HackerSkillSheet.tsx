@@ -27,12 +27,25 @@ const HackerSkillSheet: React.FC<HackerSkillSheetProps> = ({ onConfirm }) => {
   const [skillDistribution, setSkillDistribution] = useState<HackerSkills>(() => {
     const savedSkills = localStorage.getItem('hackerSkills');
     if (savedSkills) {
-      const parsedSkills = JSON.parse(savedSkills);
-      setSkillPoints(initialSkillPoints - Object.values(parsedSkills).reduce((a, b) => a + b, 0));
-      return parsedSkills;
+      try {
+        const parsedSkills = JSON.parse(savedSkills) as HackerSkills;
+        if (isValidHackerSkills(parsedSkills)) {
+          const usedPoints = Object.values(parsedSkills).reduce((a, b) => a + b, 0);
+          setSkillPoints(Math.max(0, initialSkillPoints - usedPoints));
+          return parsedSkills;
+        }
+      } catch (error) {
+        console.error('Error parsing saved skills:', error);
+      }
     }
     return skills.reduce((acc, skill) => ({ ...acc, [skill.key]: 0 }), {} as HackerSkills);
   });
+
+  const isValidHackerSkills = (skills: any): skills is HackerSkills => {
+    return skills && typeof skills === 'object' && Object.keys(skills).every(key => 
+      skills.hasOwnProperty(key) && typeof skills[key] === 'number' && skills[key] >= 0
+    );
+  };
 
   const handleDecrease = (key: keyof HackerSkills) => {
     if (skillDistribution[key] > 0) {
