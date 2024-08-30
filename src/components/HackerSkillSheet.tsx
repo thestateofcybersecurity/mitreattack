@@ -47,9 +47,22 @@ const HackerSkillSheet: React.FC<HackerSkillSheetProps> = ({ onConfirm }) => {
     );
   };
 
+  const handleIncrease = (key: keyof HackerSkills) => {
+    if (skillPoints > 0) {
+      setSkillDistribution(prev => ({
+        ...prev,
+        [key]: prev[key] + 1
+      }));
+      setSkillPoints(prev => prev - 1);
+    }
+  };
+
   const handleDecrease = (key: keyof HackerSkills) => {
     if (skillDistribution[key] > 0) {
-      setSkillDistribution(prev => ({ ...prev, [key]: prev[key] - 1 }));
+      setSkillDistribution(prev => ({
+        ...prev,
+        [key]: prev[key] - 1
+      }));
       setSkillPoints(prev => prev + 1);
     }
   };
