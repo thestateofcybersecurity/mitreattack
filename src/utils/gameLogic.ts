@@ -1,4 +1,4 @@
-import { Scenario, Option } from '@/types';
+import { Scenario, Choice, HackerSkills } from '@/types';
 
 const random_events = {
     "increased_security": "Security measures have been increased. Certain tactics might now be riskier.",
@@ -16,100 +16,31 @@ export const triggerRandomEvent = (): string | null => {
     return null;
 };
 
-export const getNextScenario = (scenarios: Scenario[], currentScenario: Scenario, chosenOption: Option): Scenario => {
-    const event = triggerRandomEvent();
-    let nextScenarioId = chosenOption.nextScenario;
-
-    if (event) {
-        if (event.includes("increased_security")) {
-            nextScenarioId = adjustScenarioForIncreasedSecurity(nextScenarioId);
-        } else if (event.includes("detection_alert")) {
-            nextScenarioId = getDefensiveScenario(scenarios);
-        } else if (event.includes("system_update")) {
-            nextScenarioId = adjustScenarioForSystemUpdate(nextScenarioId);
-        }
+export const getNextScenario = (scenarios: Scenario[], currentScenario: Scenario, chosenChoice: Choice): Scenario | null => {
+    const currentIndex = scenarios.findIndex(s => s.id === currentScenario.id);
+    if (currentIndex === -1 || currentIndex === scenarios.length - 1) {
+        return null; // Game over
     }
-
-    let nextScenario = scenarios.find(s => s.id === nextScenarioId);
-    if (!nextScenario) {
-        console.warn(`Next scenario not found: ${nextScenarioId}. Continuing with the current scenario.`);
-        nextScenario = { ...currentScenario };
-        // Optionally, you could modify the scenario here to reflect the choice made
-        nextScenario.description = `${nextScenario.description}\n\nYou chose: ${chosenOption.text}`;
-    }
-
-    return {
-        ...nextScenario,
-        description: `${nextScenario.description}\n\n${event ? `Random Event: ${event}` : ''}`
-    };
+    return scenarios[currentIndex + 1];
 };
 
-function getSkillModifier(phase: string): number {
-    const hackerSkills = JSON.parse(localStorage.getItem('hackerSkills') || '{}');
-    return hackerSkills[phase] || 0; // Default to 0 if the skill is not found
-}
-
-export function calculateChanceOfBeingCaught(baseDifficulty: number, modifier: number, phase: string): boolean {
-    const skillModifier = getSkillModifier(phase);
-    const randomValue = Math.random();
-    const threshold = (baseDifficulty * modifier) / (10 + skillModifier); // Adjust based on the skill modifier
-    return randomValue > threshold;
-}
-
-export function executeChoice(choice: { method: string, baseDifficulty: number, successRateModifier: number, phase: string }) {
-    const caught = calculateChanceOfBeingCaught(choice.baseDifficulty, choice.successRateModifier, choice.phase);
-    if (caught) {
-        return `You were caught trying to use ${choice.method}.`;
-    } else {
-        return `You successfully used ${choice.method}.`;
-    }
-}
-
-const adjustScenarioForIncreasedSecurity = (scenarioId: string): string => {
-    // Logic to adjust the scenario for increased security
-    // This could involve changing to a more defensive scenario or adding more challenges
-    return scenarioId; // Placeholder: return the same scenario for now
+export const calculateSuccessRate = (choice: Choice, skillLevel: number): number => {
+    const baseSuccessRate = 1 - (choice.baseDifficulty / 10);
+    const skillBonus = skillLevel * 0.05; // Each skill point increases success rate by 5%
+    return Math.min(0.95, Math.max(0.05, baseSuccessRate + skillBonus));
 };
 
-const getDefensiveScenario = (scenarios: Scenario[]): string => {
-    // Logic to find a defensive scenario
-    // This could involve looking for scenarios with specific tags or categories
-    return scenarios[Math.floor(Math.random() * scenarios.length)].id; // Placeholder: return a random scenario
+export const executeChoice = (choice: Choice, successRate: number): { success: boolean; detected: boolean; score: number } => {
+    const success = Math.random() < successRate;
+    const detected = Math.random() < (1 - successRate) * 0.5; // 50% chance of detection on failure
+    const score = success ? Math.floor(choice.baseDifficulty * 10) : 0;
+
+    return { success, detected, score };
 };
 
-const adjustScenarioForSystemUpdate = (scenarioId: string): string => {
-    // Logic to adjust the scenario for a system update
-    // This could involve changing available options or modifying the scenario difficulty
-    return scenarioId; // Placeholder: return the same scenario for now
-};
-
-export const calculateScore = (technique: string, tactic: string): number => {
-    const baseScores: {[key: string]: number} = {
-        "Reconnaissance": 10,
-        "Resource Development": 20,
-        "Initial Access": 30,
-        "Execution": 40,
-        "Persistence": 50,
-        "Privilege Escalation": 60,
-        "Defense Evasion": 70,
-        "Credential Access": 80,
-        "Discovery": 50,
-        "Lateral Movement": 70,
-        "Collection": 60,
-        "Command and Control": 80,
-        "Exfiltration": 90,
-        "Impact": 100
-    };
-
-    const techniqueMultipliers: {[key: string]: number} = {
-        "Active Scanning": 0.8,
-        "Gather Victim Host Information": 1.0,
-        "Search Open Websites/Domains": 1.2,
-        // Add more techniques and their multipliers here
-    };
-
-    const baseScore = baseScores[tactic] || 0;
-    const multiplier = techniqueMultipliers[technique] || 1.0;
-
-    return baseScore * multiplier;
+export const calculateScore = (choice: Choice, success: boolean, skillLevel: number): number => {
+    if (!success) return 0;
+    const baseScore = choice.baseDifficulty * 10;
+    const skillBonus = skillLevel * 5; // Each skill point adds 5 to the score
+    return baseScore + skillBonus;
 };
