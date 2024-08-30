@@ -102,7 +102,8 @@ const GameContainer: React.FC = () => {
         setGameOver(true);
       }
       setRollResult(null);
-    }, 5000); // Increased delay to allow time to show skill increase
+      setSkillIncrease(null);
+    }, 5000);
   };
 
   const restartGame = () => {
