@@ -38,9 +38,10 @@ export const executeChoice = (choice: Choice, successRate: number): { success: b
     return { success, detected, score };
 };
 
-export const calculateScore = (choice: Choice, success: boolean, skillLevel: number): number => {
-    if (!success) return 0;
-    const baseScore = choice.baseDifficulty * 10;
-    const skillBonus = skillLevel * 5; // Each skill point adds 5 to the score
-    return baseScore + skillBonus;
+export const getNextScenario = (scenarios: Scenario[], currentScenario: Scenario): Scenario | null => {
+    const currentIndex = scenarios.findIndex(s => s.id === currentScenario.id);
+    if (currentIndex === -1 || currentIndex === scenarios.length - 1) {
+        return null; // Game over
+    }
+    return scenarios[currentIndex + 1];
 };
