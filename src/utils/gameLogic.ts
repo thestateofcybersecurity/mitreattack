@@ -10,15 +10,16 @@ export const executeChoice = (
 ): { success: boolean; roll: number; total: number; message: string } => {
   const roll = rollD20();
   const total = roll + skillLevel;
-  const success = total >= choice.baseDifficulty;
+  const adjustedDifficulty = Math.round(choice.baseDifficulty * choice.successRateModifier);
+  const success = total >= adjustedDifficulty;
 
   let message = `You rolled a ${roll}. `;
   if (skillLevel > 0) {
     message += `Your skill bonus of +${skillLevel} brings your total to ${total}. `;
   }
   message += success 
-    ? `Success! You beat the difficulty of ${choice.baseDifficulty}.` 
-    : `Failure. You didn't meet the difficulty of ${choice.baseDifficulty}.`;
+    ? `Success! You beat the difficulty of ${adjustedDifficulty}.` 
+    : `Failure. You didn't meet the difficulty of ${adjustedDifficulty}.`;
 
   return { success, roll, total, message };
 };
