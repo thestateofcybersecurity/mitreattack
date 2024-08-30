@@ -4,7 +4,6 @@ export interface Choice {
   description: string;
   baseDifficulty: number;
   successRateModifier: number;
-  difficultyRating: 'easy' | 'medium' | 'hard';
 }
 
 export interface Scenario {
