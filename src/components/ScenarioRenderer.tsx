@@ -13,7 +13,7 @@ interface ScenarioRendererProps {
 }
 
 const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceMade, rollResult }) => {
-  const isRedAlert = scenario.id.toString().includes('_alert');
+  const isRedAlert = scenario.id.toString().includes('1'); // Assuming red alert scenarios have IDs ending with 1
 
   return (
     <div className={`bg-gray-800 p-6 rounded-lg shadow-lg ${isRedAlert ? 'border-2 border-red-500' : ''}`}>
@@ -33,7 +33,7 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceM
             onClick={() => onChoiceMade(choice.id)}
             className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition duration-200"
           >
-            {choice.method} (Difficulty: {choice.baseDifficulty})
+            {choice.method}
           </button>
         ))}
       </div>
