@@ -1511,8 +1511,6 @@ const scenarios: Scenario[] = [
       {
         id: 'T1053',
         method: "Scheduled Task/Job",
-                id: 'T1053',
-        method: "Scheduled Task/Job",
         description: "Adversaries may abuse task scheduling functionality to facilitate initial or recurring execution of malicious code. Utilities exist within all major operating systems to schedule programs or scripts to be executed at a specified date and time.",
         baseDifficulty: 16,  // Medium-Hard difficulty
         successRateModifier: 0.75,
