@@ -123,7 +123,7 @@ const GameContainer: React.FC = () => {
     setShowSkillSheet(false);
   };
 
-  if (showSkillSheet) {
+  if (showSkillSheet || !hackerSkills) {
     return <HackerSkillSheet onConfirm={onSkillsConfirmed} />;
   }
 
