@@ -11,9 +11,16 @@ interface ScenarioRendererProps {
     message: string;
   };
   skillIncrease: {skill: string, increase: number} | null;
+  choicesLocked: boolean;
 }
 
-const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceMade, rollResult, skillIncrease }) => {
+const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ 
+  scenario, 
+  onChoiceMade, 
+  rollResult, 
+  skillIncrease,
+  choicesLocked
+}) => {
   const isRedAlert = scenario.name.includes('Red Alert');
 
   return (
@@ -25,7 +32,7 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceM
       )}
       <h2 className={`text-2xl font-bold mb-4 ${isRedAlert ? 'text-cyberRed' : 'text-cyberGreen'}`}>{scenario.name}</h2>
       <p className="mb-6 text-white">{scenario.description}</p>
-      
+
       {rollResult && (
         <div className={`mb-6 p-4 rounded ${rollResult.success ? 'bg-cyberGreen text-cyberBlue' : 'bg-cyberRed text-white'}`}>
           <p>{rollResult.message}</p>
@@ -42,7 +49,8 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ scenario, onChoiceM
           <button
             key={choice.id}
             onClick={() => onChoiceMade(choice.id)}
-            className="w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200"
+            className={`w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200 ${choicesLocked ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={choicesLocked}
           >
             {choice.method}
           </button>
