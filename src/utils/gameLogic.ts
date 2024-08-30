@@ -21,6 +21,8 @@ export const executeChoice = (
     ? `Success! You beat the difficulty of ${adjustedDifficulty}.` 
     : `Failure. You didn't meet the difficulty of ${adjustedDifficulty}.`;
 
+  console.log(`Debug - Roll: ${roll}, Skill: ${skillLevel}, Total: ${total}, Difficulty: ${adjustedDifficulty}, Success: ${success}`);
+
   return { success, roll, total, message };
 };
 
@@ -35,7 +37,7 @@ export const getNextScenario = (
   if (currentScenario.name.includes('Red Alert')) {
     if (choiceResult.success) {
       // On success, move to the next regular scenario
-      return scenarios[currentIndex + 1] || null;
+      return scenarios[currentIndex] || null;
     } else {
       // On failure, game over
       return null;
