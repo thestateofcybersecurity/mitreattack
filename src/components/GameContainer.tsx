@@ -62,15 +62,15 @@ const GameContainer: React.FC = () => {
           setCurrentScenario(nextScenario);
           setRollResult(null);
           setSkillIncrease(null);
-        }, 5000); // Increased delay to allow time to show skill increase
+        }, 5000);
       } else {
         setGameOver(true);
       }
     } else {
-      setPreviousScenario(currentScenario);
       const redAlertScenario = createRedAlertScenario(currentScenario);
       setTimeout(() => {
         setCurrentScenario(redAlertScenario);
+        setPreviousScenario(currentScenario);
         setRollResult(null);
       }, 3000);
     }
