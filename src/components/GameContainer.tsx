@@ -54,7 +54,7 @@ const GameContainer: React.FC = () => {
 
     setChoicesLocked(true);
 
-    setChoices(prevChoices => [...prevChoices, choice.method]);
+    setChoices(prevChoices => [...prevChoices, { method: choice.method, tacticId: choice.id }]);
 
     const skillLevel = hackerSkills[currentScenario.phase];
     const result = executeChoice(choice, skillLevel);
