@@ -50,23 +50,23 @@ const GameContainer: React.FC = () => {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 bg-gray-900 rounded-lg shadow-xl">
+    <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
       <ScenarioRenderer
         scenario={currentScenario}
         onChoiceMade={makeChoice}
         rollResult={rollResult}
       />
-      <div className="mt-6 text-xl text-white text-center">
+      <div className="mt-6 text-xl text-cyberGreen text-center">
         Current Score: {score}
       </div>
       {gameOver && (
-        <div className="mt-6 p-4 bg-red-600 text-white rounded text-center">
+        <div className="mt-6 p-4 bg-cyberRed text-white rounded text-center animate-glitch">
           <h2 className="text-2xl font-bold">Game Over!</h2>
           <p>Your final score: {score}</p>
         </div>
       )}
       {hackerSkills && (
-        <div className="mt-6 p-4 bg-gray-800 text-white rounded">
+        <div className="mt-6 p-4 bg-cyberGray text-cyberGreen rounded">
           <h3 className="text-xl font-bold mb-2">Your Hacker Skills:</h3>
           <ul>
             {Object.entries(hackerSkills).map(([skill, level]) => (
