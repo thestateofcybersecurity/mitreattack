@@ -27,7 +27,7 @@ export const executeChoice = (
 export const getNextScenario = (
   scenarios: Scenario[], 
   currentScenario: Scenario, 
-  choiceResult: { success: boolean; }
+  choiceResult: { success: boolean }
 ): Scenario | null => {
   const currentIndex = scenarios.findIndex(s => s.id === currentScenario.id);
   if (currentIndex === -1 || currentIndex === scenarios.length - 1) {
