@@ -5,7 +5,7 @@ const Home: React.FC = () => {
   const router = useRouter();
 
   const startGame = () => {
-    router.push('/hackerSkillSheet');
+    router.push('/game');
   };
 
   return (
