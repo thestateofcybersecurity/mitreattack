@@ -29,17 +29,50 @@ const GameContainer: React.FC = () => {
   const [scoreSubmitted, setScoreSubmitted] = useState(false);
   const [currentChoices, setCurrentChoices] = useState<Choice[]>([]);
 
-  // Function to select random choices
-  const selectRandomChoices = (choices: Choice[], count: number): Choice[] => {
-    const shuffled = [...choices].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
+  // Function to classify difficulty
+  const classifyDifficulty = (baseDifficulty: number): 'easy' | 'medium' | 'hard' => {
+    if (baseDifficulty <= 10) return 'easy';
+    if (baseDifficulty <= 15) return 'medium';
+    return 'hard';
   };
-  
+
+  // Function to select balanced choices
+  const selectBalancedChoices = (choices: Choice[], count: number = 5): Choice[] => {
+    const classifiedChoices = choices.map(choice => ({
+      ...choice,
+      difficultyRating: classifyDifficulty(choice.baseDifficulty)
+    }));
+
+    const easy = classifiedChoices.filter(c => c.difficultyRating === 'easy');
+    const medium = classifiedChoices.filter(c => c.difficultyRating === 'medium');
+    const hard = classifiedChoices.filter(c => c.difficultyRating === 'hard');
+
+    const getRandomChoice = (arr: Choice[]) => arr[Math.floor(Math.random() * arr.length)];
+
+    let selected: Choice[] = [];
+
+    // Try to select 1 easy, 2 medium, and 2 hard choices
+    if (easy.length > 0) selected.push(getRandomChoice(easy));
+    if (medium.length > 0) selected.push(getRandomChoice(medium));
+    if (medium.length > 1) selected.push(getRandomChoice(medium.filter(c => !selected.includes(c))));
+    if (hard.length > 0) selected.push(getRandomChoice(hard));
+    if (hard.length > 1) selected.push(getRandomChoice(hard.filter(c => !selected.includes(c))));
+
+    // If we don't have enough choices, fill with random choices
+    while (selected.length < count && classifiedChoices.length > selected.length) {
+      const remainingChoices = classifiedChoices.filter(c => !selected.includes(c));
+      selected.push(getRandomChoice(remainingChoices));
+    }
+
+    return selected;
+  };
+
+  // Modify the useEffect that sets the initial scenario
   useEffect(() => {
     if (scenarios.length > 0 && !currentScenario) {
       const initialScenario = scenarios[0];
       setCurrentScenario(initialScenario);
-      setCurrentChoices(selectRandomChoices(initialScenario.choices, 5));
+      setCurrentChoices(selectBalancedChoices(initialScenario.choices));
     }
   }, [scenarios, currentScenario]);
   
@@ -80,7 +113,7 @@ const GameContainer: React.FC = () => {
         const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
         if (nextScenario) {
           setCurrentScenario(nextScenario);
-          setCurrentChoices(selectRandomChoices(nextScenario.choices, 5));
+          setCurrentChoices(selectBalancedChoices(nextScenario.choices));
           setPreviousScenario(null);
         } else {
           setGameOver(true);
@@ -89,7 +122,7 @@ const GameContainer: React.FC = () => {
       } else {
         const redAlertScenario = createRedAlertScenario(currentScenario);
         setCurrentScenario(redAlertScenario);
-        setCurrentChoices(selectRandomChoices(redAlertScenario.choices, 5));
+        setCurrentChoices(selectBalancedChoices(redAlertScenario.choices));
         setPreviousScenario(currentScenario);
       }
       setRollResult(null);
