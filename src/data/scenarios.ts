@@ -1187,13 +1187,6 @@ const scenarios: Scenario[] = [
         successRateModifier: 0.75,
       },
       {
-                id: 'T1546.011',
-        method: "Application Shimming",
-        description: "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by application shims. Application shims allow legacy applications to run on newer versions of the OS, but adversaries can exploit this to load malicious code.",
-        baseDifficulty: 18,  // Medium-Hard difficulty
-        successRateModifier: 0.75,
-      },
-      {
         id: 'T1546.012',
         method: "Image File Execution Options Injection",
         description: "Adversaries may establish persistence and/or elevate privileges by executing malicious content triggered by Image File Execution Options (IFEO) debuggers. This involves modifying the Windows Registry to specify a debugger that will be launched when a specific process is started.",
