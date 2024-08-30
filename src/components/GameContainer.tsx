@@ -29,13 +29,20 @@ const GameContainer: React.FC = () => {
   const [scoreSubmitted, setScoreSubmitted] = useState(false);
   const [currentChoices, setCurrentChoices] = useState<Choice[]>([]);
 
+  // Function to select random choices
+  const selectRandomChoices = (choices: Choice[], count: number): Choice[] => {
+    const shuffled = [...choices].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+  
   useEffect(() => {
-   if (scenarios.length > 0 && !currentScenario) {
+    if (scenarios.length > 0 && !currentScenario) {
       const initialScenario = scenarios[0];
       setCurrentScenario(initialScenario);
-      setCurrentChoices(selectBalancedChoices(initialScenario.choicePool));
+      setCurrentChoices(selectRandomChoices(initialScenario.choices, 5));
     }
   }, [scenarios, currentScenario]);
+  
 
   const updateHackerSkills = (phase: keyof HackerSkills) => {
     if (!hackerSkills) return;
@@ -73,7 +80,7 @@ const GameContainer: React.FC = () => {
         const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
         if (nextScenario) {
           setCurrentScenario(nextScenario);
-          setCurrentChoices(selectBalancedChoices(nextScenario.choicePool));
+          setCurrentChoices(selectRandomChoices(nextScenario.choices, 5));
           setPreviousScenario(null);
         } else {
           setGameOver(true);
@@ -82,7 +89,7 @@ const GameContainer: React.FC = () => {
       } else {
         const redAlertScenario = createRedAlertScenario(currentScenario);
         setCurrentScenario(redAlertScenario);
-        setCurrentChoices(selectBalancedChoices(redAlertScenario.choicePool));
+        setCurrentChoices(selectRandomChoices(redAlertScenario.choices, 5));
         setPreviousScenario(currentScenario);
       }
       setRollResult(null);
