@@ -1,6 +1,9 @@
 import { useState, useCallback, useEffect } from 'react';
 import { Scenario } from '@/types';
 import { getNextScenario, calculateScore } from '@/utils/gameLogic';
+import { useState } from 'react';
+import { scenarios } from './scenarios';
+import { executeChoice } from './gameLogic';
 
 const useGameState = (initialScenarios: Scenario[]) => {
   const [scenarios, setScenarios] = useState<Scenario[]>(initialScenarios);
@@ -36,7 +39,28 @@ const useGameState = (initialScenarios: Scenario[]) => {
     }
   }, [currentScenario, scenarios]);
 
+  export function useGameState() {
+    const [currentScenarioIndex, setCurrentScenarioIndex] = useState(0);
+    const [result, setResult] = useState<string | null>(null);
+
+    function makeChoice(choiceIndex: number) {
+        const scenario = scenarios[currentScenarioIndex];
+        const choice = scenario.choices[choiceIndex];
+        const outcome = executeChoice(choice);
+        setResult(outcome);
+
+        // Advance to the next scenario or handle end of game
+        if (currentScenarioIndex < scenarios.length - 1) {
+            setCurrentScenarioIndex(currentScenarioIndex + 1);
+        } else {
+            // Handle end of game
+        }
+    }
+
   return {
+    scenario: scenarios[currentScenarioIndex],
+    result,
+    makeChoice,
     currentScenario,
     gameHistory,
     gameOver,
