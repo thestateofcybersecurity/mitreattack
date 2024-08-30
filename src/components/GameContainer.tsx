@@ -8,6 +8,11 @@ import scenarios from '@/data/scenarios';
 import { executeChoice, getNextScenario, createRedAlertScenario, calculateScore } from '@/utils/gameLogic';
 import { HackerSkills, Scenario } from '@/types';
 
+interface ChoiceRecord {
+  method: string;
+  tacticId: string;
+}
+
 const GameContainer: React.FC = () => {
   const router = useRouter();
   const { currentScenario, setCurrentScenario, gameOver, setGameOver, score, setScore } = useGameState(scenarios);
