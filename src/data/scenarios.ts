@@ -286,6 +286,188 @@ const scenarios: Scenario[] = [
         successRateModifier: 0.8,
       }
     ]
+  },
+  {
+    id: 12,
+    name: "Command and Control",
+    description: "Establish command and control channels. How will you communicate with your assets?",
+    phase: 'commandAndControl',
+    choices: [
+      {
+        id: '12a',
+        method: "Application Layer Protocol",
+        baseDifficulty: 5,
+        successRateModifier: 0.8,
+      },
+      {
+        id: '12b',
+        method: "Dynamic Resolution",
+        baseDifficulty: 6,
+        successRateModifier: 0.7,
+      },
+      {
+        id: '12c',
+        method: "Fallback Channels",
+        baseDifficulty: 7,
+        successRateModifier: 0.6,
+      }
+    ]
+  },
+  {
+    id: 13,
+    name: "Reconnaissance",
+    description: "Gathering information is key. What's your approach to reconnaissance?",
+    phase: 'reconnaissance',
+    choices: [
+      {
+        id: '13a',
+        method: "Active Scanning",
+        baseDifficulty: 3,
+        successRateModifier: 0.9,
+      },
+      {
+        id: '13b',
+        method: "Search Open Websites/Domains",
+        baseDifficulty: 2,
+        successRateModifier: 0.95,
+      },
+      {
+        id: '13c',
+        method: "Search Open Technical Databases",
+        baseDifficulty: 4,
+        successRateModifier: 0.85,
+      }
+    ]
+  },
+  {
+    id: 14,
+    name: "Resource Development",
+    description: "Develop or acquire the resources you need. What's your strategy?",
+    phase: 'resourceDevelopment',
+    choices: [
+      {
+        id: '14a',
+        method: "Acquire Infrastructure",
+        baseDifficulty: 5,
+        successRateModifier: 0.8,
+      },
+      {
+        id: '14b',
+        method: "Compromise Accounts",
+        baseDifficulty: 6,
+        successRateModifier: 0.7,
+      },
+      {
+        id: '14c',
+        method: "Establish Accounts",
+        baseDifficulty: 4,
+        successRateModifier: 0.85,
+      }
+    ]
+  },
+  {
+    id: 15,
+    name: "Impact",
+    description: "You've infiltrated the target. How will you maximize the impact?",
+    phase: 'impact',
+    choices: [
+      {
+        id: '15a',
+        method: "Data Manipulation",
+        baseDifficulty: 5,
+        successRateModifier: 0.75,
+      },
+      {
+        id: '15b',
+        method: "Defacement",
+        baseDifficulty: 6,
+        successRateModifier: 0.7,
+      },
+      {
+        id: '15c',
+        method: "Disk Wipe",
+        baseDifficulty: 7,
+        successRateModifier: 0.65,
+      }
+    ]
+  },
+  {
+    id: 16,
+    name: "Execution",
+    description: "Your operations are ongoing. Choose how to continue executing your payload.",
+    phase: 'execution',
+    choices: [
+      {
+        id: '16a',
+        method: "Container Administration Command",
+        baseDifficulty: 5,
+        successRateModifier: 0.8,
+      },
+      {
+        id: '16b',
+        method: "Deploy Container",
+        baseDifficulty: 6,
+        successRateModifier: 0.75,
+      },
+      {
+        id: '16c',
+        method: "Serverless Execution",
+        baseDifficulty: 7,
+        successRateModifier: 0.7,
+      }
+    ]
+  },
+  {
+    id: 17,
+    name: "Defense Evasion",
+    description: "Keep avoiding detection. How will you evade defenses?",
+    phase: 'defenseEvasion',
+    choices: [
+      {
+        id: '17a',
+        method: "Debugger Evasion",
+        baseDifficulty: 5,
+        successRateModifier: 0.8,
+      },
+      {
+        id: '17b',
+        method: "Obfuscated Files or Information",
+        baseDifficulty: 4,
+        successRateModifier: 0.85,
+      },
+      {
+        id: '17c',
+        method: "Rootkit",
+        baseDifficulty: 7,
+        successRateModifier: 0.65,
+      }
+    ]
+  },
+  {
+    id: 18,
+    name: "Credential Access",
+    description: "Need more access? What will you do to acquire more credentials?",
+    phase: 'credentialAccess',
+    choices: [
+      {
+        id: '18a',
+        method: "Credentials from Password Stores",
+        baseDifficulty: 6,
+        successRateModifier: 0.7,
+      },
+      {
+        id: '18b',
+        method: "Steal or Forge Kerberos Tickets",
+        baseDifficulty: 7,
+        successRateModifier: 0.65,
+      },
+      {
+        id: '18c',
+        method: "Steal Application Access Token",
+        baseDifficulty: 5,
+        successRateModifier: 0.75,
+      }
+    ]
   }
 ];
 
