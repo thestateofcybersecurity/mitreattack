@@ -17,6 +17,7 @@ const GameContainer: React.FC = () => {
   const [showSkillSheet, setShowSkillSheet] = useState(true);
   const [previousScenario, setPreviousScenario] = useState<Scenario | null>(null);
   const [skillIncrease, setSkillIncrease] = useState<{skill: string, increase: number} | null>(null);
+  const [choicesLocked, setChoicesLocked] = useState(false);
 
   useEffect(() => {
     const skills = localStorage.getItem('hackerSkills');
@@ -46,6 +47,8 @@ const GameContainer: React.FC = () => {
     const choice = currentScenario.choices.find(c => c.id === choiceId);
     if (!choice) return;
 
+    setChoicesLocked(true);  // Lock choices when a choice is made
+
     setChoices(prevChoices => [...prevChoices, choice.method]);
 
     const skillLevel = hackerSkills[currentScenario.phase];
@@ -71,6 +74,7 @@ const GameContainer: React.FC = () => {
       }
       setRollResult(null);
       setSkillIncrease(null);
+      setChoicesLocked(false);  // Unlock choices for the next scenario
     }, 5000);
   };
 
@@ -79,6 +83,8 @@ const GameContainer: React.FC = () => {
 
     const choice = currentScenario.choices.find(c => c.id === choiceId);
     if (!choice) return;
+
+    setChoicesLocked(true);  // Lock choices when a choice is made
 
     const skillLevel = hackerSkills[previousScenario.phase];
     const result = executeChoice(choice, skillLevel);
@@ -101,6 +107,7 @@ const GameContainer: React.FC = () => {
       }
       setRollResult(null);
       setSkillIncrease(null);
+      setChoicesLocked(false);  // Unlock choices for the next scenario
     }, 5000);
   };
 
@@ -140,6 +147,7 @@ const GameContainer: React.FC = () => {
         onChoiceMade={currentScenario.name.includes('Red Alert') ? handleRedAlertChoice : makeChoice}
         rollResult={rollResult}
         skillIncrease={skillIncrease}
+        choicesLocked={choicesLocked}
       />
       <div className="mt-6 text-xl text-cyberGreen text-center">
         Current Score: {score}
