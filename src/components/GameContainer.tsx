@@ -15,6 +15,7 @@ const GameContainer: React.FC = () => {
   const [choices, setChoices] = useState<string[]>([]);
   const [hackerSkills, setHackerSkills] = useState<HackerSkills | null>(null);
   const [showSkillSheet, setShowSkillSheet] = useState(true);
+  const [previousScenario, setPreviousScenario] = useState<Scenario | null>(null);
 
   useEffect(() => {
     const skills = localStorage.getItem('hackerSkills');
@@ -44,26 +45,27 @@ const GameContainer: React.FC = () => {
         setTimeout(() => {
           setCurrentScenario(nextScenario);
           setRollResult(null);
-        }, 5000);
+        }, 3000);
       } else {
         setGameOver(true);
       }
     } else {
+      setPreviousScenario(currentScenario);
       const redAlertScenario = createRedAlertScenario(currentScenario);
       setTimeout(() => {
         setCurrentScenario(redAlertScenario);
         setRollResult(null);
-      }, 5000);
+      }, 3000);
     }
   };
 
   const handleRedAlertChoice = (choiceId: string) => {
-    if (!currentScenario || !hackerSkills) return;
+    if (!currentScenario || !hackerSkills || !previousScenario) return;
 
     const choice = currentScenario.choices.find(c => c.id === choiceId);
     if (!choice) return;
 
-    const skillLevel = hackerSkills[currentScenario.phase];
+    const skillLevel = hackerSkills[previousScenario.phase];
     const result = executeChoice(choice, skillLevel);
 
     setRollResult(result);
@@ -71,9 +73,10 @@ const GameContainer: React.FC = () => {
 
     setTimeout(() => {
       if (result.success) {
-        const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
+        const nextScenario = getNextScenario(scenarios, previousScenario, { success: true });
         if (nextScenario) {
           setCurrentScenario(nextScenario);
+          setPreviousScenario(null);
         } else {
           setGameOver(true);
         }
@@ -81,7 +84,7 @@ const GameContainer: React.FC = () => {
         setGameOver(true);
       }
       setRollResult(null);
-    }, 5000);
+    }, 3000);
   };
 
   const restartGame = () => {
