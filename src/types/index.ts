@@ -15,6 +15,8 @@ export interface Scenario {
 
 export interface HackerSkills {
   [key: string]: number;
+  reconnaissance: number;
+  resourceDevelopment: number;
   initialAccess: number;
   execution: number;
   persistence: number;
@@ -24,6 +26,7 @@ export interface HackerSkills {
   discovery: number;
   lateralMovement: number;
   collection: number;
+  commandAndControl: number;
   exfiltration: number;
   impact: number;
 }
