@@ -42,12 +42,12 @@ const GameContainer: React.FC = () => {
   };
 
   const makeChoice = (choiceId: string) => {
-    if (!currentScenario || !hackerSkills) return;
+    if (!currentScenario || !hackerSkills || choicesLocked) return;
 
     const choice = currentScenario.choices.find(c => c.id === choiceId);
     if (!choice) return;
 
-    setChoicesLocked(true);  // Lock choices when a choice is made
+    setChoicesLocked(true);
 
     setChoices(prevChoices => [...prevChoices, choice.method]);
 
@@ -74,17 +74,17 @@ const GameContainer: React.FC = () => {
       }
       setRollResult(null);
       setSkillIncrease(null);
-      setChoicesLocked(false);  // Unlock choices for the next scenario
+      setChoicesLocked(false);
     }, 5000);
   };
 
   const handleRedAlertChoice = (choiceId: string) => {
-    if (!currentScenario || !hackerSkills || !previousScenario) return;
+    if (!currentScenario || !hackerSkills || !previousScenario || choicesLocked) return;
 
     const choice = currentScenario.choices.find(c => c.id === choiceId);
     if (!choice) return;
 
-    setChoicesLocked(true);  // Lock choices when a choice is made
+    setChoicesLocked(true);
 
     const skillLevel = hackerSkills[previousScenario.phase];
     const result = executeChoice(choice, skillLevel);
@@ -107,7 +107,7 @@ const GameContainer: React.FC = () => {
       }
       setRollResult(null);
       setSkillIncrease(null);
-      setChoicesLocked(false);  // Unlock choices for the next scenario
+      setChoicesLocked(false);
     }, 5000);
   };
 
