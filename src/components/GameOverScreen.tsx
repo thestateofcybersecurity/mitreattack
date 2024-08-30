@@ -1,12 +1,27 @@
 import React from 'react';
 
+interface ChoiceRecord {
+  method: string;
+  tacticId: string;
+}
+
 interface GameOverScreenProps {
   score: number;
-  choices: string[];
+  choices: ChoiceRecord[];
   onRestart: () => void;
 }
 
 const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onRestart }) => {
+  const getMitreUrl = (tacticId: string) => {
+    const baseUrl = 'https://attack.mitre.org/techniques/';
+    const parts = tacticId.split('.');
+    if (parts.length === 1) {
+      return `${baseUrl}${tacticId}/`;
+    } else {
+      return `${baseUrl}${parts[0]}/${parts.slice(1).join('/')}/`;
+    }
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
       <h2 className="text-3xl font-bold mb-6 text-cyberGreen text-center">Game Over</h2>
@@ -15,7 +30,16 @@ const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onResta
         <h3 className="text-xl font-bold mb-2 text-cyberPurple">Your Choices:</h3>
         <ul className="list-disc list-inside text-cyberGreen">
           {choices.map((choice, index) => (
-            <li key={index} className="mb-1">{choice}</li>
+            <li key={index} className="mb-1">
+              <a 
+                href={getMitreUrl(choice.tacticId)} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-cyberTeal underline"
+              >
+                {choice.method}
+              </a>
+            </li>
           ))}
         </ul>
       </div>
