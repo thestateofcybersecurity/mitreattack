@@ -13,7 +13,7 @@ const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onResta
       <p className="text-2xl text-cyberGreen mb-4 text-center">Your final score: {score}</p>
       <div className="mb-6">
         <h3 className="text-xl font-bold mb-2 text-cyberPurple">Your Choices:</h3>
-        <ul className="list-disc list-inside text-white">
+        <ul className="list-disc list-inside text-cyberGreen">
           {choices.map((choice, index) => (
             <li key={index} className="mb-1">{choice}</li>
           ))}
