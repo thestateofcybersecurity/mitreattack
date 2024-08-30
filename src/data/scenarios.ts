@@ -5894,7 +5894,204 @@ const scenarios: Scenario[] = [
       successRateModifier: 0.76,
     },
   ],
-}          
+},
+{
+  id: 14,
+  name: "Impact",
+  description: "Impact techniques are used by adversaries to disrupt availability or compromise the integrity of systems and data. How will you maximize the impact of your actions on the target environment?",
+  phase: 'impact',
+  choices: [
+    {
+      id: 'T1531',
+      method: "Account Access Removal",
+      description: "Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. This may include deleting, locking, or manipulating accounts to remove access.",
+      baseDifficulty: 16,  // Medium-High difficulty
+      successRateModifier: 0.78,
+    },
+    {
+      id: 'T1485',
+      method: "Data Destruction",
+      description: "Adversaries may destroy data and files on specific systems or across a network to interrupt availability. This involves overwriting files or data to render them irrecoverable by forensic techniques.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1486',
+      method: "Data Encrypted for Impact",
+      description: "Adversaries may encrypt data on target systems to render it inaccessible, often for the purpose of extorting victims for decryption keys (ransomware) or permanently denying access.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.74,
+    },
+    {
+      id: 'T1565',
+      method: "Data Manipulation",
+      description: "Adversaries may insert, delete, or manipulate data to influence outcomes or hide activity, threatening the integrity of the data.",
+      baseDifficulty: 17,  // Medium-High difficulty
+      successRateModifier: 0.76,
+    },
+    {
+      id: 'T1565.001',
+      method: "Stored Data Manipulation",
+      description: "Adversaries may manipulate data at rest to influence outcomes or hide activity, threatening the integrity of the data.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.74,
+    },
+    {
+      id: 'T1565.002',
+      method: "Transmitted Data Manipulation",
+      description: "Adversaries may alter data in transit to manipulate outcomes or hide activity, threatening the integrity of the data.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.73,
+    },
+    {
+      id: 'T1565.003',
+      method: "Runtime Data Manipulation",
+      description: "Adversaries may modify systems to manipulate data as it is accessed and displayed, threatening the integrity of the data.",
+      baseDifficulty: 19,  // High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1491',
+      method: "Defacement",
+      description: "Adversaries may modify visual content available internally or externally to affect the integrity of the content, often for messaging, intimidation, or credit claiming.",
+      baseDifficulty: 16,  // Medium-High difficulty
+      successRateModifier: 0.78,
+    },
+    {
+      id: 'T1491.001',
+      method: "Internal Defacement",
+      description: "Adversaries may deface internal systems to intimidate or mislead users, discrediting the integrity of the systems.",
+      baseDifficulty: 17,  // Medium-High difficulty
+      successRateModifier: 0.76,
+    },
+    {
+      id: 'T1491.002',
+      method: "External Defacement",
+      description: "Adversaries may deface external systems to deliver messaging, intimidate, or mislead, often targeting externally-facing websites.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.74,
+    },
+    {
+      id: 'T1561',
+      method: "Disk Wipe",
+      description: "Adversaries may wipe or corrupt raw disk data to interrupt availability to system and network resources.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1561.001',
+      method: "Disk Content Wipe",
+      description: "Adversaries may erase the contents of storage devices to interrupt availability to system and network resources.",
+      baseDifficulty: 19,  // High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1561.002',
+      method: "Disk Structure Wipe",
+      description: "Adversaries may corrupt or wipe disk data structures necessary to boot a system, targeting critical systems to interrupt availability.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.71,
+    },
+    {
+      id: 'T1499',
+      method: "Endpoint Denial of Service",
+      description: "Adversaries may perform Endpoint Denial of Service (DoS) attacks to degrade or block availability of services to users.",
+      baseDifficulty: 17,  // Medium-High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1499.001',
+      method: "OS Exhaustion Flood",
+      description: "Adversaries may launch a DoS attack targeting an endpoint's operating system by exhausting the system's resources.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.74,
+    },
+    {
+      id: 'T1499.002',
+      method: "Service Exhaustion Flood",
+      description: "Adversaries may target network services to conduct a DoS, such as DNS or web services.",
+      baseDifficulty: 17,  // Medium-High difficulty
+      successRateModifier: 0.76,
+    },
+    {
+      id: 'T1499.003',
+      method: "Application Exhaustion Flood",
+      description: "Adversaries may target resource-intensive features of applications to cause a DoS, denying access to the application.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.74,
+    },
+    {
+      id: 'T1499.004',
+      method: "Application or System Exploitation",
+      description: "Adversaries may exploit software vulnerabilities to cause an application or system to crash and deny availability to users.",
+      baseDifficulty: 19,  // High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1657',
+      method: "Financial Theft",
+      description: "Adversaries may steal monetary resources through extortion, social engineering, or technical theft.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.7,
+    },
+    {
+      id: 'T1495',
+      method: "Firmware Corruption",
+      description: "Adversaries may corrupt the firmware of system BIOS or other hardware devices to render them inoperable.",
+      baseDifficulty: 20,  // High difficulty
+      successRateModifier: 0.69,
+    },
+    {
+      id: 'T1490',
+      method: "Inhibit System Recovery",
+      description: "Adversaries may delete or remove built-in data and disable services to prevent system recovery.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.74,
+    },
+    {
+      id: 'T1498',
+      method: "Network Denial of Service",
+      description: "Adversaries may perform Network Denial of Service (DoS) attacks to degrade or block the availability of targeted resources.",
+      baseDifficulty: 17,  // Medium-High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1498.001',
+      method: "Direct Network Flood",
+      description: "Adversaries may cause a DoS by directly sending a high-volume of network traffic to a target.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.74,
+    },
+    {
+      id: 'T1498.002',
+      method: "Reflection Amplification",
+      description: "Adversaries may cause a DoS by reflecting a high-volume of network traffic to a target using third-party servers.",
+      baseDifficulty: 19,  // High difficulty
+      successRateModifier: 0.72,
+    },
+    {
+      id: 'T1496',
+      method: "Resource Hijacking",
+      description: "Adversaries may leverage the resources of co-opted systems to complete resource-intensive tasks, impacting availability.",
+      baseDifficulty: 18,  // High difficulty
+      successRateModifier: 0.73,
+    },
+    {
+      id: 'T1489',
+      method: "Service Stop",
+      description: "Adversaries may stop or disable services to render them unavailable to legitimate users.",
+      baseDifficulty: 17,  // Medium-High difficulty
+      successRateModifier: 0.75,
+    },
+    {
+      id: 'T1529',
+      method: "System Shutdown/Reboot",
+      description: "Adversaries may shutdown or reboot systems to interrupt access or aid in the destruction of systems.",
+      baseDifficulty: 16,  // Medium-High difficulty
+      successRateModifier: 0.76,
+    },
+  ],
+}
 ];
 
 export default scenarios;
