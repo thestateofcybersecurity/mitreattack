@@ -1,27 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ScenarioRenderer from '@/components/ScenarioRenderer';
+import GameOverScreen from '@/components/GameOverScreen';
 import useGameState from '@/hooks/useGameState';
 import scenarios from '@/data/scenarios';
 import { executeChoice, getNextScenario, calculateScore } from '@/utils/gameLogic';
-import { Scenario, HackerSkills } from '@/types';
 
 const GameContainer: React.FC = () => {
-  const { 
-    currentScenario, 
-    setCurrentScenario, 
-    gameOver, 
-    setGameOver,  // Add this line
-    score, 
-    setScore, 
-    hackerSkills 
-  } = useGameState(scenarios);
+  const { currentScenario, setCurrentScenario, gameOver, setGameOver, score, setScore, hackerSkills } = useGameState(scenarios);
   const [rollResult, setRollResult] = useState<any>(null);
+  const [choices, setChoices] = useState<string[]>([]);
 
   const makeChoice = (choiceId: string) => {
     if (!currentScenario) return;
 
     const choice = currentScenario.choices.find(c => c.id === choiceId);
     if (!choice) return;
+
+    // Add the choice to the choices array
+    setChoices(prevChoices => [...prevChoices, choice.method]);
 
     const skillLevel = hackerSkills ? hackerSkills[currentScenario.phase] : 0;
     const result = executeChoice(choice, skillLevel);
@@ -38,15 +34,27 @@ const GameContainer: React.FC = () => {
       setTimeout(() => {
         setCurrentScenario(nextScenario);
         setRollResult(null);
-      }, 7000); // Give the player 7 seconds to see the roll result
+      }, 3000);
     } else {
       // Game over
       setGameOver(true);
     }
   };
 
+  const restartGame = () => {
+    setCurrentScenario(scenarios[0]);
+    setGameOver(false);
+    setScore(0);
+    setChoices([]);
+    setRollResult(null);
+  };
+
+  if (gameOver) {
+    return <GameOverScreen score={score} choices={choices} onRestart={restartGame} />;
+  }
+
   if (!currentScenario) {
-    return <div className="text-white">Loading game...</div>;
+    return <div className="text-cyberGreen">Loading game...</div>;
   }
 
   return (
@@ -59,12 +67,6 @@ const GameContainer: React.FC = () => {
       <div className="mt-6 text-xl text-cyberGreen text-center">
         Current Score: {score}
       </div>
-      {gameOver && (
-        <div className="mt-6 p-4 bg-cyberRed text-white rounded text-center animate-glitch">
-          <h2 className="text-2xl font-bold">Game Over!</h2>
-          <p>Your final score: {score}</p>
-        </div>
-      )}
       {hackerSkills && (
         <div className="mt-6 p-4 bg-cyberGray text-cyberGreen rounded">
           <h3 className="text-xl font-bold mb-2">Your Hacker Skills:</h3>
