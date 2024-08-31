@@ -38,7 +38,6 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
           RED ALERT: Detection Imminent
         </div>
       )}
-      <h2 className={`text-2xl font-bold mb-4 ${isRedAlert ? 'text-cyberRed' : 'text-cyberGreen'}`}>{scenario.name}</h2>
       <p className="mb-6 text-white">{scenario.description}</p>
 
       {rollResult && (
