@@ -5,6 +5,10 @@ interface ScenarioRendererProps {
   scenario: Scenario;
   choices: Choice[];
   onChoiceMade: (choiceId: string) => void;
+  selectedChoice: Choice | null;
+  onChoiceSelect: (choice: Choice) => void;
+  onChoiceConfirm: () => void;
+  onChoiceCancel: () => void;
   rollResult?: {
     success: boolean;
     roll: number;
@@ -15,10 +19,15 @@ interface ScenarioRendererProps {
   choicesLocked: boolean;
 }
 
+
 const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ 
   scenario, 
   choices,
-  onChoiceMade, 
+  onChoiceMade,
+  selectedChoice,
+  onChoiceSelect,
+  onChoiceConfirm,
+  onChoiceCancel,
   rollResult, 
   skillIncrease,
   choicesLocked
