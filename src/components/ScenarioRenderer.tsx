@@ -33,12 +33,14 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
 
   return (
     <div className="bg-cyberGray p-6 rounded-lg shadow-neon">
-      {isRedAlert && (
-        <div className="text-cyberRed font-bold text-2xl mb-4 animate-pulse">
-          RED ALERT: Detection Imminent
-        </div>
-      )}
-      <p className="mb-6 text-white">{scenario.description}</p>
+      <h2 className={`text-2xl font-bold mb-4 ${
+          isRedAlert 
+            ? 'text-cyberRed animate-pulse' 
+            : 'text-cyberGreen'
+        }`}>
+          {scenario.name}
+        </h2>
+        <p className="mb-6 text-white">{scenario.description}</p>
 
       {rollResult && (
         <div className={`mb-6 p-4 rounded ${rollResult.success ? 'bg-cyberGreen text-cyberBlue' : 'bg-cyberRed text-white'}`}>
