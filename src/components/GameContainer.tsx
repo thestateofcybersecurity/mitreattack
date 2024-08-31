@@ -27,6 +27,7 @@ const GameContainer: React.FC = () => {
   const [playerName, setPlayerName] = useState('');
   const [scoreSubmitted, setScoreSubmitted] = useState(false);
   const [currentChoices, setCurrentChoices] = useState<Choice[]>([]);
+  const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
 
   // Function to classify difficulty
   const classifyDifficulty = (baseDifficulty: number): 'easy' | 'medium' | 'hard' => {
@@ -75,7 +76,6 @@ const GameContainer: React.FC = () => {
     }
   }, [scenarios, currentScenario]);
   
-
   const updateHackerSkills = (phase: keyof HackerSkills) => {
     if (!hackerSkills) return;
 
@@ -128,6 +128,23 @@ const GameContainer: React.FC = () => {
       setSkillIncrease(null);
       setChoicesLocked(false);
     }, 5000);
+  };
+
+  const handleChoiceSelect = (choice: Choice) => {
+    setSelectedChoice(choice);
+  };
+
+  const handleChoiceConfirm = () => {
+    if (!selectedChoice || !currentScenario || !hackerSkills) return;
+    
+    const isRedAlert = currentScenario.name.includes('Red Alert');
+    const choiceHandler = isRedAlert ? handleRedAlertChoice : makeChoice;
+    choiceHandler(selectedChoice.id);
+    setSelectedChoice(null);
+  };
+
+  const handleChoiceCancel = () => {
+    setSelectedChoice(null);
   };
 
   const handleRedAlertChoice = (choiceId: string) => {
@@ -261,10 +278,13 @@ const GameContainer: React.FC = () => {
         )
       ) : (
         <>
-          <ScenarioRenderer
+         <ScenarioRenderer
             scenario={currentScenario}
             choices={currentChoices}
-            onChoiceMade={currentScenario.name.includes('Red Alert') ? handleRedAlertChoice : makeChoice}
+            selectedChoice={selectedChoice}
+            onChoiceSelect={handleChoiceSelect}
+            onChoiceConfirm={handleChoiceConfirm}
+            onChoiceCancel={handleChoiceCancel}
             rollResult={rollResult}
             skillIncrease={skillIncrease}
             choicesLocked={choicesLocked}
