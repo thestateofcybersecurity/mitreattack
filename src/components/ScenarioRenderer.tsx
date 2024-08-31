@@ -91,13 +91,13 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
           <p className="text-white mb-4">{selectedChoice.description}</p>
           <div className="flex justify-between">
             <button
-              onClick={handleBack}
+              onClick={onChoiceCancel}
               className="py-2 px-4 bg-cyberRed hover:bg-red-700 text-white font-bold rounded transition duration-200"
             >
-              Back
+              Cancel
             </button>
             <button
-              onClick={handleConfirm}
+              onClick={onChoiceConfirm}
               className="py-2 px-4 bg-cyberGreen hover:bg-green-700 text-cyberBlue font-bold rounded transition duration-200"
             >
               Confirm
