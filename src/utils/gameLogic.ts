@@ -67,21 +67,21 @@ export const createRedAlertScenario = (currentScenario: Scenario): Scenario => {
         method: "Quickly cover your tracks",
         description: "Attempt to erase evidence of your presence in the system. This could involve deleting logs, removing malware, or hiding your network presence.",
         baseDifficulty: 15,
-        successRateModifier: 0.7,
+        successRateModifier: 1,
       },
       {
         id: 'alert_2',
         method: "Create a diversion",
         description: "Try to distract the security team by creating a false alarm elsewhere in the system. This could buy you time to complete your objectives.",
-        baseDifficulty: 13,
-        successRateModifier: 0.8,
+        baseDifficulty: 17,
+        successRateModifier: 1,
       },
       {
         id: 'alert_3',
         method: "Attempt to bypass security",
         description: "Make a daring attempt to circumvent the triggered security measures. This is risky but could allow you to continue your operation undetected.",
-        baseDifficulty: 17,
-        successRateModifier: 0.6,
+        baseDifficulty: 25,
+        successRateModifier: 1,
       }
     ]
   };
