@@ -24,7 +24,6 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
   scenario, 
   choices,
   onChoiceMade,
-  selectedChoice,
   onChoiceSelect,
   onChoiceConfirm,
   onChoiceCancel,
