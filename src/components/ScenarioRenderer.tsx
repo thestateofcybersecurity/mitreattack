@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Scenario, Choice } from '@/types';
 
 interface ScenarioRendererProps {
   scenario: Scenario;
   choices: Choice[];
-  onChoiceMade: (choiceId: string) => void;
   selectedChoice: Choice | null;
   onChoiceSelect: (choice: Choice) => void;
   onChoiceConfirm: () => void;
@@ -19,11 +18,10 @@ interface ScenarioRendererProps {
   choicesLocked: boolean;
 }
 
-
 const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ 
   scenario, 
   choices,
-  onChoiceMade,
+  selectedChoice,
   onChoiceSelect,
   onChoiceConfirm,
   onChoiceCancel,
@@ -31,28 +29,10 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
   skillIncrease,
   choicesLocked
 }) => {
-  const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
   const isRedAlert = scenario.name.includes('Red Alert');
 
-  const handleChoiceClick = (choice: Choice) => {
-    if (!choicesLocked) {
-      setSelectedChoice(choice);
-    }
-  };
-
-  const handleConfirm = () => {
-    if (selectedChoice) {
-      onChoiceMade(selectedChoice.id);
-      setSelectedChoice(null);
-    }
-  };
-
-  const handleBack = () => {
-    setSelectedChoice(null);
-  };
-
   return (
-    <div className={`bg-cyberGray p-6 rounded-lg shadow-neon ${isRedAlert ? 'border-4 border-cyberRed' : ''}`}>
+    <div className="bg-cyberGray p-6 rounded-lg shadow-neon">
       {isRedAlert && (
         <div className="text-cyberRed font-bold text-2xl mb-4 animate-pulse">
           RED ALERT: Detection Imminent
@@ -77,7 +57,7 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
           {choices.map((choice) => (
             <button
               key={choice.id}
-              onClick={() => onChoiceMade(choice.id)}
+              onClick={() => onChoiceSelect(choice)}
               className={`w-full py-2 px-4 bg-cyberPurple hover:bg-cyberTeal text-white font-bold rounded transition duration-200 ${choicesLocked ? 'opacity-50 cursor-not-allowed' : ''}`}
               disabled={choicesLocked}
             >
