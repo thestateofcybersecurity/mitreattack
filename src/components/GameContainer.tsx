@@ -281,6 +281,7 @@ const GameContainer: React.FC = () => {
          <ScenarioRenderer
             scenario={currentScenario}
             choices={currentChoices}
+            onChoiceMade={makeChoice}
             selectedChoice={selectedChoice}
             onChoiceSelect={handleChoiceSelect}
             onChoiceConfirm={handleChoiceConfirm}
