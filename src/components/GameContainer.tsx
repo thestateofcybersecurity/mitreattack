@@ -130,6 +130,7 @@ const GameContainer: React.FC = () => {
     }, 5000);
   };
 
+
   const handleChoiceSelect = (choice: Choice) => {
     setSelectedChoice(choice);
   };
@@ -138,8 +139,11 @@ const GameContainer: React.FC = () => {
     if (!selectedChoice || !currentScenario || !hackerSkills) return;
     
     const isRedAlert = currentScenario.name.includes('Red Alert');
-    const choiceHandler = isRedAlert ? handleRedAlertChoice : makeChoice;
-    choiceHandler(selectedChoice.id);
+    if (isRedAlert) {
+      handleRedAlertChoice(selectedChoice.id);
+    } else {
+      makeChoice(selectedChoice.id);
+    }
     setSelectedChoice(null);
   };
 
@@ -148,7 +152,7 @@ const GameContainer: React.FC = () => {
   };
 
   const handleRedAlertChoice = (choiceId: string) => {
-    if (!currentScenario || !hackerSkills || !previousScenario || choicesLocked) return;
+    if (!currentScenario || !hackerSkills || !previousScenario) return;
 
     const choice = currentScenario.choices.find(c => c.id === choiceId);
     if (!choice) return;
@@ -161,21 +165,22 @@ const GameContainer: React.FC = () => {
     setRollResult(result);
     setScore(prevScore => prevScore + calculateScore(choice, result.success, result.roll));
 
-  setTimeout(() => {
-    if (result.success) {
-      updateHackerSkills(previousScenario.phase);
-      const nextScenario = getNextScenario(scenarios, previousScenario, { success: true });
-      if (nextScenario) {
-        setCurrentScenario(nextScenario);
-        setPreviousScenario(null);
+    setTimeout(() => {
+      if (result.success) {
+        updateHackerSkills(previousScenario.phase);
+        const nextScenario = getNextScenario(scenarios, previousScenario, { success: true });
+        if (nextScenario) {
+          setCurrentScenario(nextScenario);
+          setCurrentChoices(selectBalancedChoices(nextScenario.choices));
+          setPreviousScenario(null);
+        } else {
+          setGameOver(true);
+          handleGameOver();
+        }
       } else {
         setGameOver(true);
         handleGameOver();
       }
-    } else {
-      setGameOver(true);
-      handleGameOver();
-    }
       setRollResult(null);
       setSkillIncrease(null);
       setChoicesLocked(false);
@@ -281,7 +286,6 @@ const GameContainer: React.FC = () => {
          <ScenarioRenderer
             scenario={currentScenario}
             choices={currentChoices}
-            onChoiceMade={makeChoice}
             selectedChoice={selectedChoice}
             onChoiceSelect={handleChoiceSelect}
             onChoiceConfirm={handleChoiceConfirm}
