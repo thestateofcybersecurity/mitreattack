@@ -27,34 +27,32 @@ export const executeChoice = (
 };
 
 export const getNextScenario = (
-  scenarios: Scenario[], 
-  currentScenario: Scenario, 
+  scenarios: Scenario[],
+  currentScenario: Scenario,
   choiceResult: { success: boolean }
 ): Scenario | null => {
   const currentIndex = scenarios.findIndex(s => s.id === currentScenario.id);
   
-  // If it's a red alert scenario
-  if (currentScenario.name.includes('Red Alert')) {
-    if (choiceResult.success) {
-      // On success, move to the next regular scenario
-      return scenarios[currentIndex] || null;
-    } else {
-      // On failure, game over
-      return null;
-    }
-  }
-
-  // For regular scenarios
+  // If we're at the end of the scenarios, the game is over
   if (currentIndex === -1 || currentIndex === scenarios.length - 1) {
     return null; // Game over
   }
-
-  if (choiceResult.success) {
-    return scenarios[currentIndex + 1];
-  } else {
-    // Return a "red alert" scenario
-    return createRedAlertScenario(currentScenario);
+  
+  // If we're in a red alert scenario and the choice was successful,
+  // we want to skip to the next regular scenario
+  if (currentScenario.name.includes('Red Alert') && choiceResult.success) {
+    // Find the next non-red alert scenario
+    for (let i = currentIndex + 1; i < scenarios.length; i++) {
+      if (!scenarios[i].name.includes('Red Alert')) {
+        return scenarios[i];
+      }
+    }
+    // If we couldn't find a non-red alert scenario, the game is over
+    return null;
   }
+  
+  // For regular scenarios or failed red alerts, just return the next scenario
+  return scenarios[currentIndex + 1];
 };
 
 export const createRedAlertScenario = (currentScenario: Scenario): Scenario => {
