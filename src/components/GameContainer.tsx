@@ -28,6 +28,7 @@ const GameContainer: React.FC = () => {
   const [scoreSubmitted, setScoreSubmitted] = useState(false);
   const [currentChoices, setCurrentChoices] = useState<Choice[]>([]);
   const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
+  const [highScores, setHighScores] = useState<HighScore[]>([]);
 
   // Function to classify difficulty
   const classifyDifficulty = (baseDifficulty: number): 'easy' | 'medium' | 'hard' => {
@@ -218,6 +219,7 @@ const GameContainer: React.FC = () => {
         const data = await response.json();
         console.log(data.message);
         setScoreSubmitted(true);
+        fetchHighScores(); // Fetch updated high scores after submission
       } catch (error) {
         console.error('Error submitting score:', error);
       }
@@ -225,7 +227,6 @@ const GameContainer: React.FC = () => {
     setShowNamePrompt(false);
   };
   
-  // Similarly, update the GET request:
   const fetchHighScores = async () => {
     try {
       const response = await fetch('/api/high-scores');
@@ -249,7 +250,9 @@ const GameContainer: React.FC = () => {
     return <HackerSkillSheet onConfirm={onSkillsConfirmed} />;
   }
 
-  if (gameOver) {
+  useEffect(() => {
+    if (gameOver) {
+      fetchHighScores();
     if (showNamePrompt) {
       return (
         <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
