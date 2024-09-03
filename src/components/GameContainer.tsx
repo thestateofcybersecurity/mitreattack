@@ -205,7 +205,7 @@ const GameContainer: React.FC = () => {
   const submitScore = async () => {
     if (playerName) {
       try {
-        const response = await fetch('./pages/api/high-scores', {
+        const response = await fetch('/api/high-scores', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -215,12 +215,28 @@ const GameContainer: React.FC = () => {
         if (!response.ok) {
           throw new Error('Failed to submit score');
         }
+        const data = await response.json();
+        console.log(data.message);
         setScoreSubmitted(true);
       } catch (error) {
         console.error('Error submitting score:', error);
       }
     }
     setShowNamePrompt(false);
+  };
+  
+  // Similarly, update the GET request:
+  const fetchHighScores = async () => {
+    try {
+      const response = await fetch('/api/high-scores');
+      if (!response.ok) {
+        throw new Error('Failed to fetch high scores');
+      }
+      const data = await response.json();
+      setHighScores(data);
+    } catch (error) {
+      console.error('Error fetching high scores:', error);
+    }
   };
 
   const onSkillsConfirmed = (skills: HackerSkills) => {
