@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { MongoClient, Db } from 'mongodb';
+import { MongoClient, Db, DbError } from 'mongodb';
 
 let cachedDb: Db | null = null;
 
