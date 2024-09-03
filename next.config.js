@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     MONGODB_URI: process.env.MONGODB_URI,
-    MONGODB_DB: process.env.MONGODB_DB || 'test',
+    MONGODB_DB: process.env.MONGODB_DB || 'Mitre',
   },
   exportPathMap: async function (
     defaultPathMap,
