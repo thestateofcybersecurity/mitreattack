@@ -36,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await db.collection('highScores').insertOne({ name, score, timestamp: new Date() });
       res.status(200).json({ message: 'Score saved successfully' });
     } catch (error) {
-      if (error.code === 11000) { // Duplicate key error
+      if (error instanceof DbError && error.code === 11000) { // Duplicate key error
         return res.status(400).json({ error: 'A high score with that name already exists.' });
       }
       console.error('Error saving high score:', error);
