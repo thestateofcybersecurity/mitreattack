@@ -7,6 +7,7 @@ import useGameState from '@/hooks/useGameState';
 import scenarios from '@/data/scenarios';
 import { executeChoice, getNextScenario, createRedAlertScenario, calculateScore } from '@/utils/gameLogic';
 import { HackerSkills, Scenario, Choice, HighScore } from '@/types';
+import wordFilter from '@/utils/wordFilter';
 
 interface ChoiceRecord {
   method: string;
@@ -29,6 +30,7 @@ const GameContainer: React.FC = () => {
   const [currentChoices, setCurrentChoices] = useState<Choice[]>([]);
   const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
   const [highScores, setHighScores] = useState<HighScore[]>([]);
+  const [nameError, setNameError] = useState<string | null>(null);
 
   // Function to classify difficulty
   const classifyDifficulty = (baseDifficulty: number): 'easy' | 'medium' | 'hard' => {
@@ -220,25 +222,37 @@ const GameContainer: React.FC = () => {
   }, [scenarios, currentScenario]);
 
   const submitScore = async () => {
-    if (playerName) {
-      try {
-        const response = await fetch('/api/high-scores', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ name: playerName, score }),
-        });
-        if (!response.ok) {
-          throw new Error('Failed to submit score');
-        }
-        const data = await response.json();
-        console.log(data.message);
-        setScoreSubmitted(true);
-        fetchHighScores(); // Fetch updated high scores after submission
-      } catch (error) {
-        console.error('Error submitting score:', error);
+    const trimmedName = playerName.trim();
+    if (!trimmedName) {
+      setNameError("Please enter a name.");
+      return;
+    }
+
+    if (wordFilter.isProfane(trimmedName)) {
+      setNameError("Please choose a different name.");
+      return;
+    }
+
+    setNameError(null);
+
+    try {
+      const response = await fetch('/api/high-scores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: trimmedName, score }),
+      });
+      if (!response.ok) {
+        throw new Error('Failed to submit score');
       }
+      const data = await response.json();
+      console.log(data.message);
+      setScoreSubmitted(true);
+      fetchHighScores();
+    } catch (error) {
+      console.error('Error submitting score:', error);
+      setNameError("Failed to submit score. Please try again.");
     }
     setShowNamePrompt(false);
   };
@@ -319,6 +333,7 @@ const GameContainer: React.FC = () => {
               placeholder="Enter your name"
               className="p-2 mb-4 w-full"
             />
+            {nameError && <p className="text-cyberRed mb-2">{nameError}</p>}
             <button onClick={submitScore} className="bg-cyberGreen text-cyberBlue p-2 rounded">
               Submit Score
             </button>
