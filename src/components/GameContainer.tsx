@@ -31,6 +31,7 @@ const GameContainer: React.FC = () => {
   const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
   const [highScores, setHighScores] = useState<HighScore[]>([]);
   const [nameError, setNameError] = useState<string | null>(null);
+  const [criticalMessage, setCriticalMessage] = useState<string | null>(null);
 
   // Function to classify difficulty
   const classifyDifficulty = (baseDifficulty: number): 'easy' | 'medium' | 'hard' => {
