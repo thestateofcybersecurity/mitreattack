@@ -15,14 +15,7 @@ interface GameOverScreenProps {
 
 const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onRestart, highScores }) => {
 
-  useEffect(() => {
-    fetch('/api/high-scores')
-      .then(response => response.json())
-      .then(data => setHighScores(data))
-      .catch(error => console.error('Error fetching high scores:', error));
-  }, []);
-
-  const getMitreUrl = (tacticId: string) => {
+const getMitreUrl = (tacticId: string) => {
     const baseUrl = 'https://attack.mitre.org/techniques/';
     const parts = tacticId.split('.');
     if (parts.length === 1) {
