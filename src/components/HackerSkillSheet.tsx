@@ -19,7 +19,8 @@ const skills: { name: string; key: keyof HackerSkills }[] = [
   { name: 'Discovery', key: 'discovery' },
   { name: 'Lateral Movement', key: 'lateralMovement' },
   { name: 'Collection', key: 'collection' },
-  { name: 'Exfiltration', key: 'exfiltration' },
+  { name: 'Collection', key: 'commandAndControl' },
+  { name: 'Command and Control', key: 'exfiltration' },
   { name: 'Impact', key: 'impact' },
 ];
 
