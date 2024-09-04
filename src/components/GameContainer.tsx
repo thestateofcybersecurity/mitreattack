@@ -188,16 +188,36 @@ const GameContainer: React.FC = () => {
     }, 5000);
   };
 
-  const restartGame = () => {
-    setCurrentScenario(scenarios[0]);
+  const restartGame = useCallback(() => {
+    const initialScenario = scenarios[0];
+    setCurrentScenario(initialScenario);
+    setCurrentChoices(selectBalancedChoices(initialScenario.choices));
     setGameOver(false);
     setScore(0);
     setChoices([]);
     setRollResult(null);
     setPreviousScenario(null);
     setSkillIncrease(null);
-    // We don't reset hackerSkills here to keep them persistent
-  };
+    setChoicesLocked(false);
+    setShowNamePrompt(false);
+    setPlayerName('');
+    setScoreSubmitted(false);
+    
+    // Optionally reset hacker skills if you want players to start fresh each game
+    // setHackerSkills(null);
+    // setShowSkillSheet(true);
+    
+    // If you want to keep hacker skills persistent across games, you can leave them as is
+  }, [scenarios]);
+
+  // Ensure initial setup is done when component mounts
+  useEffect(() => {
+    if (scenarios.length > 0 && !currentScenario) {
+      const initialScenario = scenarios[0];
+      setCurrentScenario(initialScenario);
+      setCurrentChoices(selectBalancedChoices(initialScenario.choices));
+    }
+  }, [scenarios, currentScenario]);
 
   const submitScore = async () => {
     if (playerName) {
@@ -308,7 +328,7 @@ const GameContainer: React.FC = () => {
         )
       ) : (
         <>
-         <ScenarioRenderer
+          <ScenarioRenderer
             scenario={currentScenario}
             choices={currentChoices}
             selectedChoice={selectedChoice}
