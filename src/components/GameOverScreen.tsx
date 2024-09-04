@@ -16,7 +16,7 @@ interface GameOverScreenProps {
 const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onRestart, highScores }) => {
 
   useEffect(() => {
-    fetch('./pages/api/high-scores')
+    fetch('/api/high-scores')
       .then(response => response.json())
       .then(data => setHighScores(data))
       .catch(error => console.error('Error fetching high scores:', error));
