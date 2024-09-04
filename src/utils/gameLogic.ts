@@ -1,5 +1,6 @@
 import { Scenario, Choice, HackerSkills } from '@/types';
 import { criticalFailureMessages, criticalSuccessMessages } from './criticalMessages';
+import redAlertScenarios from './redAlertScenarios';
 
 export const rollD20 = (): number => {
   return Math.floor(Math.random() * 20) + 1;
@@ -69,35 +70,41 @@ export const getNextScenario = (
 };
 
 export const createRedAlertScenario = (currentScenario: Scenario): Scenario => {
-  return {
-    id: currentScenario.id * 100 + 1,
-    name: "Red Alert: Detection Imminent",
-    description: "Your last action has triggered security systems. Act fast to avoid detection!",
-    phase: currentScenario.phase,
-    choices: [
-      {
-        id: 'alert_1',
-        method: "Quickly cover your tracks",
-        description: "Attempt to erase evidence of your presence in the system. This could involve deleting logs, removing malware, or hiding your network presence.",
-        baseDifficulty: 15,
-        successRateModifier: 1,
-      },
-      {
-        id: 'alert_2',
-        method: "Create a diversion",
-        description: "Try to distract the security team by creating a false alarm elsewhere in the system. This could buy you time to complete your objectives.",
-        baseDifficulty: 17,
-        successRateModifier: 1,
-      },
-      {
-        id: 'alert_3',
-        method: "Attempt to bypass security",
-        description: "Make a daring attempt to circumvent the triggered security measures. This is risky but could allow you to continue your operation undetected.",
-        baseDifficulty: 25,
-        successRateModifier: 1,
-      }
-    ]
-  };
+  const redAlertKey = currentScenario.id.toString();
+  if (redAlertScenarios.hasOwnProperty(redAlertKey)) {
+    return redAlertScenarios[redAlertKey];
+  } else {
+    // Fallback to generic red alert scenario if no specific one is defined
+    return {
+      id: currentScenario.id * 100 + 1,
+      name: "Red Alert: Detection Imminent",
+      description: "Your last action has triggered security systems. Act fast to avoid detection!",
+      phase: currentScenario.phase,
+      choices: [
+        {
+          id: 'alert_1',
+          method: "Quickly cover your tracks",
+          description: "Attempt to erase evidence of your presence in the system.",
+          baseDifficulty: 15,
+          successRateModifier: 1,
+        },
+        {
+          id: 'alert_2',
+          method: "Create a diversion",
+          description: "Try to distract the security team by creating a false alarm elsewhere in the system.",
+          baseDifficulty: 17,
+          successRateModifier: 1,
+        },
+        {
+          id: 'alert_3',
+          method: "Attempt to bypass security",
+          description: "Make a daring attempt to circumvent the triggered security measures.",
+          baseDifficulty: 20,
+          successRateModifier: 1,
+        }
+      ]
+    };
+  }
 };
 
 export const calculateScore = (choice: Choice, success: boolean, roll: number): number => {
