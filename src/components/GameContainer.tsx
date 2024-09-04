@@ -109,8 +109,15 @@ const GameContainer: React.FC = () => {
     setRollResult(result);
     setScore(prevScore => prevScore + calculateScore(choice, result.success, result.roll));
 
+    if (result.isCritical) {
+      setCriticalMessage(result.message);
+    }
+
     setTimeout(() => {
-      if (result.success) {
+      if (result.roll === 1) {
+        setGameOver(true);
+        handleGameOver();
+      } else if (result.success) {
         updateHackerSkills(currentScenario.phase);
         const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
         if (nextScenario) {
@@ -130,9 +137,9 @@ const GameContainer: React.FC = () => {
       setRollResult(null);
       setSkillIncrease(null);
       setChoicesLocked(false);
+      setCriticalMessage(null);
     }, 5000);
   };
-
 
   const handleChoiceSelect = (choice: Choice) => {
     setSelectedChoice(choice);
@@ -168,10 +175,17 @@ const GameContainer: React.FC = () => {
     setRollResult(result);
     setScore(prevScore => prevScore + calculateScore(choice, result.success, result.roll));
 
+    if (result.isCritical) {
+      setCriticalMessage(result.message);
+    }
+
     setTimeout(() => {
-      if (result.success) {
-        updateHackerSkills(previousScenario.phase);
-        const nextScenario = getNextScenario(scenarios, previousScenario, { success: true });
+      if (result.roll === 1) {
+        setGameOver(true);
+        handleGameOver();
+      } else if (result.success) {
+        updateHackerSkills(currentScenario.phase);
+        const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
         if (nextScenario) {
           setCurrentScenario(nextScenario);
           setCurrentChoices(selectBalancedChoices(nextScenario.choices));
@@ -353,6 +367,7 @@ const GameContainer: React.FC = () => {
             rollResult={rollResult}
             skillIncrease={skillIncrease}
             choicesLocked={choicesLocked}
+            criticalMessage={criticalMessage}
           />
           <div className="mt-6 text-xl text-cyberGreen text-center">
             Current Score: {score}
