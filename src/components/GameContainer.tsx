@@ -6,7 +6,7 @@ import HackerSkillSheet from '@/components/HackerSkillSheet';
 import useGameState from '@/hooks/useGameState';
 import scenarios from '@/data/scenarios';
 import { executeChoice, getNextScenario, createRedAlertScenario, calculateScore } from '@/utils/gameLogic';
-import { HackerSkills, Scenario, Choice } from '@/types';
+import { HackerSkills, Scenario, Choice, HighScore } from '@/types';
 
 interface ChoiceRecord {
   method: string;
