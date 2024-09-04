@@ -1,4 +1,5 @@
 import { Scenario, Choice, HackerSkills } from '@/types';
+import { criticalFailureMessages, criticalSuccessMessages } from './criticalMessages';
 
 export const rollD20 = (): number => {
   return Math.floor(Math.random() * 20) + 1;
@@ -7,23 +8,35 @@ export const rollD20 = (): number => {
 export const executeChoice = (
   choice: Choice, 
   skillLevel: number
-): { success: boolean; roll: number; total: number; message: string } => {
+): { success: boolean; roll: number; total: number; message: string; isCritical: boolean } => {
   const roll = Math.floor(Math.random() * 20) + 1;
   const total = roll + (skillLevel || 0);
   const difficulty = Math.round(choice.baseDifficulty * choice.successRateModifier);
-  const success = total >= difficulty;
 
-  let message = `You rolled a ${roll}. `;
-  if (skillLevel > 0) {
-    message += `Your skill bonus of +${skillLevel} brings your total to ${total}. `;
+  let success: boolean;
+  let message: string;
+  let isCritical: boolean = false;
+
+  if (roll === 1) {
+    success = false;
+    isCritical = true;
+    message = criticalFailureMessages[Math.floor(Math.random() * criticalFailureMessages.length)];
+  } else if (roll === 20) {
+    success = true;
+    isCritical = true;
+    message = criticalSuccessMessages[Math.floor(Math.random() * criticalSuccessMessages.length)];
+  } else {
+    success = total >= adjustedDifficulty;
+    message = `You rolled a ${roll}. `;
+    if (skillLevel > 0) {
+      message += `Your skill bonus of +${skillLevel} brings your total to ${total}. `;
+    }
+    message += success 
+      ? `Success! You beat the difficulty of ${adjustedDifficulty}.` 
+      : `Failure. You didn't meet the difficulty of ${adjustedDifficulty}.`;
   }
-  message += success 
-    ? `Success! You beat the difficulty of ${difficulty}.` 
-    : `Failure. You didn't meet the difficulty of ${difficulty}.`;
 
-  console.log(`Debug - Roll: ${roll}, Skill: ${skillLevel}, Total: ${total}, Difficulty: ${difficulty}, Success: ${success}`);
-
-  return { success, roll, total, message };
+  return { success, roll, total, message, isCritical };
 };
 
 export const getNextScenario = (
