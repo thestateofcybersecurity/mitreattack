@@ -251,7 +251,6 @@ const GameContainer: React.FC = () => {
   }
 
     if (gameOver) {
-      fetchHighScores();
     if (showNamePrompt) {
       return (
         <div className="w-full max-w-4xl mx-auto p-6 bg-cyberBlue rounded-lg shadow-neon animate-fadeIn">
