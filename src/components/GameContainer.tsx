@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import ScenarioRenderer from '@/components/ScenarioRenderer';
 import GameOverScreen from '@/components/GameOverScreen';
@@ -227,7 +227,7 @@ const GameContainer: React.FC = () => {
     setShowNamePrompt(false);
   };
   
-  const fetchHighScores = async () => {
+  const fetchHighScores = useCallback(async () => {
     try {
       const response = await fetch('/api/high-scores');
       if (!response.ok) {
@@ -238,7 +238,18 @@ const GameContainer: React.FC = () => {
     } catch (error) {
       console.error('Error fetching high scores:', error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (gameOver) {
+      fetchHighScores();
+    }
+  }, [gameOver]);
+
+  const handleGameOver = useCallback(() => {
+    setGameOver(true);
+    // Don't call fetchHighScores here, it will be called by the useEffect
+  }, []);
 
   const onSkillsConfirmed = (skills: HackerSkills) => {
     setHackerSkills(skills);
@@ -249,12 +260,6 @@ const GameContainer: React.FC = () => {
   if (showSkillSheet || !hackerSkills) {
     return <HackerSkillSheet onConfirm={onSkillsConfirmed} />;
   }
-
-  useEffect(() => {
-    if (gameOver) {
-      fetchHighScores();
-    }
-  }, [gameOver]);
 
     if (gameOver) {
     if (showNamePrompt) {
