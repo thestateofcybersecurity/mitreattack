@@ -14,6 +14,7 @@ interface GameOverScreenProps {
   score: number;
   choices: ChoiceRecord[];
   onRestart: () => void;
+  highScores: HighScore[];
 }
 
 const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onRestart }) => {
