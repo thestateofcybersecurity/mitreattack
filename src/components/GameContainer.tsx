@@ -272,7 +272,7 @@ const GameContainer: React.FC = () => {
         </div>
       );
     }
-    return <GameOverScreen score={score} choices={choices} onRestart={restartGame} />;
+    return <GameOverScreen score={score} choices={choices} onRestart={restartGame} highscore={highScores} />;
   }
 
   if (!currentScenario || !hackerSkills) {
