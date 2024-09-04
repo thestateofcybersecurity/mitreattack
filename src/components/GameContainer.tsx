@@ -250,6 +250,12 @@ const GameContainer: React.FC = () => {
     return <HackerSkillSheet onConfirm={onSkillsConfirmed} />;
   }
 
+  useEffect(() => {
+    if (gameOver) {
+      fetchHighScores();
+    }
+  }, [gameOver]);
+
     if (gameOver) {
     if (showNamePrompt) {
       return (
@@ -296,7 +302,7 @@ const GameContainer: React.FC = () => {
             </button>
           </div>
         ) : (
-          <GameOverScreen score={score} choices={choices} onRestart={restartGame} />
+          <GameOverScreen score={score} choices={choices} onRestart={restartGame} highScores={highScores} />
         )
       ) : (
         <>
