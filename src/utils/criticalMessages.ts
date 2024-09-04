@@ -8,7 +8,7 @@ export const criticalFailureMessages = [
   "Your virus mutates and becomes self-aware. It's not impressed.",
   "You've been defeated by the mighty 'password123'.",
   "Your hack opens a portal to the cat video dimension. Farewell.",
-  "You've triggered the mythical 'infinite loop' of doom."
+  "You've triggered the mythical 'infinite loop' of doom.",
   "Your laptop just blue-screened... and then exploded.",
   "You confused a power cable for an Ethernet cord. Game over.",
   "You tried to brute force the mainframe, but it brutes you right back.",
@@ -115,7 +115,7 @@ export const criticalSuccessMessages = [
   "You've successfully divided by zero. Reality glitches.",
   "Your algorithm has achieved self-awareness and files for patents.",
   "You've hacked the planet... and it likes you.",
-  "Your code is so efficient, it runs before you even write it."
+  "Your code is so efficient, it runs before you even write it.",
   "Your exploit is now taught in elite hacking schools around the world.",
   "Your code is so powerful, it reverse-hacked the hackers.",
   "You've mastered the command line to such an extent that it anticipates your every need.",
