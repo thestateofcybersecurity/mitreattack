@@ -1,6 +1,8 @@
+import { Scenario } from '@/types';
+
 const redAlertScenarios: Record<string, Scenario> = {
-  'reconnaissance': {
-    id: 401,
+  '1': {
+    id: 101,
     name: "Red Alert: Suspicious Network Scanning Detected",
     description: "The target's system has detected abnormal network scanning activity. Security measures are kicking in.",
     phase: "reconnaissance",
@@ -28,8 +30,8 @@ const redAlertScenarios: Record<string, Scenario> = {
       }
     ]
   },
-  'resource-development': {
-    id: 402,
+  '2': {
+    id: 201,
     name: "Red Alert: Unauthorized Resource Creation",
     description: "The target's infrastructure has flagged suspicious resource development activities. Immediate action is required to cover your tracks.",
     phase: "resourceDevelopment",
@@ -57,8 +59,37 @@ const redAlertScenarios: Record<string, Scenario> = {
       }
     ]
   },
-  'execution': {
-    id: 403,
+  '3': {
+    id: 301,
+    name: "Red Alert: Detection Imminent",
+    description: "Your last action has triggered security systems. Act fast to avoid detection!",
+    phase: "initialAccess",
+    choices: [
+      {
+        id: 'alert_1_initial',
+        method: "Quickly cover your tracks",
+        description: "Attempt to erase evidence of your presence in the system. This could involve deleting logs, removing malware, or hiding your network presence.",
+        baseDifficulty: 15,
+        successRateModifier: 1,
+      },
+      {
+        id: 'alert_2_initial',
+        method: "Create a diversion",
+        description: "Try to distract the security team by creating a false alarm elsewhere in the system. This could buy you time to complete your objectives.",
+        baseDifficulty: 17,
+        successRateModifier: 1,
+      },
+      {
+        id: 'alert_3_initial',
+        method: "Attempt to bypass security",
+        description: "Make a daring attempt to circumvent the triggered security measures. This is risky but could allow you to continue your operation undetected.",
+        baseDifficulty: 20,
+        successRateModifier: 1,
+      }
+    ]
+  },
+  '4': {
+    id: 401,
     name: "Red Alert: Malicious Code Execution Detected",
     description: "Security systems have detected unauthorized code execution. You must react quickly to avoid being shut down.",
     phase: "execution",
@@ -86,8 +117,8 @@ const redAlertScenarios: Record<string, Scenario> = {
       }
     ]
   },
-  'persistence': {
-    id: 404,
+  '5': {
+    id: 501,
     name: "Red Alert: Persistent Backdoor Detected",
     description: "A backdoor you installed has been detected by the security team. You need to secure your access or lose it.",
     phase: "persistence",
@@ -115,40 +146,69 @@ const redAlertScenarios: Record<string, Scenario> = {
       }
     ]
   },
-  'defense-evasion': {
-    id: 405,
+  '6': {
+    id: 601,
     name: "Red Alert: Anti-Virus Alert Triggered",
     description: "The system's antivirus software has flagged your activity. You need to bypass it before you're caught.",
-    phase: "defenseEvasion",
+    phase: "privilegeEscalation",
     choices: [
       {
-        id: 'alert_1_defense',
+        id: 'alert_1_privesc',
         method: "Disable Antivirus",
         description: "Attempt to disable the antivirus software without triggering further alarms.",
         baseDifficulty: 20,
         successRateModifier: 1,
       },
       {
-        id: 'alert_2_defense',
+        id: 'alert_2_privesc',
         method: "Encrypt Malicious Code",
         description: "Encrypt the malicious code to avoid detection by antivirus scans.",
         baseDifficulty: 18,
         successRateModifier: 1,
       },
       {
-        id: 'alert_3_defense',
-        method: "Whitelist Yourself",
-        description: "Add your process to the whitelist to evade further scrutiny.",
-        baseDifficulty: 21,
+        id: 'alert_3_privesc',
+        method: "Escalate Privileges",
+        description: "Attempt to escalate privileges to bypass antivirus restrictions.",
+        baseDifficulty: 22,
         successRateModifier: 1,
       }
     ]
   },
-  'credential-access': {
-    id: 406,
+  '7': {
+    id: 701,
+    name: "Red Alert: Defense Evasion Detected",
+    description: "Your attempts to evade defenses have been noticed. Quick action is needed to maintain your cover.",
+    phase: "defense-evasion",
+    choices: [
+      {
+        id: 'alert_1_evasion',
+        method: "Blend with System Processes",
+        description: "Attempt to make your activities appear as normal system processes.",
+        baseDifficulty: 19,
+        successRateModifier: 1,
+      },
+      {
+        id: 'alert_2_evasion',
+        method: "Use Rootkit Techniques",
+        description: "Deploy rootkit-like techniques to hide your presence at a deeper level.",
+        baseDifficulty: 21,
+        successRateModifier: 1,
+      },
+      {
+        id: 'alert_3_evasion',
+        method: "Trigger False Positives",
+        description: "Flood the system with false positives to obscure your real activities.",
+        baseDifficulty: 20,
+        successRateModifier: 1,
+      }
+    ]
+  },
+  '8': {
+    id: 801,
     name: "Red Alert: Suspicious Credential Dumping Detected",
     description: "The system has detected an unusual attempt to access credentials. Immediate response is necessary to avoid being traced.",
-    phase: "credentialAccess",
+    phase: "credential-access",
     choices: [
       {
         id: 'alert_1_credential',
@@ -173,8 +233,8 @@ const redAlertScenarios: Record<string, Scenario> = {
       }
     ]
   },
-  'discovery': {
-    id: 407,
+  '9': {
+    id: 901,
     name: "Red Alert: Unauthorized System Scan Detected",
     description: "Your system scanning activity has been detected. Act fast to avoid raising further alarms.",
     phase: "discovery",
@@ -202,11 +262,11 @@ const redAlertScenarios: Record<string, Scenario> = {
       }
     ]
   },
-  'lateral-movement': {
-    id: 408,
+  '10': {
+    id: 1001,
     name: "Red Alert: Suspicious Lateral Movement Detected",
     description: "The system has flagged an unusual attempt to move laterally within the network. Security teams are responding.",
-    phase: "lateralMovement",
+    phase: "lateral-movement",
     choices: [
       {
         id: 'alert_1_lateral',
@@ -231,8 +291,8 @@ const redAlertScenarios: Record<string, Scenario> = {
       }
     ]
   },
-  'collection': {
-    id: 409,
+  '11': {
+    id: 1101,
     name: "Red Alert: Data Collection Detected",
     description: "The system has detected unusual file access patterns consistent with data collection activities. You must act now to avoid lockdown.",
     phase: "collection",
@@ -260,11 +320,11 @@ const redAlertScenarios: Record<string, Scenario> = {
       }
     ]
   },
-  'command-and-control': {
-    id: 410,
+  '12': {
+    id: 1201,
     name: "Red Alert: Command and Control Communication Detected",
     description: "Your Command and Control server's communication has been flagged by the target's security systems. Immediate action is needed to maintain control.",
-    phase: "commandAndControl",
+    phase: "command-and-control",
     choices: [
       {
         id: 'alert_1_c2',
@@ -289,8 +349,37 @@ const redAlertScenarios: Record<string, Scenario> = {
       }
     ]
   },
-  'impact': {
-    id: 411,
+  '13': {
+    id: 1301,
+    name: "Red Alert: Unusual Data Transfer Detected",
+    description: "The system has flagged an abnormal data transfer. Security protocols are activating to lock down sensitive information.",
+    phase: "exfiltration",
+    choices: [
+      {
+        id: 'alert_1_exfil',
+        method: "Compress and Encrypt",
+        description: "Quickly compress and encrypt the data to make it look like normal traffic.",
+        baseDifficulty: 16,
+        successRateModifier: 1,
+      },
+      {
+        id: 'alert_2_exfil',
+        method: "Piggyback on Legitimate Traffic",
+        description: "Hide your data transfer within legitimate network traffic to avoid detection.",
+        baseDifficulty: 18,
+        successRateModifier: 1,
+      },
+      {
+        id: 'alert_3_exfil',
+        method: "Distributed Exfiltration",
+        description: "Split the data into smaller chunks and exfiltrate through multiple channels.",
+        baseDifficulty: 20,
+        successRateModifier: 1,
+      }
+    ]
+  },
+  '14': {
+    id: 1401,
     name: "Red Alert: Malicious System Change Detected",
     description: "The system has flagged unauthorized changes that could disrupt operations. Security teams are deploying countermeasures to undo your work.",
     phase: "impact",
