@@ -14,12 +14,29 @@ interface ChoiceRecord {
   tacticId: string;
 }
 
+const initialHackerSkills: HackerSkills = {
+  reconnaissance: 0,
+  resourceDevelopment: 0,
+  initialAccess: 0,
+  execution: 0,
+  persistence: 0,
+  privilegeEscalation: 0,
+  defenseEvasion: 0,
+  credentialAccess: 0,
+  discovery: 0,
+  lateralMovement: 0,
+  collection: 0,
+  commandAndControl: 0,
+  exfiltration: 0,
+  impact: 0
+};
+
 const GameContainer: React.FC = () => {
   const router = useRouter();
   const { currentScenario, setCurrentScenario, gameOver, setGameOver, score, setScore } = useGameState(scenarios);
   const [rollResult, setRollResult] = useState<any>(null);
   const [choices, setChoices] = useState<ChoiceRecord[]>([]);
-  const [hackerSkills, setHackerSkills] = useState<HackerSkills | null>(null);
+  const [hackerSkills, setHackerSkills] = useState<HackerSkills>(initialHackerSkills);
   const [showSkillSheet, setShowSkillSheet] = useState(true);
   const [previousScenario, setPreviousScenario] = useState<Scenario | null>(null);
   const [skillIncrease, setSkillIncrease] = useState<{skill: string, increase: number} | null>(null);
