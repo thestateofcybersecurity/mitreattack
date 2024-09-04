@@ -5,7 +5,7 @@ interface HackerSkillSheetProps {
   onConfirm: (skills: HackerSkills) => void;
 }
 
-const initialSkillPoints = 20;
+const initialSkillPoints = 25;
 
 const skills: { name: string; key: keyof HackerSkills }[] = [
   { name: 'Reconnaissance', key: 'reconnaissance' },
