@@ -250,7 +250,6 @@ const GameContainer: React.FC = () => {
     return <HackerSkillSheet onConfirm={onSkillsConfirmed} />;
   }
 
-  useEffect(() => {
     if (gameOver) {
       fetchHighScores();
     if (showNamePrompt) {
