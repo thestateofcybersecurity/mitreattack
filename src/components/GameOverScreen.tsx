@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { HighScore } from '@/types';
 
 interface ChoiceRecord {
   method: string;
@@ -17,7 +18,7 @@ interface GameOverScreenProps {
   highScores: HighScore[];
 }
 
-const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onRestart }) => {
+const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onRestart, highScores }) => {
   const [highScores, setHighScores] = useState<HighScore[]>([]);
 
   useEffect(() => {
