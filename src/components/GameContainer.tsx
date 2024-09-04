@@ -94,7 +94,7 @@ const GameContainer: React.FC = () => {
     setSkillIncrease({skill: String(phase), increase});
   };
 
-  const makeChoice = (choiceId: string) => {
+ const makeChoice = (choiceId: string) => {
     if (!currentScenario || !hackerSkills) return;
 
     const choice = currentChoices.find(c => c.id === choiceId);
@@ -115,10 +115,10 @@ const GameContainer: React.FC = () => {
     }
 
     setTimeout(() => {
-      if (result.roll === 1) {
+      if (result.roll === 1) { // Critical failure
         setGameOver(true);
         handleGameOver();
-      } else if (result.success) {
+      } else if (result.success || result.roll === 20) { // Normal success or critical success
         updateHackerSkills(currentScenario.phase);
         const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
         if (nextScenario) {
@@ -129,7 +129,7 @@ const GameContainer: React.FC = () => {
           setGameOver(true);
           handleGameOver();
         }
-      } else {
+      } else { // Normal failure
         const redAlertScenario = createRedAlertScenario(currentScenario);
         setCurrentScenario(redAlertScenario);
         setCurrentChoices(selectBalancedChoices(redAlertScenario.choices));
@@ -181,12 +181,12 @@ const GameContainer: React.FC = () => {
     }
 
     setTimeout(() => {
-      if (result.roll === 1) {
+      if (result.roll === 1) { // Critical failure
         setGameOver(true);
         handleGameOver();
-      } else if (result.success) {
-        updateHackerSkills(currentScenario.phase);
-        const nextScenario = getNextScenario(scenarios, currentScenario, { success: true });
+      } else if (result.success || result.roll === 20) { // Normal success or critical success
+        updateHackerSkills(previousScenario.phase);
+        const nextScenario = getNextScenario(scenarios, previousScenario, { success: true });
         if (nextScenario) {
           setCurrentScenario(nextScenario);
           setCurrentChoices(selectBalancedChoices(nextScenario.choices));
@@ -195,13 +195,14 @@ const GameContainer: React.FC = () => {
           setGameOver(true);
           handleGameOver();
         }
-      } else {
+      } else { // Normal failure on red alert
         setGameOver(true);
         handleGameOver();
       }
       setRollResult(null);
       setSkillIncrease(null);
       setChoicesLocked(false);
+      setCriticalMessage(null);
     }, 5000);
   };
 
