@@ -39,3 +39,8 @@ export interface GameState {
   score: number;
   hackerSkills: HackerSkills | null;
 }
+
+export interface HighScore {
+  name: string;
+  score: number;
+}
