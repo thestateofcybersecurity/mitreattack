@@ -16,6 +16,7 @@ interface ScenarioRendererProps {
   };
   skillIncrease: {skill: string, increase: number} | null;
   choicesLocked: boolean;
+  criticalMessage: string | null;
 }
 
 const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({ 
@@ -27,7 +28,8 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
   onChoiceCancel,
   rollResult, 
   skillIncrease,
-  choicesLocked
+  choicesLocked,
+  criticalMessage
 }) => {
   const isRedAlert = scenario.name.includes('Red Alert');
 
@@ -42,7 +44,13 @@ const ScenarioRenderer: React.FC<ScenarioRendererProps> = ({
         </h2>
         <p className="mb-6 text-white">{scenario.description}</p>
 
-      {rollResult && (
+      {criticalMessage && (
+        <div className="mb-6 p-4 rounded bg-cyberPurple text-white animate-pulse">
+          <p className="font-bold">{criticalMessage}</p>
+        </div>
+      )}
+      
+      {rollResult && !criticalMessage && (
         <div className={`mb-6 p-4 rounded ${rollResult.success ? 'bg-cyberGreen text-cyberBlue' : 'bg-cyberRed text-white'}`}>
           <p>{rollResult.message}</p>
           {skillIncrease && rollResult.success && (
