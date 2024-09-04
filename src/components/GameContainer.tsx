@@ -199,10 +199,6 @@ const GameContainer: React.FC = () => {
     // We don't reset hackerSkills here to keep them persistent
   };
 
-  const handleGameOver = async () => {
-    setShowNamePrompt(true);
-  };
-
   const submitScore = async () => {
     if (playerName) {
       try {
@@ -248,6 +244,7 @@ const GameContainer: React.FC = () => {
 
   const handleGameOver = useCallback(() => {
     setGameOver(true);
+    setShowNamePrompt(true);
     // Don't call fetchHighScores here, it will be called by the useEffect
   }, []);
 
