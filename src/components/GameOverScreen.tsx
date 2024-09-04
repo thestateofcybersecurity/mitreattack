@@ -6,11 +6,6 @@ interface ChoiceRecord {
   tacticId: string;
 }
 
-interface HighScore {
-  name: string;
-  score: number;
-}
-
 interface GameOverScreenProps {
   score: number;
   choices: ChoiceRecord[];
