@@ -14,7 +14,6 @@ interface GameOverScreenProps {
 }
 
 const GameOverScreen: React.FC<GameOverScreenProps> = ({ score, choices, onRestart, highScores }) => {
-  const [highScores, setHighScores] = useState<HighScore[]>([]);
 
   useEffect(() => {
     fetch('./pages/api/high-scores')
