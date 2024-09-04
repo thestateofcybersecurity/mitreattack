@@ -11,7 +11,7 @@ export const executeChoice = (
 ): { success: boolean; roll: number; total: number; message: string; isCritical: boolean } => {
   const roll = Math.floor(Math.random() * 20) + 1;
   const total = roll + (skillLevel || 0);
-  const difficulty = Math.round(choice.baseDifficulty * choice.successRateModifier);
+  const adjustedDifficulty = Math.round(choice.baseDifficulty * choice.successRateModifier);
 
   let success: boolean;
   let message: string;
